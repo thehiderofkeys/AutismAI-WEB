@@ -103,7 +103,19 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
+    <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\QuizPageContainer.js" />
     <Content Include="Scripts\Home\react\index.js" />
+    <Content Include="Scripts\Home\react\Pages\AdminPage\AdminPage.js" />
+    <Content Include="Scripts\Home\react\Pages\AdminPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
+    <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\Frontpage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
+    <Content Include="Scripts\Home\react\Pages\QuizPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\QuizPage\QuizPage.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
