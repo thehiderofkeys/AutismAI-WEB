@@ -5,6 +5,7 @@ import {
 } from './style';
 import { Row, Col, Container, Collapse, Button, CardBody, Card, } from 'reactstrap';
 
+const Placeholder = "/Images/calendar.png";
 
 
 const Frontpage = ({ onClick, isOpen }) => {
@@ -26,6 +27,7 @@ const Frontpage = ({ onClick, isOpen }) => {
                                     Take Quiz
                                  </Button>
                             </Header>
+                            <HeaderImage src={Placeholder}/>
                         </Col>
                     </Row>
                 </Container>
