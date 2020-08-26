@@ -1,7 +1,8 @@
 ﻿import styled from 'styled-components';
 
 export const InnerContainer = styled.div`
-  background-color: grey;
+  background-color: #242e4c;
+  color: white;
 `;
 
 export const Header = styled.div`
@@ -15,8 +16,7 @@ export const Header = styled.div`
 `;
 
 export const HeaderText = styled.div`
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 45px;
   margin: 0 0 20px 0;
   width: 90%;
 `;
@@ -31,4 +31,23 @@ export const HeaderImage = styled.img`
   justify-content: center;
   width: 100%;
   margin: 0 0 80px 0;
+`;
+
+export const Description = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 100px 0 0 0;
+`;
+
+export const BigText = styled.div`
+  font-size: 35px;
+  text-align: center;
+`;
+
+export const Text = styled.div`
+  font-size: 20px;
+  text-align: center;
 `;
