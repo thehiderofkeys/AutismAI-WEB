@@ -16,6 +16,7 @@ namespace AutismAI_Web.Controllers
         }
 
         // GET api/<controller>/5
+        [HttpGet]
         public string Get(int id)
         {
             return "value";
