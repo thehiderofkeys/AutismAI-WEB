@@ -1,6 +1,8 @@
 ﻿import React from 'react';
 import { Header, HeaderText, SubText, HeaderImage, Wave, InnerContainer } from './style';
-import { Row, Col, Container, Button  } from 'reactstrap';
+import { Row, Col, Container, Button } from 'reactstrap';
+
+const Placeholder = "/Images/calendar.png";
 
 const Frontpage = ({ onClick }) => {
     return (
@@ -19,6 +21,7 @@ const Frontpage = ({ onClick }) => {
                                  </SubText>
                                 <Button color="primary">primary</Button>
                             </Header>
+                            <HeaderImage src={Placeholder}/>
                         </Col>
                     </Row>
                 </InnerContainer>
