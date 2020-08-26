@@ -1,14 +1,16 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import paths from "../../routes/paths";
 import {
     Header, HeaderText, SubText, HeaderImage, InnerContainer,
     BigText, Description, Text, Wave
-} from './style';
+} from './frontpageStyles';
 import { Row, Col, Container, Collapse, Button, CardBody, Card, } from 'reactstrap';
 
 const Placeholder = "/Images/calendar.png";
 const WaveFile = "/Images/wave.svg";
 
-const Frontpage = ({ onClick, isOpen }) => {
+const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen }) => {
     return (
         <>
             <InnerContainer>
@@ -23,9 +25,11 @@ const Frontpage = ({ onClick, isOpen }) => {
                                     This screening application uses Artificial Intelligence to determine if there
                                     are any Autism Spectrum Disorder (ASD) traits in individuals more than 18 months old.
                                  </SubText>
-                                <Button color="primary" className="mt-3">
-                                    Take Quiz
-                                 </Button>
+                                <Link to={paths.QUIZ}>
+                                    <Button color="primary" className="mt-3">
+                                            Take Quiz
+                                     </Button>
+                                </Link>
                             </Header>
                         </Col>
                     </Row>
@@ -59,13 +63,13 @@ const Frontpage = ({ onClick, isOpen }) => {
                                         to see called Deep Convolutional Neural Network that we designed to see and detect
                                         behavioral indicators associated with ASD.
                                     </Text>
-                                    <Button color="primary" className="mt-3" onClick={onClick}>
+                                    <Button color="primary" className="mt-3" onClick={onAutismInfoClick}>
                                         Learn More
                                     </Button>
                                 </CardBody>
                             </Card>
 
-                            <Collapse isOpen={isOpen}>
+                            <Collapse isOpen={autismInfoIsOpen}>
                                 <Card>
                                     <CardBody>
                                         <Text className="mt-3 font-weight-bold">
