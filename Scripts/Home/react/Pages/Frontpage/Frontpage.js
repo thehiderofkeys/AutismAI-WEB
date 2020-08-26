@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import paths from "../../routes/paths";
 import {
     Header, HeaderText, SubText, HeaderImage, InnerContainer,
-    BigText, Description, Text, Wave
+    BigText, Description, Text, Wave, GooglePlay, GoogleContainer
 } from './frontpageStyles';
 import { Row, Col, Container, Collapse, Button, CardBody, Card, } from 'reactstrap';
 
@@ -43,10 +43,12 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen }) => {
                     <Col className="d-flex justify-content-center">
                         <HeaderImage src={Placeholder} />
                     </Col>
-                    <Col className="w-5">
-                        <a className="d-flex justify-content-center"
+                    <Col className="d-flex justify-content-center">
+                        <GoogleContainer>
+                        <a
                             href='https://play.google.com/store/apps/details?id=com.rezanet.intelligentasdscreener&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
-                            <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
+                            <GooglePlay alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' /></a>
+                        </GoogleContainer>
                     </Col>
                 </Row>
             </Container>

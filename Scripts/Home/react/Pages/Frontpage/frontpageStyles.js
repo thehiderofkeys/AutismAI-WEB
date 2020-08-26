@@ -54,3 +54,11 @@ export const Text = styled.div`
   font-size: 20px;
   text-align: center;
 `;
+
+export const GooglePlay = styled.img`
+  width: 100%;
+`;
+
+export const GoogleContainer = styled.div`
+  width: 30%;
+`;
