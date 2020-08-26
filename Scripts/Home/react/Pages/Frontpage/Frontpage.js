@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import paths from "../../routes/paths";
 import {
     Header, HeaderText, SubText, HeaderImage, InnerContainer,
-    BigText, Description, Text, Wave, GooglePlay, GoogleContainer
+    BigText, Description, Text, Wave, GooglePlay, GoogleContainer,
+    HeaderTop, DetailDescription, DetailTitle, HeaderBottom,
+    ChartPlaceholder
 } from './frontpageStyles';
 import { Row, Col, Container, Collapse, Button, CardBody, Card, } from 'reactstrap';
 
@@ -136,9 +138,78 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen }) => {
                 </Row>
             </Container>
 
-            <Container>
-                
-            </Container>
+            <HeaderTop>
+                <Container>
+                    <Row>
+                        <Col className="col-12 col-lg-6 mb-4 mt-xl-5 order-1 order-lg-2">
+                            <ChartPlaceholder src={Placeholder} />
+                        </Col>
+                        <Col className="col-12 col-lg-6 mt-xl-5 order-2 order-lg-1">
+                            <DetailTitle>
+                                What is Accuracy?
+                            </DetailTitle>
+                            <DetailDescription>
+                                Accuracy is measured live as the ratio of correct Autism Al classifications to the number 
+                                of total tests conducted in compare to the results obtained from Autism Spectrum Quotient 
+                                (AQ-10) (for Adult, Adolescent, and Child versions) and Quantitative Checklist for Autism 
+                                in Toddlers (Q-CHAT-10) ASD screening methods proposed by Allison et al. 
+                            </DetailDescription>
+                            <a href='https://pubmed.ncbi.nlm.nih.gov/22265366/' >
+                                <Button color='primary'>View Study</Button>
+                            </a>
+                        </Col>
+                    </Row>
+                </Container>
+            </HeaderTop>
+
+            <HeaderBottom>
+                <Container>
+                    <Row>
+                        <Col className="col-12 col-lg-6 order-2">
+                            <DetailTitle>
+                                What is Sensitivity? 
+                            </DetailTitle>
+                            <DetailDescription>
+                                Sensitivity is the ratio of autistic individuals correctly identified by Autism Al. 
+                                It is verified against the Autism Spectrum Quotient (AQ-10) (for Adult, Adolescent, and 
+                                Child versions) and the Quantitative Checklist for Autism in Toddlers (Q-CHAT-10) ASD 
+                                screening methods proposed by ALlison et al.
+                            </DetailDescription>
+                            <a href='https://pubmed.ncbi.nlm.nih.gov/22265366/' >
+                                <Button color='primary'>View Study</Button>
+                            </a>
+                        </Col>
+                        <Col className="col-12 col-lg-6 mb-4">
+                            <ChartPlaceholder src={Placeholder} />
+                        </Col>
+                    </Row>
+                </Container>
+            </HeaderBottom>
+
+            <HeaderTop>
+                <Container>
+                    <Row>
+                        <Col className="col-12 col-lg-6 mb-4 mt-xl-5 order-1 order-lg-2">
+                            <ChartPlaceholder src={Placeholder} />
+                        </Col>
+                        <Col className="col-12 col-lg-6 mt-xl-5 order-2 order-lg-1">
+                            <DetailTitle>
+                                What is Specificity?
+                            </DetailTitle>
+                            <DetailDescription>
+                                Specificity the proportion of non-autistic individuals that were correctly identified by 
+                                Autism Al. Such individuals are identified by the Autism Spectrum Quotient (AQ-10) 
+                                (for Adult, Adolescent, and Child versions) and the Quantitative Checklist for Autism in 
+                                Toddlers (Q-CHAT-10) ASD screening methods proposed by Allison et al.
+                            </DetailDescription>
+                            <a href='https://pubmed.ncbi.nlm.nih.gov/22265366/' >
+                                <Button color='primary'>View Study</Button>
+                            </a>
+                        </Col>
+                    </Row>
+                </Container>
+            </HeaderTop>
+
 
         </>
 
