@@ -116,6 +116,7 @@
     <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\QuizPage.js" />
+    <Content Include="Scripts\Home\react\Pages\QuizPage\styles.module.css" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>

@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./styles.module.css";
 
 const Quizpage = ({ handleChange }) => {
+
   console.log(handleChange);
-  return (
-    <div className="AdminPage">
-      <p>This is the Quiz Page.</p>
+    return (
+        <div className={styles["test"]}>
+      <p>This is the Quiz 2 Page.</p>
     </div>
   );
 };
