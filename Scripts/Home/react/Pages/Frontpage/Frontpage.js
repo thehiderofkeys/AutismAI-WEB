@@ -1,12 +1,12 @@
 ﻿import React from 'react';
 import {
     Header, HeaderText, SubText, HeaderImage, InnerContainer,
-    BigText, Description, Text
+    BigText, Description, Text, Wave
 } from './style';
 import { Row, Col, Container, Collapse, Button, CardBody, Card, } from 'reactstrap';
 
 const Placeholder = "/Images/calendar.png";
-
+const WaveFile = "/Images/wave.svg";
 
 const Frontpage = ({ onClick, isOpen }) => {
     return (
@@ -17,33 +17,34 @@ const Frontpage = ({ onClick, isOpen }) => {
                         <Col>
                             <Header>
                                 <HeaderText>
-                                    The Calendar With Everyone, For Everyone
+                                    Autism Artificial Intelligence
                                 </HeaderText>
                                 <SubText className="d-none d-md-flex">
-                                    Gain access to the schedule of your group and
-                                    create events which are integrated with Google Calendars.
+                                    This screening application uses Artificial Intelligence to determine if there
+                                    are any Autism Spectrum Disorder (ASD) traits in individuals more than 18 months old.
                                  </SubText>
                                 <Button color="primary" className="mt-3">
                                     Take Quiz
                                  </Button>
                             </Header>
-                            <HeaderImage src={Placeholder}/>
                         </Col>
                     </Row>
                 </Container>
             </InnerContainer>
 
+            <Wave src={WaveFile} />
+
             <Container>
                 <Row>
                     <Col className="d-flex justify-content-center ">
-                        Image
+                        <HeaderImage src={Placeholder} />
                     </Col>
                 </Row>
             </Container>
 
             <Container>
                 <Row>
-                    <Col className="d-flex justify-content-center ">
+                    <Col className="d-flex justify-content-center mb-5">
                         <Description>
                             <Card>
                                 <CardBody>
@@ -51,8 +52,6 @@ const Frontpage = ({ onClick, isOpen }) => {
                                         What is Autism AI?
                                     </BigText>
                                     <Text className="mt-3">
-                                        This screening application uses Artificial Intelligence to determine if there
-                                        are any Autism Spectrum Disorder (ASD) traits in individuals more than 18 months old.
                                         Autism Al is the first and novel autism screening system,
                                         scientifically verified and published, that replaces the conventional scoring
                                         functions in classic screening methods with advanced Artificial Intelligence (Al)

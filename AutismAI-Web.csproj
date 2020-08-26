@@ -103,6 +103,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Images\calendar.png" />
+    <Content Include="Images\wave.svg" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
     <Content Include="Scripts\Home\react\Components\Footer\index.js" />
     <Content Include="Scripts\Home\react\Components\Footer\style.js" />

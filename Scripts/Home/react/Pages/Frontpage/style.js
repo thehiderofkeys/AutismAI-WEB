@@ -1,5 +1,9 @@
 ﻿import styled from 'styled-components';
 
+export const Wave = styled.img`
+  position:absolute;
+`;
+
 export const InnerContainer = styled.div`
   background-color: #242e4c;
   color: white;
@@ -23,7 +27,7 @@ export const HeaderText = styled.div`
 
 export const SubText = styled.div`
   font-size: 20px;
-  width: 65%;
+  width: 70%;
   margin: 0 0 20px 0;
 `;
 
@@ -39,7 +43,6 @@ export const Description = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 100px 0 0 0;
 `;
 
 export const BigText = styled.div`
