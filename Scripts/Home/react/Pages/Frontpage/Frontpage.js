@@ -1,13 +1,12 @@
 ﻿import React from 'react';
 import { Header, HeaderText, SubText, HeaderImage, Wave, InnerContainer } from './style';
-import { Row, Col, Container } from 'reactstrap';
+import { Row, Col, Container, Button  } from 'reactstrap';
 
 const Frontpage = ({ onClick }) => {
     return (
         <>
             <Container>
                 <InnerContainer>
-
                     <Row>
                         <Col>
                             <Header>
@@ -18,18 +17,18 @@ const Frontpage = ({ onClick }) => {
                                     Gain access to the schedule of your group and
                                     create events which are integrated with Google Calendars.
                                  </SubText>
+                                <Button color="primary">primary</Button>
                             </Header>
                         </Col>
                     </Row>
-
                 </InnerContainer>
 
-
                 <Row>
-                    <Col className="d-flex justify-content-center ">
-                        Test
+                    <Col className="d-flex justify-content-center">
+                        Image
                     </Col>
                 </Row>
+
             </Container>
         </>
 
