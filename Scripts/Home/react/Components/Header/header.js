@@ -3,7 +3,7 @@ import React from 'react';
 import { Row, Col, Button } from 'reactstrap';
 
 /* Components */
-import { Center, Logo, Link } from './style';
+import { Center, Logo, Link } from './headerStyle';
 
 /* Functions */
 
