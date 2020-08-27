@@ -11,7 +11,7 @@ const ContributionPageContainer = ({ children }) => {
         emailMessage: ""
     })
 
-    const [isValidEmail, setIsValidEmail] = useState(true);
+    const [isValidEmail, setIsValidEmail] = useState(false);
 
 
     const handleChange = (event) => {
