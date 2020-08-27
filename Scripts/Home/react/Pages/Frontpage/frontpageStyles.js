@@ -37,9 +37,12 @@ export const HeaderImage = styled.img`
   margin: 0 0 80px 0;
 `;
 
-export const ChartPlaceholder = styled.img`
-  justify-content: center;
+export const GooglePlay = styled.img`
   width: 100%;
+`;
+
+export const GoogleContainer = styled.div`
+  width: 30%;
 `;
 
 export const Description = styled.div`
@@ -48,7 +51,7 @@ export const Description = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 40px 0 0 0;
+  margin: 50px 0 50px 0;
 `;
 
 export const BigText = styled.div`
@@ -61,12 +64,40 @@ export const Text = styled.div`
   text-align: center;
 `;
 
-export const GooglePlay = styled.img`
+export const BackgroundImage = styled.div`
+  background-image: url("/Images/hd.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
   width: 100%;
+  height: 1020px;
 `;
 
-export const GoogleContainer = styled.div`
-  width: 30%;
+export const DetailContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 28%;
+  min-width: 350px;
+  margin: 0 0 0 20%;
+  padding: 30px;
+  border: 1px solid black;
+
+  color: white;
+`;
+
+export const DetailTitle = styled.div`
+  font-size: 25px;
+`;
+
+export const DetailDescription = styled.div`
+  font-size: 16px;
+  margin: 0 0 20px 0;
 `;
 
 export const HeaderTop = styled.div`
@@ -78,7 +109,6 @@ export const HeaderTop = styled.div`
   padding: 90px 0 90px 0;
   background-color:  #242e4c;
   color: white;
-  margin: 30px 0 0 0;
 `;
 
 export const HeaderBottom = styled.div`
@@ -90,12 +120,17 @@ export const HeaderBottom = styled.div`
   margin: 90px 0 90px 0;
 `;
 
-
-export const DetailTitle = styled.div`
-  font-size: 30px;
+export const StatisticText = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 45px;
+  text-align: center;
 `;
 
-export const DetailDescription = styled.div`
-  font-size: 20px;
-  margin: 0 0 20px 0;
+export const ChartContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:200px;
+  width: 300px;
 `;
