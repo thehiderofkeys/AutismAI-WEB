@@ -11,6 +11,8 @@ const ContributionPageContainer = ({ children }) => {
         emailMessage: ""
     })
 
+    const [isValidEmail, setIsValidEmail] = useState(true);
+
 
     const handleChange = (event) => {
         const newDetails = JSON.parse(JSON.stringify(details));
@@ -19,13 +21,50 @@ const ContributionPageContainer = ({ children }) => {
         newDetails[name] = value;
 
         setDetails(newDetails);
+
+        if (name === "email") {
+            if (value.match(/^.*@.*\.((?![0-9]).)*$/i)) {
+                setIsValidEmail(true);
+            } else {
+                setIsValidEmail(false);
+            }
+        }
     }
 
     const onBlur = (event) => {
+        
+        console.log(event.target);
         console.log(details);
     }
 
-    const newProps = { details, handleChange, onBlur };
+    const checkDetails = () => {
+        let noErrors = true;
+        Object.keys(details).forEach(key => {
+            if (!details[key].trim()) {
+                noErrors = false;
+            }
+        })
+
+        return noErrors && isValidEmail;
+    }
+
+    const onSubmit = (event) => {
+
+        // Placeholder for submit button functionality
+        if (checkDetails()) {
+            console.log("no errors");
+        } else {
+            console.log("errors");
+        }
+    }
+
+    const newProps = {
+        details,
+        handleChange,
+        onBlur,
+        onSubmit,
+        disableSubmit: !checkDetails()
+    };
 
     return React.cloneElement(children, { ...newProps });
 };

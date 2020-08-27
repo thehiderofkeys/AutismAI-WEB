@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Row, Col, Container, Form, FormGroup, Label, Input} from 'reactstrap';
 
-const ContributionsPage = ({ details, handleChange, onBlur }) => {
+const ContributionsPage = ({ details, handleChange, onBlur, onSubmit, disableSubmit }) => {
     return (
         <>
             <Container>
@@ -33,6 +33,8 @@ const ContributionsPage = ({ details, handleChange, onBlur }) => {
                         </Col>
                     </Row>
                 </Form>
+                <button onClick={onSubmit} type="button" disabled={disableSubmit}> Click </button>
+
             </Container>
         </>
 
