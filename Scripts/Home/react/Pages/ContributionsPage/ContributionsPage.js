@@ -1,41 +1,57 @@
 ﻿import React from 'react';
-import { Row, Col, Container, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Row, Col, Container, Form, FormGroup, Label, Input, Button, InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap';
+import { User, Mail, Edit } from 'react-feather';
+import { EmailContainer } from './ContributionPageStyles';
 
 const ContributionsPage = ({ details, handleChange, onBlur, onSubmit, disableSubmit }) => {
     return (
         <>
-            <Container>
+            <EmailContainer>
                 <Form>
-                    <Row>
-                        <Col>
+                    <Row className="d-flex flex-column">
+                        <Col >
                             <FormGroup>
-                                <Label for="name">Name</Label>
-                                <Input type="text" name="name" id="name" placeholder="Enter your name" onChange={handleChange} value={details.name} onBlur={onBlur} />
+                                <Label className="d-flex justify-content-start" for="name">Name</Label>
+                                <InputGroup className="d-flex justify-content-center">
+                                    <InputGroupAddon addonType="prepend">   
+                                        <InputGroupText><User/></InputGroupText>
+                                    </InputGroupAddon>
+                                    <Input type="text" name="name" id="name" placeholder="Enter your name" onChange={handleChange} value={details.name} onBlur={onBlur} />
+                                </InputGroup>
                             </FormGroup>
                         </Col>
                         <Col>
                             <FormGroup>
-                                <Label for="email">Email</Label>
-                                <Input type="email" name="email" id="email" placeholder="Enter your Email address" onChange={handleChange} value={details.email} onBlur={onBlur} />
+                                <Label className="d-flex justify-content-start" for="email">Email</Label>
+                                <InputGroup className="d-flex justify-content-center">
+                                    <InputGroupAddon addonType="prepend">
+                                        <InputGroupText><Mail/></InputGroupText>
+                                    </InputGroupAddon>
+                                    <Input type="email" name="email" id="email" placeholder="Enter your Email address" onChange={handleChange} value={details.email} onBlur={onBlur} />
+                                </InputGroup>
                             </FormGroup>
                         </Col>
                         <Col>
                             <FormGroup>
-                                <Label for="emailSubject">Subject</Label>
-                                <Input type="text" name="emailSubject" id="emailSubject" placeholder="Subject of message" onChange={handleChange} value={details.emailSubject} onBlur={onBlur} />
+                                <Label className="d-flex justify-content-start" for="emailSubject">Subject</Label>
+                                <InputGroup className="d-flex justify-content-center">
+                                    <InputGroupAddon addonType="prepend">
+                                        <InputGroupText><Edit/></InputGroupText>
+                                    </InputGroupAddon>
+                                    <Input type="text" name="emailSubject" id="emailSubject" placeholder="Subject of message" onChange={handleChange} value={details.emailSubject} onBlur={onBlur} />
+                                </InputGroup>
                             </FormGroup>
                         </Col>
                         <Col>
                             <FormGroup>
-                                <Label for="emailMessage">Message</Label>
+                                <Label className="d-flex justify-content-start" for="emailMessage">Message</Label>
                                 <Input type="textarea" name="emailMessage" id="emailMessage" placeholder="Type your message" onChange={handleChange} value={details.emailMessage} onBlur={onBlur} />
                             </FormGroup>
                         </Col>
                     </Row>
                 </Form>
-                <button onClick={onSubmit} type="button" disabled={disableSubmit}> Click </button>
-
-            </Container>
+                <Button color="primary" onClick={onSubmit} type="button" disabled={disableSubmit}> Click </Button>
+            </EmailContainer>
         </>
 
         );

@@ -8,6 +8,7 @@ import AdminPage from "./Pages/AdminPage/index"
 import ContributionsPage from "./Pages/ContributionsPage/index"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import paths from "./routes/paths";
 
 const App = () => (
