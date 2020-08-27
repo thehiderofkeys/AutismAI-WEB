@@ -108,10 +108,10 @@
     <Content Include="Images\logoLight.png" />
     <Content Include="Images\wave.svg" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
-    <Content Include="Scripts\Home\react\Components\Footer\index.js" />
-    <Content Include="Scripts\Home\react\Components\Footer\style.js" />
-    <Content Include="Scripts\Home\react\Components\Header\index.js" />
-    <Content Include="Scripts\Home\react\Components\Header\style.js" />
+    <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
+    <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
+    <Content Include="Scripts\Home\react\Components\Header\header.js" />
+    <Content Include="Scripts\Home\react\Components\Header\headerStyle.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />

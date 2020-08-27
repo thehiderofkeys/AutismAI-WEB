@@ -7,7 +7,8 @@ import QuizPage from './Pages/QuizPage/index';
 import AdminPage from "./Pages/AdminPage/index"
 import ContributionsPage from "./Pages/ContributionsPage/index"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Components/Header/index'
+import Header from './Components/Header/header';
+import Footer from './Components/Footer/footer';
 import paths from "./routes/paths";
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
 
             </Switch>
         </Router>
+        <Footer/>
     </React.StrictMode>
 );
 
