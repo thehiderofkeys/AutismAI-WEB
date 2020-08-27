@@ -7,8 +7,8 @@ const ContributionPageContainer = ({ children }) => {
     const [details, setDetails] = useState({
         name: "",
         email: "",
-        subject: "",
-        message: ""
+        emailSubject: "",
+        emailMessage: ""
     })
 
 
