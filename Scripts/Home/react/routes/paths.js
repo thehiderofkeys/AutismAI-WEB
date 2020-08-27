@@ -2,5 +2,6 @@
     FRONTPAGE: "/",
     QUIZ: "/quiz",
     ADMIN: "/admin",
-    DASHBOARD: "/dashboard"
+    DASHBOARD: "/dashboard",
+    CONTRIBUTIONS: "/about"
 }
