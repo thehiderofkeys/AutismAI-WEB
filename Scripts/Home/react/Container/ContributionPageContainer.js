@@ -1,6 +1,6 @@
 import React from "react";
 
-const QuizPageContainer = ({ children }) => {
+const ContributionPageContainer = ({ children }) => {
   // Any variables or methods declared in newProps will be passed through to children
   // components as declared in frontpage.jsx
 
@@ -13,4 +13,4 @@ const QuizPageContainer = ({ children }) => {
   return React.cloneElement(children, { ...newProps });
 };
 
-export default QuizPageContainer;
+export default ContributionPageContainer;

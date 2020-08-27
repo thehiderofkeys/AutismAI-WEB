@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import ContributionsContainer from '../../Container/ContributionsContainer';
+import ContributionsContainer from '../../Container/ContributionPageContainer';
 import ContributionsPage from './ContributionsPage'
 
 export default () => {
