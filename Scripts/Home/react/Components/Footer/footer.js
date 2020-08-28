@@ -5,9 +5,9 @@ import paths from "../../routes/paths";
 
 
 const UoAImg = "/Images/uoa.png";
-const FbImg = "/Images/fb.png";
 const InstaImg = "/Images/insta.png";
 const LinkedInImg = "/Images/linkedin.png";
+const GoogleImg = "/Images/google.png";
 
 import { Footer, IconImage } from "./footerStyle"
 
@@ -26,23 +26,23 @@ class PageFooter extends React.Component {
                                     Connect with us
                                 </Col>
                                 <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" href="#">
+                                    <a className="text-decoration-none text-reset" target="_blank" href="https://www.instagram.com/autism.artificial.intelligence/">
                                         <IconImage src={InstaImg} />
                                     </a>
                                 </Col>
                                 <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" href="#">
+                                    <a className="text-decoration-none text-reset" target="_blank" href="https://unidirectory.auckland.ac.nz/people/profile/reza-shahamiri">
                                         <IconImage src={UoAImg} />
                                     </a>
                                 </Col>
                                 <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" href="#">
-                                        <IconImage src={FbImg} />
+                                    <a className="text-decoration-none text-reset" target="_blank" href="https://www.linkedin.com/in/rezashahamiri/">
+                                        <IconImage src={LinkedInImg} />
                                     </a>
                                 </Col>
                                 <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" href="#">
-                                        <IconImage src={LinkedInImg} />
+                                    <a className="text-decoration-none text-reset" target="_blank" href="https://scholar.google.co.nz/citations?user=TBKXmF4AAAAJ&hl=en">
+                                        <IconImage src={GoogleImg} />
                                     </a>
                                 </Col>
                             </Row>
@@ -55,7 +55,7 @@ class PageFooter extends React.Component {
                                     </a>
                                 </Col>
                                 <Col className="col-12">
-                                    <a className="text-decoration-none text-reset" href={paths.ADMIN} target="_blank">
+                                    <a className="text-decoration-none text-reset" href={paths.ADMIN}>
                                         Admin
                                     </a>
                                 </Col>
@@ -76,10 +76,10 @@ class PageFooter extends React.Component {
                                 <a className="text-decoration-none text-reset" href="#" target="_blank">Autism AI Science</a>
                             </Col>
                             <Col className="col-12">
-                                <a className="text-decoration-none text-reset" href="" target="_blank">Other Apps</a>
+                                <a className="text-decoration-none text-reset" href="https://play.google.com/store/apps/developer?id=Seyed+Reza+Shahamiri" target="_blank">Other Apps</a>
                             </Col>
                             <Col className="col-12">
-                                <a className="text-decoration-none text-reset" href="" target="_blank">Order An App</a>
+                                <a className="text-decoration-none text-reset" href="mailto: info@rezanet.com" target="_blank">Contact Us</a>
                             </Col>
                             <Col className="col-12">
                                 <a className="text-decoration-none text-reset" href="https://pubmed.ncbi.nlm.nih.gov/22265366/" target="_blank">Scientific Report</a>

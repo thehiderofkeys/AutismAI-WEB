@@ -1,7 +1,7 @@
 ﻿/* Third Party */
 import React from 'react';
 import { Row, Col, Button } from 'reactstrap';
-
+import paths from "../../routes/paths";
 /* Components */
 import { Center, Logo, Link } from './headerStyle';
 
@@ -42,7 +42,9 @@ class Header extends React.Component {
             <Center style={this.state.marketingPage}>
                 <Row className="w-100 d-flex align-items-center">
                     <Col className="col-3 d-flex justify-content-center align-center">
-                        <Logo src={this.state.scroll ? AutismAIDark : AutismAILight} alt="Logo" />
+                        <a href={paths.FRONTPAGE}>
+                            <Logo src={this.state.scroll ? AutismAIDark : AutismAILight} alt="Logo" />
+                        </a>
                     </Col>
                     <Col className="col-2 d-flex justify-content-center align-center">
                         <Link href='https://www.google.com/' style={this.state.link}>
