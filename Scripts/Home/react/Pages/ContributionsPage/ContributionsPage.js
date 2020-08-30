@@ -27,7 +27,7 @@ const ContributionsPage = ({ details, handleChange, onBlur, onSubmit, disableSub
                                     <InputGroupAddon addonType="prepend">
                                         <InputGroupText><Mail/></InputGroupText>
                                     </InputGroupAddon>
-                                    <Input type="email" name="email" id="email" placeholder="Enter your Email address" onChange={handleChange} value={details.email} onBlur={onBlur} />
+                                    <Input type="email" name="email" id="email" placeholder="Enter your email" onChange={handleChange} value={details.email} onBlur={onBlur} />
                                 </InputGroup>
                             </FormGroup>
                         </Col>
