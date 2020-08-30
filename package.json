@@ -22,8 +22,15 @@
     "webpack-notifier": "^1.8.0"
   },
   "dependencies": {
+    "bootstrap": "^4.5.2",
+    "feather-icons": "^4.28.0",
+    "feather-icons-react": "^0.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-feather": "^2.0.8",
+    "react-router-dom": "^5.2.0",
+    "reactstrap": "^8.5.1",
+    "recharts": "^1.8.5",
+    "styled-components": "^5.1.1"
   }
 }

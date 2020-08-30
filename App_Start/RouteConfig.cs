@@ -13,6 +13,8 @@ namespace AutismAI_Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.IgnoreRoute("Images/{*pathInfo}");
+
             routes.MapRoute(
                 name: "reactApp",
                 url: "{*pathInfo}",

@@ -102,21 +102,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Images\Background_dark.png" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\hd.jpg" />
+    <Content Include="Images\logoDark.png" />
+    <Content Include="Images\logoLight.png" />
+    <Content Include="Images\Marketing.png" />
+    <Content Include="Images\Marketing_Phone.png" />
+    <Content Include="Images\wave.svg" />
+    <Content Include="Images\waveBottom.svg" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
+    <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
+    <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
+    <Content Include="Scripts\Home\react\Components\Header\header.js" />
+    <Content Include="Scripts\Home\react\Components\Header\headerStyle.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\QuizPageContainer.js" />
     <Content Include="Scripts\Home\react\index.js" />
     <Content Include="Scripts\Home\react\Pages\AdminPage\AdminPage.js" />
     <Content Include="Scripts\Home\react\Pages\AdminPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionPageStyles.js" />
+    <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
+    <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\Frontpage\frontpageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
+    <Content Include="Scripts\Home\react\Pages\Frontpage\styles.module.css" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\QuizPage.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\styles.module.css" />
+    <Content Include="Scripts\Home\react\routes\paths.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
