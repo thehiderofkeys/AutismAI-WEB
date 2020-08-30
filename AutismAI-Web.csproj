@@ -113,6 +113,7 @@
     <Content Include="Scripts\Home\react\Components\Header\header.js" />
     <Content Include="Scripts\Home\react\Components\Header\headerStyle.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
@@ -120,6 +121,7 @@
     <Content Include="Scripts\Home\react\index.js" />
     <Content Include="Scripts\Home\react\Pages\AdminPage\AdminPage.js" />
     <Content Include="Scripts\Home\react\Pages\AdminPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
