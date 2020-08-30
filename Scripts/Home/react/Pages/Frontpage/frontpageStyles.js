@@ -1,7 +1,10 @@
 ﻿import styled from 'styled-components';
 
-export const Wave = styled.img`
+export const WaveTopComponent = styled.img`
   position:absolute;
+`;
+
+export const WaveBottomComponent = styled.img`
 `;
 
 export const InnerContainer = styled.div`

@@ -107,6 +107,7 @@
     <Content Include="Images\logoDark.png" />
     <Content Include="Images\logoLight.png" />
     <Content Include="Images\wave.svg" />
+    <Content Include="Images\waveBottom.svg" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />

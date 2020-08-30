@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import paths from "../../routes/paths";
 import {
     Header, HeaderText, SubText, HeaderImage, InnerContainer,
-    BigText, Description, Text, Wave, GooglePlay, GoogleContainer,
+    BigText, Description, Text, WaveTopComponent, GooglePlay, GoogleContainer,
     HeaderTop, DetailDescription, DetailTitle, HeaderBottom,
-    BackgroundImage, DetailContainer, StatisticText, ChartContainer, IconImage
+    BackgroundImage, DetailContainer, StatisticText, ChartContainer, IconImage,
+    WaveBottomComponent
 } from './frontpageStyles';
 import { Row, Col, Container, Collapse, Button, CardBody, Card, } from 'reactstrap';
 import {
@@ -13,7 +14,8 @@ import {
 } from 'recharts';
 
 const Placeholder = "/Images/calendar.png";
-const WaveFile = "/Images/wave.svg";
+const WaveTop = "/Images/wave.svg";
+const WaveBottom = "/Images/waveBottom.svg";
 const AnnonImg = "/Images/annon.png";
 
 const data01 = [
@@ -49,7 +51,7 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen }) => {
                 </Container>
             </InnerContainer>
 
-            <Wave src={WaveFile} />
+            <WaveTopComponent src={WaveTop} />
 
             <Container>
                 <Row className="flex-column">
@@ -316,11 +318,15 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen }) => {
                     <DetailDescription>
                         All quiz data is anonymous.
                     </DetailDescription>
-                    
+                    This app is intended for research purposes. The result is not an indication of Autism Spectrum
+                    Disorder (ASD) in the respondent. If you are concerned that you, a friend, or a relative, may 
+                    have ASD, please discuss your concerns with a health professional. By using this application 
+                    you acknowledge that your anonymised data may be included in the research study.
                 </Container>
-                </HeaderBottom>
+            </HeaderBottom>
 
-            
+            <WaveBottomComponent src={WaveBottom} />
+
         </>
 
     );
