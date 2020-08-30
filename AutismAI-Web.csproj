@@ -102,10 +102,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Images\Background_dark.png" />
     <Content Include="Images\calendar.png" />
     <Content Include="Images\hd.jpg" />
     <Content Include="Images\logoDark.png" />
     <Content Include="Images\logoLight.png" />
+    <Content Include="Images\Marketing.png" />
+    <Content Include="Images\Marketing_Phone.png" />
     <Content Include="Images\wave.svg" />
     <Content Include="Images\waveBottom.svg" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />

@@ -13,7 +13,7 @@ import {
     PieChart, Pie, Tooltip, Cell
 } from 'recharts';
 
-const Placeholder = "/Images/calendar.png";
+const Placeholder = "/Images/Marketing_Phone.png";
 const WaveTop = "/Images/wave.svg";
 const WaveBottom = "/Images/waveBottom.svg";
 const AnnonImg = "/Images/annon.png";

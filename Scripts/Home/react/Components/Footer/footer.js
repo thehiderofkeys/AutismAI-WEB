@@ -19,7 +19,7 @@ class PageFooter extends React.Component {
         return (
             <Footer>
                 <Container>
-                    <Row className="mt-3">
+                    <Row className="pb-5">
                         <Col className="col-12 col-lg-4 mb-4">
                             <Row>
                                 <Col className="col-12 mb-3">
@@ -92,11 +92,9 @@ class PageFooter extends React.Component {
                             </Col>
                         </Col>
                     </Row>
-                </Container>
+ 
+                    <hr className="mt-5" style={{ backgroundColor: 'white' }} />
 
-                <hr style={{ backgroundColor: 'white' }} />
-
-                <Container>
                     <Row className="mt-5 mb-3">
                         <Col className="col-12 mb-4 text-center">
                             Copyright &copy; Brownze Marsupials 2020. All rights reserved.

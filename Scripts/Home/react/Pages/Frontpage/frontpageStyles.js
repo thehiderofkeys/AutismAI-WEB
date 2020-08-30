@@ -36,7 +36,7 @@ export const SubText = styled.div`
 
 export const HeaderImage = styled.img`
   justify-content: center;
-  width: 100%;
+  width: 40%;
   margin: 0 0 80px 0;
 `;
 
@@ -68,7 +68,7 @@ export const Text = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  background-image: url("/Images/hd.jpg");
+  background-image: url("/Images/Background_dark.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -77,7 +77,7 @@ export const BackgroundImage = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 1020px;
+  height: 950px;
 `;
 
 export const DetailContainer = styled.div`
@@ -89,7 +89,7 @@ export const DetailContainer = styled.div`
   min-width: 350px;
   margin: 0 0 0 20%;
   padding: 30px;
-  border: 1px solid black;
+
 
   color: white;
 `;
