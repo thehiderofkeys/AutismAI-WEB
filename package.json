@@ -30,6 +30,7 @@
     "react-feather": "^2.0.8",
     "react-router-dom": "^5.2.0",
     "reactstrap": "^8.5.1",
+    "recharts": "^1.8.5",
     "styled-components": "^5.1.1"
   }
 }

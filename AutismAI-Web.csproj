@@ -102,16 +102,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\hd.jpg" />
+    <Content Include="Images\logoDark.png" />
+    <Content Include="Images\logoLight.png" />
+    <Content Include="Images\wave.svg" />
+    <Content Include="Images\waveBottom.svg" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
-    <Content Include="Scripts\Home\react\Components\Footer\index.js" />
-    <Content Include="Scripts\Home\react\Components\Footer\style.js" />
-    <Content Include="Scripts\Home\react\Components\Header\index.js" />
-    <Content Include="Scripts\Home\react\Components\Header\style.js" />
+    <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
+    <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
+    <Content Include="Scripts\Home\react\Components\Header\header.js" />
+    <Content Include="Scripts\Home\react\Components\Header\headerStyle.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />
-    <Content Include="Scripts\Home\react\Container\ContributionsContainer.js" />
+    <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\QuizPageContainer.js" />
     <Content Include="Scripts\Home\react\index.js" />
     <Content Include="Scripts\Home\react\Pages\AdminPage\AdminPage.js" />
