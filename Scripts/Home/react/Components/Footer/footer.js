@@ -9,7 +9,7 @@ const InstaImg = "/Images/insta.png";
 const LinkedInImg = "/Images/linkedin.png";
 const GoogleImg = "/Images/google.png";
 
-import { Footer, IconImage } from "./footerStyle"
+import { Footer, IconImage, SmallText, BigText } from "./footerStyle"
 
 
 
@@ -19,80 +19,89 @@ class PageFooter extends React.Component {
         return (
             <Footer>
                 <Container>
-                    <Row className="mt-3">
-                        <Col className="col-12 col-lg-6 mb-4">
+                    <Row className="pb-5">
+                        <Col className="col-12 col-lg-4 mb-4">
                             <Row>
-                                <Col className="col-12 mb-2">
-                                    Connect with us
+                                <Col className="col-12 mb-3">
+                                    <BigText>
+                                        Connect With Us:
+                                    </BigText>
                                 </Col>
-                                <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" target="_blank" href="https://www.instagram.com/autism.artificial.intelligence/">
+                                <Col className="col-12 d-flex flex-row">
+                                    <a target="_blank" href="https://www.instagram.com/autism.artificial.intelligence/">
                                         <IconImage src={InstaImg} />
                                     </a>
-                                </Col>
-                                <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" target="_blank" href="https://unidirectory.auckland.ac.nz/people/profile/reza-shahamiri">
+                                    <a target="_blank" href="https://unidirectory.auckland.ac.nz/people/profile/reza-shahamiri">
                                         <IconImage src={UoAImg} />
                                     </a>
-                                </Col>
-                                <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" target="_blank" href="https://www.linkedin.com/in/rezashahamiri/">
+                                    <a target="_blank" href="https://www.linkedin.com/in/rezashahamiri/">
                                         <IconImage src={LinkedInImg} />
                                     </a>
-                                </Col>
-                                <Col className="col-3">
-                                    <a className="text-decoration-none text-reset" target="_blank" href="https://scholar.google.co.nz/citations?user=TBKXmF4AAAAJ&hl=en">
+                                    <a target="_blank" href="https://scholar.google.co.nz/citations?user=TBKXmF4AAAAJ&hl=en">
                                         <IconImage src={GoogleImg} />
                                     </a>
                                 </Col>
                             </Row>
                         </Col>
-                        <Col className="col-6 col-lg-3">
+                        <Col className="col-6 col-lg-4">
                             <Row className="ml-xs-5">
-                                <Col className="col-12">
-                                    <a className="text-decoration-none text-reset" href={paths.DASHBOARD}>
+                                <Col className="col-12 mb-3">
+                                    <BigText>
+                                        Related Links
+                                    </BigText>
+                                </Col>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href={paths.DASHBOARD}>
                                         Dashboard
-                                    </a>
+                                    </SmallText>
                                 </Col>
-                                <Col className="col-12">
-                                    <a className="text-decoration-none text-reset" href={paths.ADMIN}>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href={paths.ADMIN}>
                                         Admin
-                                    </a>
+                                    </SmallText>
                                 </Col>
-                                <Col className="col-12">
-                                    <a className="text-decoration-none text-reset" href={paths.QUIZ}>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href={paths.QUIZ}>
                                         Take the Quiz
-                                    </a>
+                                    </SmallText>
                                 </Col>
-                                <Col className="col-12">
-                                    <a className="text-decoration-none text-reset" href={paths.CONTRIBUTIONS}>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href={paths.CONTRIBUTIONS}>
                                         Contributions
-                                    </a>
+                                    </SmallText>
                                 </Col>
                             </Row>
                         </Col>
-                        <Col className="col-6 col-lg-3">
-                            <Col className="col-12">
-                                <a className="text-decoration-none text-reset" href="#" target="_blank">Autism AI Science</a>
+                        <Col className="col-6 col-lg-4">
+                            <Col className="col-12 mb-3">
+                                <BigText>
+                                    More Information
+                                </BigText>
                             </Col>
-                            <Col className="col-12">
-                                <a className="text-decoration-none text-reset" href="https://play.google.com/store/apps/developer?id=Seyed+Reza+Shahamiri" target="_blank">Other Apps</a>
+                            <Col className="col-12 mb-2">
+                                <SmallText href="#" target="_blank">Autism AI Science</SmallText>
                             </Col>
-                            <Col className="col-12">
-                                <a className="text-decoration-none text-reset" href="mailto: info@rezanet.com" target="_blank">Contact Us</a>
+                            <Col className="col-12 mb-2">
+                                <SmallText href="https://play.google.com/store/apps/developer?id=Seyed+Reza+Shahamiri" target="_blank">Other Apps</SmallText>
                             </Col>
-                            <Col className="col-12">
-                                <a className="text-decoration-none text-reset" href="https://pubmed.ncbi.nlm.nih.gov/22265366/" target="_blank">Scientific Report</a>
+                            <Col className="col-12 mb-2">
+                                <SmallText href="mailto: info@rezanet.com" target="_blank">Contact Us</SmallText>
+                            </Col>
+                            <Col className="col-12 mb-2">
+                                <SmallText href="https://pubmed.ncbi.nlm.nih.gov/22265366/" target="_blank">Scientific Report</SmallText>
                             </Col>
                         </Col>
                     </Row>
-                    <Row className="mt-5">
+ 
+                    <hr className="mt-5" style={{ backgroundColor: 'white' }} />
+
+                    <Row className="mt-5 mb-3">
                         <Col className="col-12 mb-4 text-center">
                             Copyright &copy; Brownze Marsupials 2020. All rights reserved.
                         </Col>
                     </Row>
-
                 </Container>
+
             </Footer>
         );
     }
