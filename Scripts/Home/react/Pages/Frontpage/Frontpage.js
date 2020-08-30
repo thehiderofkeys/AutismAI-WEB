@@ -314,7 +314,7 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen }) => {
                     </DetailTitle>
                     <IconImage src={AnnonImg} />
                     <DetailDescription>
-                        All data are annonymous.
+                        All quiz data is anonymous.
                     </DetailDescription>
                     
                 </Container>
