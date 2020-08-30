@@ -1,7 +1,8 @@
 ﻿import React from 'react';
 import { Row, Col, Container, Form, FormGroup, Label, Input, Button, InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap';
 import { User, Mail, Edit } from 'react-feather';
-import { EmailContainer } from './ContributionPageStyles';
+import { EmailContainer, EmailFieldsContainer, EmailTitlesContainer } from './ContributionPageStyles';
+import { SubText, HeaderText } from '../Frontpage/frontpageStyles';
 
 const ContributionsPage = ({ details, handleChange, onBlur, onSubmit, disableSubmit }) => {
     return (
@@ -9,6 +10,15 @@ const ContributionsPage = ({ details, handleChange, onBlur, onSubmit, disableSub
             <EmailContainer>
                 <Form>
                     <Row className="d-flex flex-column">
+                        <EmailTitlesContainer>
+                            <HeaderText>
+                                Looking to help out? 
+                             </HeaderText>
+                            <SubText className="d-none d-md-flex">
+                                    Please feel free to send us a message regarding anything you'd like to contribute (art, data, opinions, etc).
+                             </SubText>
+                        </EmailTitlesContainer>
+                        <EmailFieldsContainer>
                         <Col >
                             <FormGroup>
                                 <Label className="d-flex justify-content-start" for="name">Name</Label>
@@ -47,10 +57,11 @@ const ContributionsPage = ({ details, handleChange, onBlur, onSubmit, disableSub
                                 <Label className="d-flex justify-content-start" for="emailMessage">Message</Label>
                                 <Input type="textarea" name="emailMessage" id="emailMessage" placeholder="Type your message" onChange={handleChange} value={details.emailMessage} onBlur={onBlur} />
                             </FormGroup>
-                        </Col>
+                            </Col>
+                         </EmailFieldsContainer>
                     </Row>
                 </Form>
-                <Button color="primary" onClick={onSubmit} type="button" disabled={disableSubmit}> Click </Button>
+                <Button color="primary" onClick={onSubmit} type="button" disabled={disableSubmit}> Send </Button>
             </EmailContainer>
         </>
 
