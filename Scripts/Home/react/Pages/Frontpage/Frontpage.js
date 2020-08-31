@@ -8,7 +8,7 @@ import {
     BackgroundImage, DetailContainer, StatisticText, ChartContainer, IconImage,
     WaveBottomComponent, GraphButtons
 } from './frontpageStyles';
-import { Row, Col, Container, Collapse, Button, CardBody, Card, } from 'reactstrap';
+import { Row, Col, Container, Collapse, Button, CardBody, Card, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {
     PieChart, Pie, Tooltip, Cell, Label
 } from 'recharts';
@@ -46,9 +46,23 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 
 
-const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onStatsInfoClick }) => {
+const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onStatsInfoClick, contributionModal, toggleContributionModal }) => {
     return (
         <>
+            <div>
+                <Modal isOpen={contributionModal} toggle={toggleContributionModal}>
+                    <ModalHeader toggle={toggleContributionModal}>Attention</ModalHeader>
+                    <ModalBody>
+                        <p>This website is still under development.</p>
+                        <p>We would love to hear your thoughts on the website.</p> 
+                        <p>Head over to this <a href="https://forms.gle/fgZhfqNYZbMqJ7to7" target="_blank">google form</a> to let us know!</p>
+                        <p>Alternatively, scroll down to the Related Links and click the <a href="/about">Contributions</a> section for more information.</p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={toggleContributionModal}>Okay</Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
             <InnerContainer>
                 <Container>
                     <Row>
