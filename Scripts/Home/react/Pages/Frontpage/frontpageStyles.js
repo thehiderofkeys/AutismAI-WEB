@@ -58,38 +58,44 @@ export const Description = styled.div`
 `;
 
 export const BigText = styled.div`
-  font-size: 35px;
+  font-size: 30px;
   text-align: center;
 `;
 
 export const Text = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
 `;
 
+export const GraphButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+
 export const BackgroundImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-image: url("/Images/Background_dark.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  display: flex;
-  align-items: center;
   width: 100%;
   height: 950px;
 `;
 
 export const DetailContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 28%;
+  width: 50%;
   min-width: 350px;
-  margin: 0 0 0 20%;
-  padding: 30px;
-
 
   color: white;
 `;

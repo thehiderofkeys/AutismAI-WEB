@@ -19,7 +19,7 @@ class PageFooter extends React.Component {
         return (
             <Footer>
                 <Container>
-                    <Row className="pb-5">
+                    <Row className="pb-5 mt-5">
                         <Col className="col-12 col-lg-4 mb-4">
                             <Row>
                                 <Col className="col-12 mb-3">
