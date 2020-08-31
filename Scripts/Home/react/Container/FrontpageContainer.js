@@ -1,11 +1,13 @@
-﻿import React from 'react';
+﻿import React, { useState } from 'react';
 
 const FrontpageContainer = ({ children }) => {
-    const onClick = () => {
-        console.log("onClick");
-    };
+    const [autismInfoIsOpen, setAutismIsOpen] = useState(false);
 
-    const newProps = { onClick };
+    const onAutismInfoClick = () => {
+        setAutismIsOpen(!autismInfoIsOpen);
+    }
+
+    const newProps = { onAutismInfoClick, autismInfoIsOpen };
 
     return React.cloneElement(children, { ...newProps });
 };
