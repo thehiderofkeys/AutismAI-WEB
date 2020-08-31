@@ -56,7 +56,7 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onSta
                         <p>This website is still under development.</p>
                         <p>We would love to hear your thoughts on the website.</p> 
                         <p>Head over to this <a href="https://forms.gle/fgZhfqNYZbMqJ7to7" target="_blank">google form</a> to let us know!</p>
-                        <p>Alternatively, scroll down to the Related Links and click the Contributions section for more information.</p>
+                        <p>Alternatively, scroll down to the Related Links and click the <a href="/about">Contributions</a> section for more information.</p>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={toggleContributionModal}>Okay</Button>
