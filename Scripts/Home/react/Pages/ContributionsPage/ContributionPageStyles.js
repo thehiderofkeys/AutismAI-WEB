@@ -23,3 +23,9 @@ export const EmailTitlesContainer = styled.div`
   align-items: center;
   text-align: center;
 `;
+
+export const TextContent = styled.div`
+    font-size: 20px;
+    margin-bottom: 1em;
+`;
+
