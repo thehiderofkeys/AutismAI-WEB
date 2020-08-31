@@ -19,9 +19,9 @@ class PageFooter extends React.Component {
         return (
             <Footer>
                 <Container>
-                    <Row className="pb-5">
-                        <Col className="col-12 col-lg-4 mb-4">
-                            <Row>
+                    <Row className="pb-5 mt-5">
+                        <Col className="col-12 col-md-4 mb-4">
+                            <Row className="ml-3 ml-xs-5 mt-3">
                                 <Col className="col-12 mb-3">
                                     <BigText>
                                         Connect With Us:
@@ -43,8 +43,8 @@ class PageFooter extends React.Component {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col className="col-6 col-lg-4">
-                            <Row className="ml-xs-5">
+                        <Col className="col-12 col-md-4">
+                            <Row className="ml-3 ml-xs-5 mt-3">
                                 <Col className="col-12 mb-3">
                                     <BigText>
                                         Related Links
@@ -72,27 +72,29 @@ class PageFooter extends React.Component {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col className="col-6 col-lg-4">
-                            <Col className="col-12 mb-3">
-                                <BigText>
-                                    More Information
+                        <Col className="col-12 col-md-4">
+                            <Row className="ml-3 ml-xs-5 mt-3">
+                                <Col className="col-12 mb-3">
+                                    <BigText>
+                                        More Info
                                 </BigText>
-                            </Col>
-                            <Col className="col-12 mb-2">
-                                <SmallText href="#" target="_blank">Autism AI Science</SmallText>
-                            </Col>
-                            <Col className="col-12 mb-2">
-                                <SmallText href="https://play.google.com/store/apps/developer?id=Seyed+Reza+Shahamiri" target="_blank">Other Apps</SmallText>
-                            </Col>
-                            <Col className="col-12 mb-2">
-                                <SmallText href="mailto: info@rezanet.com" target="_blank">Contact Us</SmallText>
-                            </Col>
-                            <Col className="col-12 mb-2">
-                                <SmallText href="https://pubmed.ncbi.nlm.nih.gov/22265366/" target="_blank">Scientific Report</SmallText>
-                            </Col>
+                                </Col>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href="#" target="_blank">Autism AI Science</SmallText>
+                                </Col>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href="https://play.google.com/store/apps/developer?id=Seyed+Reza+Shahamiri" target="_blank">Other Apps</SmallText>
+                                </Col>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href="mailto: info@rezanet.com" target="_blank">Contact Us</SmallText>
+                                </Col>
+                                <Col className="col-12 mb-2">
+                                    <SmallText href="https://pubmed.ncbi.nlm.nih.gov/22265366/" target="_blank">Scientific Report</SmallText>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
- 
+
                     <hr className="mt-5" style={{ backgroundColor: 'white' }} />
 
                     <Row className="mt-5 mb-3">
