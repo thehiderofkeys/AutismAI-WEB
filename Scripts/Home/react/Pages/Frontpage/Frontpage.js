@@ -75,7 +75,7 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onSta
             <WaveTopComponent src={WaveTop} />
 
             <Container>
-                <Row className="flex-column">
+                <Row className="flex-column mb-3">
                     <Col className="d-flex justify-content-center">
                         <HeaderImage src={Placeholder} />
                     </Col>
@@ -142,7 +142,7 @@ const Frontpage = ({ onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onSta
                                     Learn More
                                 </Button>
                                 <a target="_blank" rel="noopener noreferrer" href='https://pubmed.ncbi.nlm.nih.gov/22265366/' >
-                                    <Button color='primary'>View Study</Button>
+                                    <Button outline color='primary'>View Study</Button>
                                 </a>
                             </GraphButtons>
 

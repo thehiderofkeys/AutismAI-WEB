@@ -72,6 +72,7 @@ export const GraphButtons = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  margin: 10px 0 0 0;
 `;
 
 export const BackgroundImage = styled.div`
