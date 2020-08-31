@@ -8,7 +8,7 @@ e.g., New endpoint created for checking the status of the API
 #### The pull request is complete according to the following criteria:
 
 Git
-  - [ ] Master branch has been merged into this branch
+  - [ ] Dev branch has been merged into this branch
 
 Code  
   - [ ] Acceptance criteria must be met
