@@ -128,6 +128,7 @@
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\ContributionsPage\styles.module.css" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\frontpageStyles.js" />
