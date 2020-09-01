@@ -1,20 +1,9 @@
 ﻿import React from "react";
-import {
-    Row,
-    Col,
-    Container,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    Button,
-    InputGroup,
-    InputGroupAddon,
-    InputGroupText
-} from "reactstrap";
-import { User, Mail, Edit } from "react-feather";
-import { EmailContainer, TextContent, EmailTitlesContainer } from "./ContributionPageStyles";
+import { Form, Button } from "reactstrap";
+import { EmailContainer, LineDivider, EmailTitlesContainer } from "./ContributionPageStyles";
 import { HeaderText, SubText } from "../Frontpage/frontpageStyles";
+
+import ProfilePicture, { profiles } from "../../Components/Profile/Profile";
 
 const ContributionsPage = ({
     details,
@@ -31,7 +20,11 @@ const ContributionsPage = ({
                 <Form action="https://forms.gle/beuGqT3rm6j6ndsj7" target="_blank">
                     <EmailTitlesContainer>
                         <HeaderText>About the team</HeaderText>
-                        <TextContent>Lorem Ipsum</TextContent>
+                        {profiles.map((profile) => (
+                            <ProfilePicture name={profile} />
+                        ))}
+
+                        <LineDivider />
 
                         {hasContributors && <HeaderText>Contributors</HeaderText>}
                         {hasContributors
