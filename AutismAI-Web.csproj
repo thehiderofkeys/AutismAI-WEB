@@ -111,6 +111,7 @@
     <Content Include="Images\Marketing_Phone.png" />
     <Content Include="Images\wave.svg" />
     <Content Include="Images\waveBottom.svg" />
+    <Content Include=".prettierrc.js" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
