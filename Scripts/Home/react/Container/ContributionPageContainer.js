@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 
 const ContributionPageContainer = ({ children }) => {
-  // Any variables or methods declared in newProps will be passed through to children
-  // components as declared in frontpage.jsx
+    // Any variables or methods declared in newProps will be passed through to children
+    // components as declared in frontpage.jsx
 
     const [details, setDetails] = useState({
         name: "",
         email: "",
         emailSubject: "",
         emailMessage: ""
-    })
+    });
 
     const [isValidEmail, setIsValidEmail] = useState(false);
-
 
     const handleChange = (event) => {
         const newDetails = JSON.parse(JSON.stringify(details));
@@ -29,41 +28,51 @@ const ContributionPageContainer = ({ children }) => {
                 setIsValidEmail(false);
             }
         }
-    }
+    };
 
     const onBlur = (event) => {
-        
         console.log(event.target);
         console.log(details);
-    }
+    };
 
     const checkDetails = () => {
         let noErrors = true;
-        Object.keys(details).forEach(key => {
+        Object.keys(details).forEach((key) => {
             if (!details[key].trim()) {
                 noErrors = false;
             }
-        })
+        });
 
         return noErrors && isValidEmail;
-    }
+    };
 
     const onSubmit = (event) => {
-
         // Placeholder for submit button functionality
         if (checkDetails()) {
             console.log("no errors");
         } else {
             console.log("errors");
         }
-    }
+    };
+
+    const contributorsList = [
+        {
+            name: "Tyger",
+            contribution: "Developer"
+        },
+        {
+            name: "Ryan",
+            contribution: "Cuck"
+        }
+    ];
 
     const newProps = {
         details,
         handleChange,
         onBlur,
         onSubmit,
-        disableSubmit: !checkDetails()
+        disableSubmit: !checkDetails(),
+        contributorsList
     };
 
     return React.cloneElement(children, { ...newProps });
