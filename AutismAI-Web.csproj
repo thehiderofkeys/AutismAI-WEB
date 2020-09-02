@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".prettierrc.js" />
     <Content Include="Global.asax" />
     <Content Include="Images\Background_dark.png" />
     <Content Include="Images\calendar.png" />
@@ -129,7 +130,6 @@
     <Content Include="Images\TeamPhotos\Yinhu.png" />
     <Content Include="Images\wave.svg" />
     <Content Include="Images\waveBottom.svg" />
-    <Content Include=".prettierrc.js" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
@@ -182,6 +182,7 @@
     <Content Include="package.json" />
     <None Include="packages.config" />
     <Content Include="Views\React\Index.cshtml" />
+    <Content Include="Questions\questions.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,36 +1,25 @@
 ﻿import React from "react";
 import { Row, Col, Container, FormGroup, Label, legend, Input } from "reactstrap";
 
-const Question = ({ questionText, answerOptions }) => {
-
-    const radioItems = []
-
-    for (const [index, value] of answerOptions.entries()) {
-        let name = "radio" + index 
-        radioItems.push(
-            <Container>
-                <FormGroup check>
-                    <Label check>
-                        <Input type="radio" name={name} />{' '}
-                        {value}
-                    </Label>
-                </FormGroup>
-            </Container>
-            )
-    }
-
+const Question = ({ question, answerOptions }) => {
+    console.log(question);
     return (
-        <Question>
-            <Container>
-                <Row>
-                    <Col className="questionText">
-                    </Col>
-                </Row>
-                <FormGroup tag="fieldset">
-                    <legend>{questionText}</legend>
-                    {radioItems}
-                </FormGroup>
-            </Container>
-        </Question>
-);
-}
+        <Container>
+            <Row>
+                <Col className="questionText"></Col>
+            </Row>
+            <FormGroup tag="fieldset">
+                <legend>{question.questionText}</legend>
+                {answerOptions.map((option, i) => (
+                    <FormGroup check key={`${question.name}-${i}-key`}>
+                        <Label check>
+                            <Input type="radio" name={`${question.name}-option`} /> {option}
+                        </Label>
+                    </FormGroup>
+                ))}
+            </FormGroup>
+        </Container>
+    );
+};
+
+export default Question;
