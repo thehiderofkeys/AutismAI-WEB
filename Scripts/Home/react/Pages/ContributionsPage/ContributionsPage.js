@@ -1,71 +1,57 @@
-﻿import React from 'react';
-import { Row, Col, Container, Form, FormGroup, Label, Input, Button, InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap';
-import { User, Mail, Edit } from 'react-feather';
-import { EmailContainer, EmailFieldsContainer, EmailTitlesContainer } from './ContributionPageStyles';
-import { SubText, HeaderText } from '../Frontpage/frontpageStyles';
+﻿import React from "react";
+import { Form, Button } from "reactstrap";
+import { EmailContainer, LineDivider, EmailTitlesContainer } from "./ContributionPageStyles";
+import { HeaderText, SubText } from "../Frontpage/frontpageStyles";
 
-const ContributionsPage = ({ details, handleChange, onBlur, onSubmit, disableSubmit }) => {
+import ProfilePicture, { profiles } from "../../Components/Profile/Profile";
+
+const ContributionsPage = ({
+    details,
+    handleChange,
+    onBlur,
+    onSubmit,
+    disableSubmit,
+    contributorsList
+}) => {
+    const hasContributors = contributorsList && contributorsList.length > 0;
     return (
         <>
             <EmailContainer>
-                <Form>
-                    <Row className="d-flex flex-column">
-                        <EmailTitlesContainer>
-                            <HeaderText>
-                                Looking to help out? 
-                             </HeaderText>
-                            <SubText className="d-none d-md-flex">
-                                    Please feel free to send us a message regarding anything you'd like to contribute (art, data, opinions, etc).
-                             </SubText>
-                        </EmailTitlesContainer>
-                        <EmailFieldsContainer>
-                        <Col >
-                            <FormGroup>
-                                <Label className="d-flex justify-content-start" for="name">Name</Label>
-                                <InputGroup className="d-flex justify-content-center">
-                                    <InputGroupAddon addonType="prepend">   
-                                        <InputGroupText><User/></InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input type="text" name="name" id="name" placeholder="Enter your name" onChange={handleChange} value={details.name} onBlur={onBlur} />
-                                </InputGroup>
-                            </FormGroup>
-                        </Col>
-                        <Col>
-                            <FormGroup>
-                                <Label className="d-flex justify-content-start" for="email">Email</Label>
-                                <InputGroup className="d-flex justify-content-center">
-                                    <InputGroupAddon addonType="prepend">
-                                        <InputGroupText><Mail/></InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input type="email" name="email" id="email" placeholder="Enter your email" onChange={handleChange} value={details.email} onBlur={onBlur} />
-                                </InputGroup>
-                            </FormGroup>
-                        </Col>
-                        <Col>
-                            <FormGroup>
-                                <Label className="d-flex justify-content-start" for="emailSubject">Subject</Label>
-                                <InputGroup className="d-flex justify-content-center">
-                                    <InputGroupAddon addonType="prepend">
-                                        <InputGroupText><Edit/></InputGroupText>
-                                    </InputGroupAddon>
-                                    <Input type="text" name="emailSubject" id="emailSubject" placeholder="Subject of message" onChange={handleChange} value={details.emailSubject} onBlur={onBlur} />
-                                </InputGroup>
-                            </FormGroup>
-                        </Col>
-                        <Col>
-                            <FormGroup>
-                                <Label className="d-flex justify-content-start" for="emailMessage">Message</Label>
-                                <Input type="textarea" name="emailMessage" id="emailMessage" placeholder="Type your message" onChange={handleChange} value={details.emailMessage} onBlur={onBlur} />
-                            </FormGroup>
-                            </Col>
-                         </EmailFieldsContainer>
-                    </Row>
+                <Form action="https://forms.gle/Dc4Y6HvR4t32obCi9" target="_blank">
+                    <EmailTitlesContainer>
+                        <HeaderText>Looking to help out?</HeaderText>
+                        <SubText className="d-flex flex-column align-items-start">
+                            <p>Hi everyone!</p>
+                            <p>Thank you for taking the time to provide us with your valuable feedback.</p>
+                            <p>The team requires some graphics from you, namely:</p>
+                            <p><i>- A new background image (That will replace the current bridge photo)</i></p>
+                            <p><i>- A brand new Autism AI logo</i></p>
+                            <p>Draw up your designs and send them in to the google form.</p>
+                            <p>Click the "Contact Us" button below to send in your graphics and feedback.</p>
+                        </SubText>
+                        <Button color="primary" type="submit">
+                            Contact Us
+                        </Button>
+
+                        {/*<LineDivider />
+
+                        <HeaderText>About the team</HeaderText>
+                        {profiles.map((profile) => (
+                            <ProfilePicture name={profile} />
+                        ))}
+
+                        <LineDivider /> 
+
+                        {hasContributors && <HeaderText>Contributors</HeaderText>}
+                        {hasContributors
+                            ? contributorsList.map((contributor) => <div key={`${contributor.name}-key`}>{contributor.name}</div>)
+                            : null}
+                        */}
+                    </EmailTitlesContainer>
                 </Form>
-                <Button color="primary" onClick={onSubmit} type="button" disabled={disableSubmit}> Send </Button>
             </EmailContainer>
         </>
-
-        );
-}
+    );
+};
 
 export default ContributionsPage;
