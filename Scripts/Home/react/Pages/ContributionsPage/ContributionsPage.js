@@ -17,7 +17,7 @@ const ContributionsPage = ({
     return (
         <>
             <EmailContainer>
-                <Form action="https://forms.gle/beuGqT3rm6j6ndsj7" target="_blank">
+                <Form action="https://forms.gle/Dc4Y6HvR4t32obCi9" target="_blank">
                     <EmailTitlesContainer>
                         <HeaderText>Looking to help out?</HeaderText>
                         <SubText className="d-flex flex-column align-items-start">
