@@ -29,3 +29,8 @@ export const TextContent = styled.div`
     margin-bottom: 1em;
 `;
 
+
+export const LineDivider = styled.hr`
+    width: 100%;
+    colour: #e5e5e5;
+`;
