@@ -181,6 +181,9 @@
     <Content Include="package.json" />
     <None Include="packages.config" />
     <Content Include="Views\React\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\autism-ai - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\autism-ai - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\autism-ai - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

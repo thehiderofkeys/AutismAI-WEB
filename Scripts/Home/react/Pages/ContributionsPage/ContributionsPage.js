@@ -33,19 +33,20 @@ const ContributionsPage = ({
                             Contact Us
                         </Button>
 
-                        <LineDivider />
+                        {/*<LineDivider />
 
                         <HeaderText>About the team</HeaderText>
                         {profiles.map((profile) => (
                             <ProfilePicture name={profile} />
                         ))}
 
-                        <LineDivider />
+                        <LineDivider /> 
 
                         {hasContributors && <HeaderText>Contributors</HeaderText>}
                         {hasContributors
-                            ? contributorsList.map((contributor) => <div>{contributor.name}</div>)
+                            ? contributorsList.map((contributor) => <div key={`${contributor.name}-key`}>{contributor.name}</div>)
                             : null}
+                        */}
                     </EmailTitlesContainer>
                 </Form>
             </EmailContainer>
