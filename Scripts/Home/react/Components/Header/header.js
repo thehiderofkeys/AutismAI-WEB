@@ -47,19 +47,19 @@ class Header extends React.Component {
                         </a>
                     </Col>
                     <Col className="col-2 d-flex justify-content-center align-center">
-                        <p style={this.state.link}> 
+                        <a style={this.state.link}> 
                                 Help
-                        </p>
+                        </a>
                     </Col>
                     <Col className="col-2 d-flex justify-content-center align-center">
-                        <p style={this.state.link}>
+                        <a style={this.state.link} href={paths.PEOPLE}>
                             People
-                        </p>
+                        </a>
                     </Col>
                     <Col className="col-2 d-flex justify-content-center align-center">
-                        <p style={this.state.link}>
+                        <a style={this.state.link}>
                             Contact Us
-                        </p>
+                        </a>
                     </Col>
                     <Col className="col-3 d-flex justify-content-center align-center">
                         <Button color='primary'> Take Quiz </Button>
