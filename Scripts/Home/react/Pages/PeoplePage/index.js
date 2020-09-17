@@ -1,9 +1,11 @@
 ﻿import React from 'react';
+import PeoplePage from './PeoplePage';
+import PeoplePageContainer from '../../Container/PeoplePageContainer';
 
 export default () => {
     return (
-        < div >
-            it works
-        </div>
+        <PeoplePageContainer>
+            <PeoplePage/>
+        </PeoplePageContainer>
     );
 };

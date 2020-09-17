@@ -163,6 +163,9 @@
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\Home\react\Pages\PeoplePage\index.js" />
+    <Content Include="Scripts\Home\react\Container\PeoplePageContainer.js" />
+    <Content Include="Scripts\Home\react\Pages\PeoplePage\PeoplePage.js" />
+    <Content Include="Scripts\Home\react\Pages\PeoplePage\PeoplePageStyles.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
