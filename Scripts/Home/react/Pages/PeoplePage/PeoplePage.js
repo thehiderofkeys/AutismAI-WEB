@@ -5,12 +5,16 @@ import { HeaderText, SubText } from "../Frontpage/frontpageStyles";
 
 import ProfilePicture, { profiles } from "../../Components/Profile/Profile";
 
+const RezaImage = "/Images/TeamPhotos/Reza.png";
+
 export default () => {
     return (
         <div>
             <PeopleInfoContainer>
-                <HeaderText> About the team </HeaderText>
+                <HeaderText> About The Team </HeaderText>
+                <img src={RezaImage} alt={`reza-shahamiri-photograph`} />
                 <SubText> Dr Reza Shahamiri (Project Lead) </SubText>
+
                 <CenteredText>
                     Reza is the scientific lead for this project is a Senior Lecturer in Software Engineering at The University of Auckland.
                     He has a high level of interest in this project as it directly relates to his research in Artificial Intelligence (AI) for healthcare diagnosis.
