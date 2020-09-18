@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { PeopleInfoContainer, CenteredText } from './PeoplePageStyles';
+import { PeopleInfoContainer, CenteredText, NameHeading } from './PeoplePageStyles';
 import { LineDivider } from '../ContributionsPage/ContributionPageStyles';
 import { HeaderText, SubText } from "../Frontpage/frontpageStyles";
 
@@ -7,13 +7,16 @@ import ProfilePicture, { profiles } from "../../Components/Profile/Profile";
 
 const RezaImage = "/Images/TeamPhotos/Reza.png";
 
-export default () => {
+const ProfilePage = ({
+    contributorsList
+}) => {
+    const hasContributors = contributorsList && contributorsList.length > 0;
     return (
         <div>
             <PeopleInfoContainer>
                 <HeaderText> About The Team </HeaderText>
                 <img src={RezaImage} alt={`reza-shahamiri-photograph`} />
-                <SubText> Dr Reza Shahamiri (Project Lead) </SubText>
+                <NameHeading> Dr Reza Shahamiri (Project Lead) </NameHeading>
 
                 <CenteredText>
                     Reza is the scientific lead for this project is a Senior Lecturer in Software Engineering at The University of Auckland.
@@ -21,17 +24,21 @@ export default () => {
                     Reza’s primary desire for this project is to gather more data points to train his diagnosis AI.
                     He wants this to be achieved by expanding the AutismAI platform to reach more users for surveying.
                 </CenteredText>
-                <LineDivider />
+                <LineDivider/>
 
                 <SubText> The Development Team </SubText>
-                {profiles.map((profile) => (
-                    <ProfilePicture name={profile} />
+                {profiles.map((profile, key) => (
+                    <ProfilePicture key={key} name={profile} />
                 ))}
-                <LineDivider />
+                <LineDivider/>
 
                 <SubText> Contributors </SubText>
-                <LineDivider/>
+                {hasContributors
+                    ? contributorsList.map((contributor) => <div key={`${contributor.name}-key`}>{contributor.name}</div>)
+                    : <i>Currently this project has no external contributors. Head to the contribution page to find more about how you can contribute.</i>}
             </PeopleInfoContainer>    
         </div>
     );
 };
+
+export default ProfilePage;

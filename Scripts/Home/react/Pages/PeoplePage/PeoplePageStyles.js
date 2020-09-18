@@ -24,9 +24,10 @@ export const EmailTitlesContainer = styled.div`
   text-align: center;
 `;
 
-export const TextContent = styled.div`
+export const NameHeading = styled.div`
     font-size: 20px;
     margin-bottom: 1em;
+    margin-top: 1em;
 `;
 
 
@@ -37,4 +38,5 @@ export const LineDivider = styled.hr`
 
 export const CenteredText = styled.div`
     width: 80%;
+    margin-bottom: 50px;
 `;
