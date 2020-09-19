@@ -40,6 +40,22 @@ const QuizPageContainer = ({ children }) => {
         }
     ];
 
+    const ethnicities = [
+        "South Asian",
+        "Maori",
+        "Pacifica",
+        "Asian",
+        "White European",
+        "Black",
+        "Aboriginal",
+        "Latino",
+        "Middle Eastern",
+        "Native Indian",
+        "Mixed",
+        "Hispanic",
+        "Others"
+    ];
+
     const answerOptions = ["Very Easy", "Quite Easy", "Very Difficult", "Impossible"];
 
     const newProps = {
@@ -49,7 +65,8 @@ const QuizPageContainer = ({ children }) => {
         handleNextQuestion,
         handlePrevQuestion,
         currentQuestion,
-        questionAnswers
+        questionAnswers,
+        ethnicities
     };
 
     return React.cloneElement(children, { ...newProps });
