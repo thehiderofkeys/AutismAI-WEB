@@ -3,10 +3,31 @@ import PropTypes from "prop-types";
 import styles from "./styles.module.css";
 import Question from "../../Components/Question/Question";
 
-const Quizpage = ({ handleChange, question, answerOptions }) => {
+const Quizpage = ({
+    handleQuestionAnswer,
+    questions,
+    answerOptions,
+    currentQuestion,
+    handleNextQuestion,
+    handlePrevQuestion,
+    questionAnswers
+}) => {
+    console.log(currentQuestion);
     return (
         <div className={styles["test"]}>
-            <Question question={question} answerOptions={answerOptions} />
+            <Question
+                question={questions[currentQuestion]}
+                answerOptions={answerOptions}
+                handleChange={handleQuestionAnswer}
+                questionAnswers={questionAnswers}
+                currentQuestion={currentQuestion}
+            />
+            <button onClick={handlePrevQuestion} disabled={currentQuestion <= 0}>
+                {" "}
+                Back{" "}
+            </button>
+
+            <button onClick={handleNextQuestion}> Next </button>
         </div>
     );
 };
