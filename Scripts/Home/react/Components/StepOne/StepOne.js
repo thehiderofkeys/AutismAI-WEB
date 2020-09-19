@@ -8,45 +8,40 @@ const StepOne = ({handleChange, stepOneAnswers, ethnicities}) => {
     };
     console.log(ethnicities)
     return (
-        <Container>
-            <Row className="align-items-center">
-                    <legend>Gender</legend>
-                    <FormGroup check>
-                        <Row className="mt-3 border rounded mw-100 ">
-                            <Label check className="ml-4">
-                                <Input type="radio"
-                                    onChange={onClick}/>
-                                Male
-                            </Label>
-                        </Row>
-                        <Row className="mt-3 border rounded mw-100 ">
-                            <Label check className="ml-4">
-                                <Input type="radio"
-                                    onChange={onClick}/>
-                                Female
-                            </Label>
-                        </Row>
-                </FormGroup>
-            </Row>
+        <Container className="d-flex justify-content-center">
+            <Col>
+                <Row className="d-flex justify-content-center">
+                    
 
-            <Row className="align-items-center">
+                    <FormGroup tag="fieldset">
+                        <legend>Gender</legend>
+                        <ButtonGroup >
+                            <Button className="bg-white text-dark" style={{ border: '1px solid #ced4da' }}>Male</Button>
+                            <Button className=" bg-white text-dark" style={{ border: '1px solid #ced4da' }}>Female</Button>
+                        </ButtonGroup>
+                    </FormGroup>
+                </Row>
+
+                <Row className="d-flex justify-content-center">
                     <FormGroup tag="fieldset">
                         <legend>Ethnicity</legend>
-                        <Input type="select" name="Ethnicity" id="exampleSelect">
+                        <Input type="select" name="Ethnicity" id="exampleSelect" className="mw-75">
                             {ethnicities.map((option) => (
-                                <option>{option}</option>  
-                             ))}
+                                <option>{option}</option>
+                            ))}
                         </Input>
-                </FormGroup>
-            </Row>
-
-            <Row className="align-items-center">
-                    <FormGroup>
-                        <Label for="exampleText">Age</Label>
-                        <Input type="textbox" name="text" id="exampleText" />
                     </FormGroup>
-               
-            </Row>
+                </Row>
+
+                <Row className="d-flex justify-content-center">
+                    <FormGroup>
+                        <legend>Age</legend>
+                        <Input type="textbox" name="text" id="exampleText" className="mw-75" />
+                    </FormGroup>
+
+                </Row>
+            </Col>
+            
         </Container>
     );
 };
