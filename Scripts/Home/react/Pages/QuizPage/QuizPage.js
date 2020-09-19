@@ -12,7 +12,6 @@ const Quizpage = ({
     handlePrevQuestion,
     questionAnswers
 }) => {
-    console.log(currentQuestion);
     return (
         <div className={styles["test"]}>
             <Question
