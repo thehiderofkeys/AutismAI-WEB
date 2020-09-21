@@ -1,1 +1,1 @@
-﻿export const dashboardStatsRoute = `https://rshahamiri.pythonanywhere.com/metrics`;
+﻿export const dashboardStatsRoute = `api/values`;
