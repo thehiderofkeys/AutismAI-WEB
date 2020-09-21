@@ -7,8 +7,8 @@ const DashboardPageContainer = ({ children }) => {
     const [dashboardStats, setdashboardStats] = useState();
 
     useEffect(() => {
-        function dashboardStatistics() {
-            const stats = getDashboardStats();
+        async function dashboardStatistics() {
+            const stats = await getDashboardStats();
             setdashboardStats(stats);
         }
 

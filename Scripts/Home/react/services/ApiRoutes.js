@@ -1,1 +1,1 @@
-﻿export const dashboardStatsRoute = `https://uplevelpersona.herokuapp.com/api/persona/Test Persona`;
+﻿export const dashboardStatsRoute = `https://rshahamiri.pythonanywhere.com/metrics`;
