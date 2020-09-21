@@ -2,6 +2,7 @@
 import React from "react";
 import { Row, Col, Container } from "reactstrap";
 import paths from "../../routes/paths";
+import { Link } from "react-router-dom";
 
 const UoAImg = "/Images/uoa.png";
 const InstaImg = "/Images/insta.png";
@@ -54,16 +55,24 @@ const PageFooter = ({}) => {
                                 <BigText>Related Links</BigText>
                             </Col>
                             <Col className="col-12 mb-2">
-                                <SmallText href={paths.DASHBOARD}>Dashboard</SmallText>
+                                <Link to={paths.DASHBOARD}>
+                                    <SmallText>Dashboard</SmallText>
+                                </Link>
                             </Col>
                             <Col className="col-12 mb-2">
-                                <SmallText href={paths.ADMIN}>Admin</SmallText>
+                                <Link to={paths.ADMIN}>
+                                    <SmallText>Admin</SmallText>
+                                </Link>
                             </Col>
                             <Col className="col-12 mb-2">
-                                <SmallText href={paths.QUIZ}>Take the Quiz</SmallText>
+                                <Link to={paths.QUIZ}>
+                                    <SmallText>Take the Quiz</SmallText>
+                                </Link>
                             </Col>
                             <Col className="col-12 mb-2">
-                                <SmallText href={paths.CONTRIBUTIONS}>Contributions</SmallText>
+                                <Link to={paths.CONTRIBUTIONS}>
+                                    <SmallText>Contributions</SmallText>
+                                </Link>
                             </Col>
                         </Row>
                     </Col>

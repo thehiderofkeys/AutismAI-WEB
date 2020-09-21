@@ -15,7 +15,7 @@ export const Logo = styled.img`
 `;
 
 
-export const Link = styled.a`
+export const StyledLink = styled.a`
   text-decoration: none;
   font-size: 20px;
   &:hover{
