@@ -12,8 +12,6 @@ namespace AutismAI_Web.Controllers
     public class ValuesController : ApiController
     {
 
-        private string result;
-
         // GET api/<controller>
         public async Task<IEnumerable<string>> Get()
         {
