@@ -28,6 +28,7 @@ namespace AutismAI_Web.Controllers
             var result = await response.Content.ReadAsStringAsync();
             return result;
         }
+        
 
         // GET api/<controller>/5
         public string Get(int id)
