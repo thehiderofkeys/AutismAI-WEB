@@ -42,6 +42,8 @@ const FrontpageContainer = ({ children }) => {
                 { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Specificity) * 100) }
             ];
             setAccuracyStats(accuracy);
+            setSensitivityStats(sensitivity);
+            setSpecificityStats(specificity);
            // console.log(accuracyStats);
         }
 
