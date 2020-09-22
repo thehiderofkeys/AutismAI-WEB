@@ -7,12 +7,14 @@ const DashboardPageContainer = ({ children }) => {
     // components as declared in frontpage.jsx
 
     const [dashboardStats, setDashboardStats] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function getDashboardStatistics() {
             const stats = await getDashboardStats();
             console.log(stats);
             setDashboardStats(stats);
+            setIsLoading(false);
         }
 
         getDashboardStatistics();
@@ -26,7 +28,7 @@ const DashboardPageContainer = ({ children }) => {
 
     return (
         <>
-            <Loading/>
+            {isLoading && <Loading />}
             {React.cloneElement(children, { ...newProps })}
         </>
     );

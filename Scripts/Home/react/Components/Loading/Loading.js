@@ -1,12 +1,14 @@
 ﻿import React from "react";
-import { Spinner } from 'reactstrap';
-import { LoadingStyle } from './LoadingStyles';
+import { Spinner } from "reactstrap";
+import { LoadingSpinner, LoadingContainer } from "./LoadingStyles";
 
 const Loading = () => {
     return (
-        <LoadingStyle>
-            <Spinner color="primary" />
-        </LoadingStyle>
+        <LoadingContainer>
+            <LoadingSpinner>
+                <Spinner color="primary" style={{ width: '100px', height: '100px' }} />
+            </LoadingSpinner>
+        </LoadingContainer>
     );
 };
 
