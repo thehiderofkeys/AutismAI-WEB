@@ -11,16 +11,16 @@ const specificityColor = ["#d45517", "#ffffff"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const Dashboardpage = ({ handleChange, dashboardStats }) => {
-
-    var accuracyStats = Math.round(dashboardStats.Class_Vs_DNN_Accuracy * 10000) / 100; //Need to * by 10000 cause the data from the API is in 0.0000....
-    var sensitivityStats = Math.round(dashboardStats.Class_Vs_DNN_Sensitivity * 10000) / 100;
-    var specificityStats = Math.round(dashboardStats.Class_Vs_DNN_Specificity * 10000) / 100;
+    const accuracyStats = Math.round(dashboardStats.Class_Vs_DNN_Accuracy * 10000) / 100; //Need to * by 10000 cause the data from the API is in 0.0000....
+    const sensitivityStats = Math.round(dashboardStats.Class_Vs_DNN_Sensitivity * 10000) / 100;
+    const specificityStats = Math.round(dashboardStats.Class_Vs_DNN_Specificity * 10000) / 100;
+    console.log(dashboardStats.total_participants);
 
     const age = [
         { name: "Adolescent", value: dashboardStats.no_adolescent_participants },
         { name: "Child", value: dashboardStats.no_child_participants },
         { name: "Baby", value: dashboardStats.no_child_participants },
-        { name: "Adult", value: dashboardStats.no_adult_participants },
+        { name: "Adult", value: dashboardStats.no_adult_participants }
     ];
 
     const gender = [
@@ -29,23 +29,22 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
     ];
 
     const accuracy = [
-        { name: "Accuracy", value: accuracyStats},
-        { name: "Conventional Screening", value: 100 - accuracyStats },
+        { name: "Accuracy", value: accuracyStats },
+        { name: "Conventional Screening", value: 100 - accuracyStats }
     ];
 
     const sensitivity = [
-        { name: "Sensitivity", value: sensitivityStats},
-        { name: "Conventional Screening", value: 100 - sensitivityStats },
+        { name: "Sensitivity", value: sensitivityStats },
+        { name: "Conventional Screening", value: 100 - sensitivityStats }
     ];
 
     const specificity = [
         { name: "Specificity", value: specificityStats },
-        { name: "Conventional Screening", value: 100 - specificityStats },
+        { name: "Conventional Screening", value: 100 - specificityStats }
     ];
 
     return (
         <DashboardContainer>
-            {console.log(dashboardStats.total_participants)}
             <SubTitle>This is the DashBoard page.</SubTitle>
             <SubTitle>Total Tests Conducted: {dashboardStats.total_participants}</SubTitle>
             <div>
