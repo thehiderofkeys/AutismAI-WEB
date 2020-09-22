@@ -25,27 +25,29 @@ const FrontpageContainer = ({ children }) => {
     useEffect(() => {
         async function getMetrics() {
             const stats = await getDashboardStats();
-            console.log(stats);
-            console.log(stats.Class_Vs_DNN_Accuracy);
-            const accuracy = [
-                { name: "", value: Math.round(stats.Class_Vs_DNN_Accuracy * 10000)/100 },
-                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100)}
+            const accuracy = Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100;
+            const sensitivity = Math.round(stats.Class_Vs_DNN_Sensitivity * 10000) / 100;
+            const specificity = Math.round(stats.Class_Vs_DNN_Specificity * 10000) / 100;
+
+            const accuracyStats = [
+                { name: "", value: accuracy },
+                { name: "", value: Math.round((100 - accuracy) * 100) / 100 }
             ];
 
-            const sensitivity = [
-                { name: "", value: Math.round(stats.Class_Vs_DNN_Sensitivity * 10000) / 100 },
-                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Sensitivity * 10000) / 100) }
+            const sensitivityStats = [
+                { name: "", value: sensitivity },
+                { name: "", value: Math.round((100 - sensitivity) * 100)/100 }
             ];
 
-            const specificity = [
-                { name: "", value: Math.round(stats.Class_Vs_DNN_Specificity * 10000) / 100 },
-                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Specificity * 10000) / 100) }
+            const specificityStats = [
+                { name: "", value: specificity },
+                { name: "", value: Math.round((100 - specificity) * 100) / 100 }
             ];
 
 
-            setAccuracyStats(accuracy);
-            setSensitivityStats(sensitivity);
-            setSpecificityStats(specificity);
+            setAccuracyStats(accuracyStats);
+            setSensitivityStats(sensitivityStats);
+            setSpecificityStats(specificityStats);
         }
         getMetrics();
     }, []);

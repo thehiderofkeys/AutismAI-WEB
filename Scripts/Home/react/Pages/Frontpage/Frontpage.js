@@ -398,13 +398,13 @@ const Frontpage = ({
                                     <PieChart width={350} height={350}>
                                         <Pie
                                             dataKey="value"
-                                            data={data01}
+                                            data={accuracyStats}
                                             outerRadius={80}
                                             fill="#8884d8"
                                             stroke="#242e4c"
                                             label
                                         >
-                                            {data01.map((entry, index) => (
+                                            {Object.keys(accuracyStats).map((entry, index) => (
                                                 <Cell
                                                     key={`${entry.name}-${index}`}
                                                     fill={COLORS[index]}
@@ -430,13 +430,13 @@ const Frontpage = ({
                                     <PieChart width={350} height={350}>
                                         <Pie
                                             dataKey="value"
-                                            data={data01}
+                                            data={sensitivityStats}
                                             outerRadius={80}
                                             fill="#8884d8"
                                             stroke="#242e4c"
                                             label
                                         >
-                                            {data01.map((entry, index) => (
+                                            {Object.keys(sensitivityStats).map((entry, index) => (
                                                 <Cell
                                                     key={`${entry.name}-${index}`}
                                                     fill={COLORS[index]}
@@ -462,13 +462,13 @@ const Frontpage = ({
                                     <PieChart width={350} height={350}>
                                         <Pie
                                             dataKey="value"
-                                            data={data01}
+                                            data={specificityStats}
                                             outerRadius={80}
                                             fill="#8884d8"
                                             stroke="#242e4c"
                                             label
                                         >
-                                            {data01.map((entry, index) => (
+                                            {Object.keys(specificityStats).map((entry, index) => (
                                                 <Cell
                                                     key={`${entry.name}-${index}`}
                                                     fill={COLORS[index]}
