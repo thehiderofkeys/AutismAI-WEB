@@ -33,13 +33,13 @@ const FrontpageContainer = ({ children }) => {
             ];
 
             const sensitivity = [
-                { name: "", value: Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100 },
-                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100) }
+                { name: "", value: Math.round(stats.Class_Vs_DNN_Sensitivity * 10000) / 100 },
+                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Sensitivity * 10000) / 100) }
             ];
 
             const specificity = [
-                { name: "", value: Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100 },
-                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100) }
+                { name: "", value: Math.round(stats.Class_Vs_DNN_Specificity * 10000) / 100 },
+                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Specificity * 10000) / 100) }
             ];
 
 
@@ -47,15 +47,13 @@ const FrontpageContainer = ({ children }) => {
             setSensitivityStats(sensitivity);
             setSpecificityStats(specificity);
         }
-
         getMetrics();
     }, []);
 
     const newProps = {
         onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen,
         onStatsInfoClick, contributionModal, toggleContributionModal,
-        accuracyStats, sensitivityStats, specificityStats,
-        ageDistributionStats, genderDistributionStats
+        accuracyStats, sensitivityStats, specificityStats
     };
 
     return React.cloneElement(children, { ...newProps });

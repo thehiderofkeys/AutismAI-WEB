@@ -52,21 +52,6 @@ const data01 = [
     { name: "Group D", value: 200 }
 ];
 
-const accuracy = [
-    { name: "Group A", value: 97 },
-    { name: "Group B", value: 3 }
-];
-
-const sensitivity = [
-    { name: "Group A", value: 98 },
-    { name: "Group B", value: 2 }
-];
-
-const specificity = [
-    { name: "Group A", value: 97 },
-    { name: "Group B", value: 3 }
-];
-
 const accuracyColor = ["#9ac90f", "#ffffff"];
 const sensitivityColor = ["#0088FE", "#ffffff"];
 const specificityColor = ["#d45517", "#ffffff"];
@@ -83,11 +68,7 @@ const Frontpage = ({
     accuracyStats,
     sensitivityStats,
     specificityStats,
-    ageDistributionStats,
-    genderDistributionStats
 }) => {
-    console.log("Front page");
-    console.log(accuracyStats);
         return (
             <>
                 <div>
@@ -173,6 +154,7 @@ const Frontpage = ({
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
+                                        label
                                     >
                                         {Object.keys(accuracyStats).map((entry, index) => (
                                             <Cell
@@ -188,6 +170,7 @@ const Frontpage = ({
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
+                                        label
                                     >
                                         {Object.keys(sensitivityStats).map((entry, index) => (
                                             <Cell
@@ -204,6 +187,7 @@ const Frontpage = ({
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
+                                        label
                                     >
                                         {Object.keys(specificityStats).map((entry, index) => (
                                             <Cell
@@ -350,13 +334,13 @@ const Frontpage = ({
                                     <PieChart width={350} height={350}>
                                         <Pie
                                             dataKey="value"
-                                            data={ageDistributionStats}
+                                            data={data01}
                                             outerRadius={80}
                                             fill="#8884d8"
                                             stroke="#242e4c"
                                             label
                                         >
-                                            {Object.keys(ageDistributionStats).map((entry, index) => (
+                                            {data01.map((entry, index) => (
                                                 <Cell
                                                     key={`${entry.name}-${index}`}
                                                     fill={COLORS[index]}
@@ -382,13 +366,13 @@ const Frontpage = ({
                                     <PieChart width={350} height={350}>
                                         <Pie
                                             dataKey="value"
-                                            data={genderDistributionStats}
+                                            data={data01}
                                             outerRadius={80}
                                             fill="#8884d8"
                                             stroke="#242e4c"
                                             label
                                         >
-                                            {Object.keys(genderDistributionStats).map((entry, index) => (
+                                            {data01.map((entry, index) => (
                                                 <Cell
                                                     key={`${entry.name}-${index}`}
                                                     fill={COLORS[index]}
