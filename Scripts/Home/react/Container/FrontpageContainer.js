@@ -9,6 +9,7 @@ const FrontpageContainer = ({ children }) => {
     const [sensitivityStats, setSensitivityStats] = useState({});
     const [specificityStats, setSpecificityStats] = useState({});
     const [ageDistributionStats, setAgeDistribution] = useState({});
+    const [genderDistributionStats, setGenderDistribution] = useState({});
 
     const [contributionModal, setContributionModal] = useState(true);
 
@@ -50,10 +51,16 @@ const FrontpageContainer = ({ children }) => {
                 { name: "Child", value: stats.no_child_participants }
             ];
 
+            const genderDistribution = [
+                { name: "Male", value: stats.no_male_participants },
+                { name: "Female", value: stats.no_female_participants }
+            ];
+
             setAccuracyStats(accuracy);
             setSensitivityStats(sensitivity);
             setSpecificityStats(specificity);
             setAgeDistribution(ageDistribution);
+            setGenderDistribution(genderDistribution);
         }
 
         getMetrics();
@@ -63,7 +70,7 @@ const FrontpageContainer = ({ children }) => {
         onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen,
         onStatsInfoClick, contributionModal, toggleContributionModal,
         accuracyStats, sensitivityStats, specificityStats,
-        ageDistributionStats
+        ageDistributionStats, genderDistributionStats
     };
 
     return React.cloneElement(children, { ...newProps });

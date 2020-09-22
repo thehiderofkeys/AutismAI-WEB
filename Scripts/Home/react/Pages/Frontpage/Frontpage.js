@@ -83,7 +83,8 @@ const Frontpage = ({
     accuracyStats,
     sensitivityStats,
     specificityStats,
-    ageDistributionStats
+    ageDistributionStats,
+    genderDistributionStats
 }) => {
     console.log("Front page");
     console.log(accuracyStats);
@@ -381,13 +382,13 @@ const Frontpage = ({
                                     <PieChart width={350} height={350}>
                                         <Pie
                                             dataKey="value"
-                                            data={data01}
+                                            data={genderDistributionStats}
                                             outerRadius={80}
                                             fill="#8884d8"
                                             stroke="#242e4c"
                                             label
                                         >
-                                            {data01.map((entry, index) => (
+                                            {Object.keys(genderDistributionStats).map((entry, index) => (
                                                 <Cell
                                                     key={`${entry.name}-${index}`}
                                                     fill={COLORS[index]}
