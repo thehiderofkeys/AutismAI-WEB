@@ -1,8 +1,11 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect } from 'react';
+import { getDashboardStats } from "../services/DashboardStatsService";
+
 
 const FrontpageContainer = ({ children }) => {
     const [autismInfoIsOpen, setAutismIsOpen] = useState(false);
     const [statsInfoIsOpen, setStatsIsOpen] = useState(false);
+    const [accuracyStats, setAccuracyStats] = useState({});
 
     const [contributionModal, setContributionModal] = useState(true);
 
@@ -16,7 +19,24 @@ const FrontpageContainer = ({ children }) => {
         setStatsIsOpen(!statsInfoIsOpen);
     }
 
-    const newProps = { onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onStatsInfoClick, contributionModal, toggleContributionModal };
+
+    useEffect(() => {
+        async function getMetrics() {
+            const stats = await getDashboardStats();
+            console.log(stats);
+            console.log(stats.Class_Vs_DNN_Accuracy);
+            const accuracy = [
+                { name: "Group A", value: (stats.Class_Vs_DNN_Accuracy) * 100 },
+                { name: "Group B", value: 100 - ((stats.Class_Vs_DNN_Accuracy) * 100)}
+            ];
+            setAccuracyStats(accuracy);
+           // console.log(accuracyStats);
+        }
+
+        getMetrics();
+    }, []);
+
+    const newProps = { onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onStatsInfoClick, contributionModal, toggleContributionModal, accuracyStats };
 
     return React.cloneElement(children, { ...newProps });
 };
