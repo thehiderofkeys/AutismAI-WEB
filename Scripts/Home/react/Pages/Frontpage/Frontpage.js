@@ -86,11 +86,6 @@ const Frontpage = ({
 }) => {
     console.log("Front page");
     console.log(accuracyStats);
-
-    if (!accuracyStats) {
-        return (<Spinner />);
-    }
-    else {
         return (
             <>
                 <div>
@@ -186,13 +181,13 @@ const Frontpage = ({
                                         <Label value="Accuracy" position="center" />
                                     </Pie>
                                     <Pie
-                                        data={sensitivity}
+                                        data={sensitivityStats}
                                         innerRadius={60}
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
                                     >
-                                        {sensitivity.map((entry, index) => (
+                                        {Object.keys(sensitivityStats).map((entry, index) => (
                                             <Cell
                                                 key={`cell-${index}`}
                                                 fill={sensitivityColor[index % COLORS.length]}
@@ -201,14 +196,14 @@ const Frontpage = ({
                                         <Label value="Sensitivity" position="center" />
                                     </Pie>
                                     <Pie
-                                        data={specificity}
+                                        data={specificityStats}
                                         cx={610}
                                         innerRadius={60}
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
                                     >
-                                        {specificity.map((entry, index) => (
+                                        {Object.keys(specificityStats).map((entry, index) => (
                                             <Cell
                                                 key={`cell-${index}`}
                                                 fill={specificityColor[index % COLORS.length]}
@@ -521,7 +516,6 @@ const Frontpage = ({
                 <WaveBottomComponent src={WaveBottom} />
             </>
         );
-    }
 };
 
 export default Frontpage;
