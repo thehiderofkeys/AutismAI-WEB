@@ -8,8 +8,6 @@ const FrontpageContainer = ({ children }) => {
     const [accuracyStats, setAccuracyStats] = useState({});
     const [sensitivityStats, setSensitivityStats] = useState({});
     const [specificityStats, setSpecificityStats] = useState({});
-    const [ageDistributionStats, setAgeDistribution] = useState({});
-    const [genderDistributionStats, setGenderDistribution] = useState({});
 
     const [contributionModal, setContributionModal] = useState(true);
 
@@ -30,37 +28,24 @@ const FrontpageContainer = ({ children }) => {
             console.log(stats);
             console.log(stats.Class_Vs_DNN_Accuracy);
             const accuracy = [
-                { name: "Class", value: (stats.Class_Vs_DNN_Accuracy) * 100 },
-                { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Accuracy) * 100)}
+                { name: "", value: Math.round(stats.Class_Vs_DNN_Accuracy * 10000)/100 },
+                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100)}
             ];
 
             const sensitivity = [
-                { name: "Class", value: (stats.Class_Vs_DNN_Sensitivity) * 100  },
-                { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Sensitivity) * 100) }
+                { name: "", value: Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100 },
+                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100) }
             ];
 
             const specificity = [
-                { name: "Class", value: (stats.Class_Vs_DNN_Specificity) * 100 },
-                { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Specificity) * 100) }
+                { name: "", value: Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100 },
+                { name: "", value: 100 - (Math.round(stats.Class_Vs_DNN_Accuracy * 10000) / 100) }
             ];
 
-            const ageDistribution = [
-                { name: "Adolescent", value: stats.no_adolescent_participants },
-                { name: "Adult", value: stats.no_adult_participants },
-                { name: "Baby", value: stats.no_baby_participants },
-                { name: "Child", value: stats.no_child_participants }
-            ];
-
-            const genderDistribution = [
-                { name: "Male", value: stats.no_male_participants },
-                { name: "Female", value: stats.no_female_participants }
-            ];
 
             setAccuracyStats(accuracy);
             setSensitivityStats(sensitivity);
             setSpecificityStats(specificity);
-            setAgeDistribution(ageDistribution);
-            setGenderDistribution(genderDistribution);
         }
 
         getMetrics();
