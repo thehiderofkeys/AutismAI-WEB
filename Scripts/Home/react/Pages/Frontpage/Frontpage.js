@@ -80,7 +80,9 @@ const Frontpage = ({
     onStatsInfoClick,
     contributionModal,
     toggleContributionModal,
-    accuracyStats
+    accuracyStats,
+    sensitivityStats,
+    specificityStats
 }) => {
     console.log("Front page");
     console.log(accuracyStats);

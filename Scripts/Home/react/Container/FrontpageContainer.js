@@ -50,7 +50,11 @@ const FrontpageContainer = ({ children }) => {
         getMetrics();
     }, []);
 
-    const newProps = { onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen, onStatsInfoClick, contributionModal, toggleContributionModal, accuracyStats };
+    const newProps = {
+        onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen,
+        onStatsInfoClick, contributionModal, toggleContributionModal,
+        accuracyStats, sensitivityStats, specificityStats
+    };
 
     return React.cloneElement(children, { ...newProps });
 };
