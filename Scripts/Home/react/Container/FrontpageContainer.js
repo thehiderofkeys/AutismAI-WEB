@@ -6,6 +6,8 @@ const FrontpageContainer = ({ children }) => {
     const [autismInfoIsOpen, setAutismIsOpen] = useState(false);
     const [statsInfoIsOpen, setStatsIsOpen] = useState(false);
     const [accuracyStats, setAccuracyStats] = useState({});
+    const [sensitivityStats, setSensitivityStats] = useState({});
+    const [specificityStats, setSpecificityStats] = useState({});
 
     const [contributionModal, setContributionModal] = useState(true);
 
@@ -28,6 +30,16 @@ const FrontpageContainer = ({ children }) => {
             const accuracy = [
                 { name: "Class", value: (stats.Class_Vs_DNN_Accuracy) * 100 },
                 { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Accuracy) * 100)}
+            ];
+
+            const sensitivity = [
+                { name: "Class", value: (stats.Class_Vs_DNN_Sensitivity) * 100  },
+                { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Sensitivity) * 100) }
+            ];
+
+            const specificity = [
+                { name: "Class", value: (stats.Class_Vs_DNN_Specificity) * 100 },
+                { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Specificity) * 100) }
             ];
             setAccuracyStats(accuracy);
            // console.log(accuracyStats);
