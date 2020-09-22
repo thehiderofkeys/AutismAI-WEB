@@ -154,7 +154,6 @@ const Frontpage = ({
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
-                                        label
                                     >
                                         {Object.keys(accuracyStats).map((entry, index) => (
                                             <Cell
@@ -170,7 +169,6 @@ const Frontpage = ({
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
-                                        label
                                     >
                                         {Object.keys(sensitivityStats).map((entry, index) => (
                                             <Cell
@@ -187,7 +185,6 @@ const Frontpage = ({
                                         outerRadius={80}
                                         fill="#8884d8"
                                         dataKey="value"
-                                        label
                                     >
                                         {Object.keys(specificityStats).map((entry, index) => (
                                             <Cell
