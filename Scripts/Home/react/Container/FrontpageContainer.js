@@ -26,8 +26,8 @@ const FrontpageContainer = ({ children }) => {
             console.log(stats);
             console.log(stats.Class_Vs_DNN_Accuracy);
             const accuracy = [
-                { name: "Group A", value: (stats.Class_Vs_DNN_Accuracy) * 100 },
-                { name: "Group B", value: 100 - ((stats.Class_Vs_DNN_Accuracy) * 100)}
+                { name: "Class", value: (stats.Class_Vs_DNN_Accuracy) * 100 },
+                { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Accuracy) * 100)}
             ];
             setAccuracyStats(accuracy);
            // console.log(accuracyStats);
