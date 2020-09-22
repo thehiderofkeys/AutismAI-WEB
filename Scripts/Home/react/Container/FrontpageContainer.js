@@ -8,6 +8,7 @@ const FrontpageContainer = ({ children }) => {
     const [accuracyStats, setAccuracyStats] = useState({});
     const [sensitivityStats, setSensitivityStats] = useState({});
     const [specificityStats, setSpecificityStats] = useState({});
+    const [ageDistributionStats, setAgeDistribution] = useState({});
 
     const [contributionModal, setContributionModal] = useState(true);
 
@@ -41,10 +42,18 @@ const FrontpageContainer = ({ children }) => {
                 { name: "Class", value: (stats.Class_Vs_DNN_Specificity) * 100 },
                 { name: "DNN", value: 100 - ((stats.Class_Vs_DNN_Specificity) * 100) }
             ];
+
+            const ageDistribution = [
+                { name: "Adolescent", value: stats.no_adolescent_participants },
+                { name: "Adult", value: stats.no_adult_participants },
+                { name: "Baby", value: stats.no_baby_participants },
+                { name: "Child", value: stats.no_child_participants }
+            ];
+
             setAccuracyStats(accuracy);
             setSensitivityStats(sensitivity);
             setSpecificityStats(specificity);
-           // console.log(accuracyStats);
+            setAgeDistribution(ageDistribution);
         }
 
         getMetrics();
@@ -53,7 +62,8 @@ const FrontpageContainer = ({ children }) => {
     const newProps = {
         onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen,
         onStatsInfoClick, contributionModal, toggleContributionModal,
-        accuracyStats, sensitivityStats, specificityStats
+        accuracyStats, sensitivityStats, specificityStats,
+        ageDistributionStats
     };
 
     return React.cloneElement(children, { ...newProps });
