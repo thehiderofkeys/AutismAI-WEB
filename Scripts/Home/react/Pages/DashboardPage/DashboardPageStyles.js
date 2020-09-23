@@ -19,6 +19,7 @@ export const SubTitle = styled.div`
 export const GraphTitle = styled.div`
     font-size: 16px;
     margin-bottom: 1em;
+    margin-top: 1em;
     color: "#3b3b3b" !important;
 `;
 

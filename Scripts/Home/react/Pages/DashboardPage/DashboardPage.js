@@ -62,7 +62,6 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
             <Row>
                 <Col className="d-flex justify-content-center mb-5">
                     <div>
-                        <GraphTitle>Age Distrubution Graph</GraphTitle>
                         <PieChart width={370} height={200}>
                             <Tooltip cursor={false} />
                             <Legend verticalAlign="top" height={36} />
@@ -80,9 +79,9 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                 ))}
                             </Pie>
                         </PieChart>
+                        <GraphTitle>Age Distrubution Graph</GraphTitle>
                     </div>
                     <div>
-                        <GraphTitle>Gender Distribution</GraphTitle>
                         <PieChart width={370} height={200}>
                             <Tooltip cursor={false} />
                             <Legend verticalAlign="top" height={36} />
@@ -100,6 +99,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                 ))}
                             </Pie>
                         </PieChart>
+                        <GraphTitle>Gender Distribution</GraphTitle>
                     </div>
                 </Col>
             </Row>
