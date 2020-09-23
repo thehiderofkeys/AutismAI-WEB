@@ -10,8 +10,17 @@ import {
     ButtonGroup,
     Button
 } from "reactstrap";
+import { isAllowedNumericInput } from "../../util/helpers";
 
 const StepOne = ({ handleChange, details, ethnicities, handleClick }) => {
+
+    const checkIsNumber = (event) => {
+        const val = event.target.value;
+
+        if (isAllowedNumericInput(val)) {
+            handleChange(event);
+        }
+    };
 
     return (
         <Container className="d-flex justify-content-center">
@@ -59,7 +68,7 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick }) => {
                         type="textbox"
                         name="userAge"
                         id="exampleText"
-                        onChange={handleChange}
+                        onChange={checkIsNumber}
                         value={details.userAge}
                     />
                 </FormGroup>

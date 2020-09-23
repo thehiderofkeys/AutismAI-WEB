@@ -164,6 +164,7 @@
     <Content Include="Scripts\Home\react\Pages\QuizPage\QuizPage.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\styles.module.css" />
     <Content Include="Scripts\Home\react\routes\paths.js" />
+    <Content Include="Scripts\Home\react\util\helpers.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
