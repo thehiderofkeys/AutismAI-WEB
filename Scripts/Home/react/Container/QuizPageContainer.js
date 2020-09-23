@@ -53,11 +53,11 @@ const QuizPageContainer = ({ children }) => {
     const questions = [
         {
             name: "Question 1",
-            questionText: "This is question 1 haha ur gay"
+            questionText: "This is question 1"
         },
         {
             name: "Question 2",
-            questionText: "This is question 2 haha im gay"
+            questionText: "This is question 2"
         }
     ];
 
