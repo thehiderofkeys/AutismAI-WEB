@@ -140,6 +140,8 @@
     <Content Include="Scripts\Home\react\Components\Profile\ProfileStyles.js" />
     <Content Include="Scripts\Home\react\Components\Question\Question.js" />
     <Content Include="Scripts\Home\react\Components\Question\QuestionStyle.js" />
+    <Content Include="Scripts\Home\react\Components\StepOne\StepOne.js" />
+    <Content Include="Scripts\Home\react\Components\StepTwo\StepTwo.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />

@@ -4,19 +4,22 @@ const QuizPageContainer = ({ children }) => {
     // Any variables or methods declared in newProps will be passed through to children
     // components as declared in frontpage.jsx
 
-    const [questionAnswers, setQuestionAnswers] = useState({});
+    const [questionAnswers, setQuestionAnswers] = useState({
+        details: { age: "", ethnicity: "", gender: "", testTaker: "" },
+        answers: {}
+    });
     const [currentQuestion, setCurrentQuestion] = useState(0);
 
     const handleQuestionAnswer = ({ question, answer }) => {
         setQuestionAnswers((prevQuestions) => {
             const newQuestions = { ...prevQuestions };
-            newQuestions[question] = answer;
+            newQuestions.answers[question] = answer;
             return newQuestions;
         });
     };
 
     const handleNextQuestion = () => {
-        if (currentQuestion < 1) {
+        if (currentQuestion < 3) {
             setCurrentQuestion(currentQuestion + 1);
         }
         console.log(questionAnswers);
@@ -27,6 +30,24 @@ const QuizPageContainer = ({ children }) => {
             setCurrentQuestion(currentQuestion - 1);
         }
         console.log(questionAnswers);
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setQuestionAnswers((prevQuestions) => {
+            const newQuestions = { ...prevQuestions };
+            newQuestions.details[name] = value;
+            return newQuestions;
+        });
+    };
+
+    const handleClick = (name, event) => {
+        const { value } = event.target;
+        setQuestionAnswers((prevQuestions) => {
+            const newQuestions = { ...prevQuestions };
+            newQuestions.details[name] = value;
+            return newQuestions;
+        });
     };
 
     const questions = [
@@ -41,6 +62,7 @@ const QuizPageContainer = ({ children }) => {
     ];
 
     const ethnicities = [
+        "",
         "South Asian",
         "Maori",
         "Pacifica",
@@ -58,6 +80,18 @@ const QuizPageContainer = ({ children }) => {
 
     const answerOptions = ["Very Easy", "Quite Easy", "Very Difficult", "Impossible"];
 
+    const testTakerOptions = [
+        "",
+        "Health",
+        "Care",
+        "Professional",
+        "Parent",
+        "Family",
+        "Member",
+        "Self",
+        "Others"
+    ];
+
     const newProps = {
         questions,
         answerOptions,
@@ -66,7 +100,10 @@ const QuizPageContainer = ({ children }) => {
         handlePrevQuestion,
         currentQuestion,
         questionAnswers,
-        ethnicities
+        ethnicities,
+        handleChange,
+        handleClick,
+        testTakerOptions
     };
 
     return React.cloneElement(children, { ...newProps });
