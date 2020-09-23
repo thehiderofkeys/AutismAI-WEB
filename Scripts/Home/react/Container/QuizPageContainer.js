@@ -5,7 +5,7 @@ const QuizPageContainer = ({ children }) => {
     // components as declared in frontpage.jsx
 
     const [questionAnswers, setQuestionAnswers] = useState({
-        details: { age: "", ethnicity: "", gender: "", testTaker: "" },
+        details: { userAge: "", ethnicity: "", gender: "", testTaker: "" },
         answers: {}
     });
     const [currentQuestion, setCurrentQuestion] = useState(0);
