@@ -9,7 +9,7 @@ const Question = ({ question, answerOptions, handleChange, questionAnswers, curr
 
     return (
         <Container className="d-flex justify-content-center">
-            <Col style={{ maxWidth: '30%' }}>
+            <Col style={{ maxWidth: '50%' }}>
                     <FormGroup tag="fieldset">
                         <legend>{question.questionText}</legend>
                         {answerOptions.map((option, i) => (

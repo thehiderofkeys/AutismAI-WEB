@@ -9,7 +9,7 @@ const StepOne = ({handleChange, stepOneAnswers, ethnicities}) => {
     console.log(ethnicities)
     return (
         <Container className="d-flex justify-content-center">
-            <Col style={{ maxWidth:'30%' }}>
+            <Col style={{ maxWidth:'50%' }}>
                     <FormGroup tag="fieldset">
                         <legend>Gender</legend>
                         <ButtonGroup >
