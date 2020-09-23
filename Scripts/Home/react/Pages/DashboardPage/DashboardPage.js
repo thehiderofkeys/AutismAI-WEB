@@ -59,46 +59,50 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
         <DashboardContainer>
             <SubTitle>Autism AI Statistics</SubTitle>
             <SubTitle>Total Tests Conducted: {dashboardStats.total_participants}</SubTitle>
-            <div>
-                <GraphTitle>Age Distrubution Graph</GraphTitle>
-                <PieChart width={370} height={200}>
-                    <Tooltip cursor={false} />
-                    <Legend verticalAlign="top" height={36} />
-                    <Pie
-                        data={age}
-                        cx={180}
-                        innerRadius={0}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        dataKey="value"
-                        label
-                    >
-                        {age.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={ageColor[index % COLORS.length]} />
-                        ))}
-                    </Pie>
-                </PieChart>
-            </div>
-            <div>
-                <GraphTitle>Gender Distribution</GraphTitle>
-                <PieChart width={370} height={200}>
-                    <Tooltip cursor={false} />
-                    <Legend verticalAlign="top" height={36} />
-                    <Pie
-                        data={gender}
-                        cx={180}
-                        innerRadius={0}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        dataKey="value"
-                        label
-                    >
-                        {gender.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={genderColor[index % COLORS.length]} />
-                        ))}
-                    </Pie>
-                </PieChart>
-            </div>
+            <Row>
+                <Col className="d-flex justify-content-center mb-5">
+                    <div>
+                        <GraphTitle>Age Distrubution Graph</GraphTitle>
+                        <PieChart width={370} height={200}>
+                            <Tooltip cursor={false} />
+                            <Legend verticalAlign="top" height={36} />
+                            <Pie
+                                data={age}
+                                cx={180}
+                                innerRadius={0}
+                                outerRadius={80}
+                                fill="#8884d8"
+                                dataKey="value"
+                                label
+                            >
+                                {age.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={ageColor[index % COLORS.length]} />
+                                ))}
+                            </Pie>
+                        </PieChart>
+                    </div>
+                    <div>
+                        <GraphTitle>Gender Distribution</GraphTitle>
+                        <PieChart width={370} height={200}>
+                            <Tooltip cursor={false} />
+                            <Legend verticalAlign="top" height={36} />
+                            <Pie
+                                data={gender}
+                                cx={180}
+                                innerRadius={0}
+                                outerRadius={80}
+                                fill="#8884d8"
+                                dataKey="value"
+                                label
+                            >
+                                {gender.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={genderColor[index % COLORS.length]} />
+                                ))}
+                            </Pie>
+                        </PieChart>
+                    </div>
+                </Col>
+            </Row>
             <Container>
                 <Row>
                     <Col className="d-flex justify-content-center mb-5">
