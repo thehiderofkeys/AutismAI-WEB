@@ -17,6 +17,16 @@ export const SubTitle = styled.div`
 `;
 
 export const GraphTitle = styled.div`
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 1em;
+    color: "#3b3b3b" !important;
+`;
+
+export const GraphCol = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 50px 0 50px 0;
 `;
