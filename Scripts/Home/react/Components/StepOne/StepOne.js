@@ -18,13 +18,13 @@ const StepOne = ({handleChange, stepOneAnswers, ethnicities}) => {
                         </ButtonGroup>
 
                         <legend>Ethnicity</legend>
-                        <Input type="select" name="Ethnicity" id="exampleSelect" className="mw-75">
+                        <Input type="select" name="Ethnicity" id="exampleSelect" >
                             {ethnicities.map((option) => (
                                 <option>{option}</option>
                             ))}
                         </Input>
                             <legend>Age</legend>
-                            <Input type="textbox" name="text" id="exampleText" className="mw-75" />
+                            <Input type="textbox" name="text" id="exampleText"/>
                     </FormGroup>
             </Col>
         </Container>
