@@ -6,7 +6,6 @@ import {
 } from "../services/questionsService";
 
 const QuizPageContainer = ({ children }) => {
-
     const [questionAnswers, setQuestionAnswers] = useState({
         details: { userAge: "", ethnicity: "", gender: "", testTaker: "" },
         answers: {}
@@ -24,7 +23,7 @@ const QuizPageContainer = ({ children }) => {
     const getQuestions = () => {
         if (questionAnswers.details.userAge) {
             setQuestions(getQuestionsRequest(parseInt(questionAnswers.details.userAge)));
-}
+        }
     };
 
     const handleQuestionAnswer = ({ question, answer }) => {
@@ -37,8 +36,10 @@ const QuizPageContainer = ({ children }) => {
 
     const handleNextQuestion = () => {
         if (currentQuestion == 0) {
+            setCurrentQuestion(currentQuestion + 1);
             getQuestions();
         }
+
         if (currentQuestion < questions.length + 2) {
             setCurrentQuestion(currentQuestion + 1);
         }
