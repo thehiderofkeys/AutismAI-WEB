@@ -14,7 +14,10 @@ import {
 const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
     return (
         <Container className="d-flex justify-content-center">
-            <Col style={{ maxWidth: "50%" }}>
+            <Col style={{
+                maxWidth: "50%",
+                backgroundColor: '#ebf0ff',
+                borderRadius: '15px'}}>
                 <FormGroup tag="fieldset">
                     <legend>Were you born with jaundice?</legend>
                     <ButtonGroup>

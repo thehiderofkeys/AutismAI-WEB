@@ -4,6 +4,8 @@ import styles from "./styles.module.css";
 import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
+import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
+
 
 const Quizpage = ({
     handleQuestionAnswer,
@@ -48,11 +50,12 @@ const Quizpage = ({
                 />
             )}
 
-            <button onClick={handlePrevQuestion} disabled={currentQuestion <= 0}>
-                {" "}
-                Back{" "}
-            </button>
-            <button onClick={handleNextQuestion}> Next </button>
+            <BackAndNextBtn
+                handleNextQuestion={handleNextQuestion}
+                handlePrevQuestion={handlePrevQuestion}
+                currentQuestion={currentQuestion}
+            />
+
         </div>
     );
 };

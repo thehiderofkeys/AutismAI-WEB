@@ -24,7 +24,12 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick }) => {
 
     return (
         <Container className="d-flex justify-content-center">
-            <Col style={{ maxWidth: "50%" }}>
+            <Col style={{
+                maxWidth: "50%",
+                backgroundColor: '#ebf0ff',
+                borderRadius: '15px'
+                }}>
+
                 <FormGroup tag="fieldset">
                     <legend>Gender</legend>
                     <ButtonGroup>
