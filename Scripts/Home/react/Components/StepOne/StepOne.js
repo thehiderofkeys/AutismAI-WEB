@@ -12,8 +12,7 @@ import {
 } from "reactstrap";
 import { isAllowedNumericInput } from "../../util/helpers";
 
-const StepOne = ({ handleChange, details, ethnicities, handleClick }) => {
-
+const StepOne = ({ handleChange, details, ethnicities, handleClick, getQuestions }) => {
     const checkIsNumber = (event) => {
         const val = event.target.value;
 
@@ -24,12 +23,13 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick }) => {
 
     return (
         <Container className="d-flex justify-content-center">
-            <Col style={{
-                maxWidth: "50%",
-                backgroundColor: '#ebf0ff',
-                borderRadius: '15px'
-                }}>
-
+            <Col
+                style={{
+                    maxWidth: "50%",
+                    backgroundColor: "#ebf0ff",
+                    borderRadius: "15px"
+                }}
+            >
                 <FormGroup tag="fieldset">
                     <legend>Gender</legend>
                     <ButtonGroup>
@@ -63,7 +63,7 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick }) => {
                         onChange={handleChange}
                         value={details.ethnicity}
                     >
-                        {ethnicities.sort().map((option, i) => (
+                        {ethnicities.map((option, i) => (
                             <option key={`ethnicity-option-${i}`}>{option}</option>
                         ))}
                     </Input>

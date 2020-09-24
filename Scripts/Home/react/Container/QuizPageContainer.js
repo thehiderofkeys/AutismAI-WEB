@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { categories, getQuestions } from "../services/questionsService";
+import {
+    categories,
+    getQuestions as getQuestionsRequest,
+    getTestTakerOptions,
+    getEthnicity
+} from "../services/questionsService";
 
 const QuizPageContainer = ({ children }) => {
     // Any variables or methods declared in newProps will be passed through to children
@@ -11,10 +16,19 @@ const QuizPageContainer = ({ children }) => {
     });
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [questions, setQuestions] = useState({});
+    const [ethnicities, setEthnicities] = useState([]);
+    const [testTakerOptions, setTestTakerOptions] = useState([]);
 
     useEffect(() => {
-        setQuestions(getQuestions(categories.ADOLESCENT));
-    }, [])
+        setEthnicities(getEthnicity);
+        setTestTakerOptions(getTestTakerOptions);
+    }, []);
+
+    const getQuestions = () => {
+        if (questionAnswers.details.userAge) {
+            setQuestions(getQuestionsRequest(parseInt(questionAnswers.details.userAge)));
+}
+    };
 
     const handleQuestionAnswer = ({ question, answer }) => {
         setQuestionAnswers((prevQuestions) => {
@@ -25,10 +39,12 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleNextQuestion = () => {
+        if (currentQuestion == 0) {
+            getQuestions();
+        }
         if (currentQuestion < questions.length + 2) {
             setCurrentQuestion(currentQuestion + 1);
         }
-        console.log(questionAnswers);
     };
 
     const handlePrevQuestion = () => {
@@ -56,47 +72,7 @@ const QuizPageContainer = ({ children }) => {
         });
     };
 
-    //const questions = [
-    //    {
-    //        name: "Question 1",
-    //        questionText: "This is question 1"
-    //    },
-    //    {
-    //        name: "Question 2",
-    //        questionText: "This is question 2"
-    //    }
-    //];
-
-    const ethnicities = [
-        "",
-        "South Asian",
-        "Maori",
-        "Pacifica",
-        "Asian",
-        "White European",
-        "Black",
-        "Aboriginal",
-        "Latino",
-        "Middle Eastern",
-        "Native Indian",
-        "Mixed",
-        "Hispanic",
-        "Others"
-    ];
-
     const answerOptions = ["Very Easy", "Quite Easy", "Very Difficult", "Impossible"];
-
-    const testTakerOptions = [
-        "",
-        "Health",
-        "Care",
-        "Professional",
-        "Parent",
-        "Family",
-        "Member",
-        "Self",
-        "Others"
-    ];
 
     const newProps = {
         questions,
@@ -109,7 +85,8 @@ const QuizPageContainer = ({ children }) => {
         ethnicities,
         handleChange,
         handleClick,
-        testTakerOptions
+        testTakerOptions,
+        getQuestions
     };
 
     return React.cloneElement(children, { ...newProps });

@@ -5,6 +5,7 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
+import { getQuestions } from "../../services/questionsService";
 
 
 const Quizpage = ({
@@ -18,7 +19,8 @@ const Quizpage = ({
     ethnicities,
     handleChange,
     handleClick,
-    testTakerOptions
+    testTakerOptions,
+    getQuestions
 }) => {
     //const requiredFields = [["age", "gender", "ethnicity"], ["jaundice", "testTaker", "familyConnection"]];
 
@@ -30,6 +32,7 @@ const Quizpage = ({
                     handleChange={handleChange}
                     handleClick={handleClick}
                     details={questionAnswers.details}
+                    getQuestions={getQuestions}
                 />
             )}
             {currentQuestion == 1 && (
