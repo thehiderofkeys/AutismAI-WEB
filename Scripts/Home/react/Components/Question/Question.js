@@ -28,7 +28,9 @@ const Question = ({ question, answerOptions, handleChange, questionAnswers, curr
                             }}
                             key={`${question.name}-option-${i}`}
                         >
-                            <Label check className="ml-4">
+                            <Label check className="ml-4" style={{
+                                width: "100%"
+                            }}>
                                 <Input
                                     type="radio"
                                     onChange={onClick}
