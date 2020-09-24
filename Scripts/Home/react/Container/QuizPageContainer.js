@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
-    categories,
     getQuestions as getQuestionsRequest,
     getTestTakerOptions,
     getEthnicity
 } from "../services/questionsService";
 
 const QuizPageContainer = ({ children }) => {
-    // Any variables or methods declared in newProps will be passed through to children
-    // components as declared in frontpage.jsx
 
     const [questionAnswers, setQuestionAnswers] = useState({
         details: { userAge: "", ethnicity: "", gender: "", testTaker: "" },
@@ -51,7 +48,6 @@ const QuizPageContainer = ({ children }) => {
         if (currentQuestion > 0) {
             setCurrentQuestion(currentQuestion - 1);
         }
-        console.log(questionAnswers);
     };
 
     const handleChange = (event) => {
