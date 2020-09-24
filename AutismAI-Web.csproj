@@ -164,6 +164,7 @@
     <Content Include="Scripts\Home\react\Pages\QuizPage\QuizPage.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\styles.module.css" />
     <Content Include="Scripts\Home\react\routes\paths.js" />
+    <Content Include="Scripts\Home\react\services\questionsService.js" />
     <Content Include="Scripts\Home\react\util\helpers.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
@@ -186,7 +187,7 @@
     <Content Include="package.json" />
     <None Include="packages.config" />
     <Content Include="Views\React\Index.cshtml" />
-    <Content Include="Questions\questions.json" />
+    <None Include="Questions\questions.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

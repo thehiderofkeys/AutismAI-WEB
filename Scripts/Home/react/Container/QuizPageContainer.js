@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { categories, getQuestions } from "../services/questionsService";
 
 const QuizPageContainer = ({ children }) => {
     // Any variables or methods declared in newProps will be passed through to children
@@ -9,6 +10,11 @@ const QuizPageContainer = ({ children }) => {
         answers: {}
     });
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [questions, setQuestions] = useState({});
+
+    useEffect(() => {
+        setQuestions(getQuestions(categories.ADOLESCENT));
+    }, [])
 
     const handleQuestionAnswer = ({ question, answer }) => {
         setQuestionAnswers((prevQuestions) => {
@@ -19,7 +25,7 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleNextQuestion = () => {
-        if (currentQuestion < 3) {
+        if (currentQuestion < questions.length + 2) {
             setCurrentQuestion(currentQuestion + 1);
         }
         console.log(questionAnswers);
@@ -50,16 +56,16 @@ const QuizPageContainer = ({ children }) => {
         });
     };
 
-    const questions = [
-        {
-            name: "Question 1",
-            questionText: "This is question 1"
-        },
-        {
-            name: "Question 2",
-            questionText: "This is question 2"
-        }
-    ];
+    //const questions = [
+    //    {
+    //        name: "Question 1",
+    //        questionText: "This is question 1"
+    //    },
+    //    {
+    //        name: "Question 2",
+    //        questionText: "This is question 2"
+    //    }
+    //];
 
     const ethnicities = [
         "",
