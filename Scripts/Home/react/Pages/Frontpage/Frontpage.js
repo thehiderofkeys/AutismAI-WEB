@@ -259,6 +259,12 @@ const Frontpage = ({
                                             Toddlers (Q-CHAT-10) ASD screening methods proposed by
                                             Allison et al.
                                         </DetailDescription>
+                                        <Link to={paths.DASHBOARD}>
+                                            <Button color="primary" className="mt-3">
+                                                More Stats
+                                            </Button>
+                                        </Link>
+
                                     </CardBody>
                                 </Card>
                             </Collapse>
@@ -335,7 +341,7 @@ const Frontpage = ({
                 </DetailContainer>
             </BackgroundImage>
 
-            <HeaderTop>
+            {/*<HeaderTop>
                 <Container>
                     <Row>
                         <Col className="col-12 col-lg-6 order-1 order-lg-2 d-flex justify-content-center">
@@ -493,7 +499,7 @@ const Frontpage = ({
                         </Col>
                     </Row>
                 </Container>
-            </HeaderTop>
+            </HeaderTop>*/}
 
             <HeaderBottom className="text-center">
                 <Container>
