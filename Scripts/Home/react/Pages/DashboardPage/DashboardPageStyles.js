@@ -31,3 +31,25 @@ export const GraphCol = styled.div`
   text-align: center;
   margin: 50px 0 50px 0;
 `;
+
+export const TestsTaken = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 50px 50px 50px;
+`;
+
+export const SmallSubTitle = styled.div`
+  font-size: 12px;
+`;
+
+export const TotalTestsNumber = styled.div`
+  font-size: 35px;
+`;
+
+export const GraphContainer = styled.div`
+  background-color: rgba(50,50,50,0.1);
+  padding: 10px 10px 10px 10px;
+`;

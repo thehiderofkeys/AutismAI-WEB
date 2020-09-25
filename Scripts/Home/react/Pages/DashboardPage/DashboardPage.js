@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GraphTitle, DashboardContainer, SubTitle, GraphCol } from "./DashboardPageStyles";
+import { GraphTitle, DashboardContainer, SubTitle, GraphCol, TestsTaken, SmallSubTitle, TotalTestsNumber, GraphContainer } from "./DashboardPageStyles";
+import { HeaderText } from "../Frontpage/frontpageStyles";
 import { PieChart, Pie, Tooltip, Cell, Label, Legend } from "recharts";
 import {
     Row,
@@ -18,9 +19,9 @@ import {
 
 const ageColor = ["#9ac90f", "#fcba03", "#0088FE", "#d45517"];
 const genderColor = ["#9ac90f", "#fcba03"];
-const accuracyColor = ["#9ac90f", "#ffffff"];
-const sensitivityColor = ["#0088FE", "#ffffff"];
-const specificityColor = ["#d45517", "#ffffff"];
+const accuracyColor = ["#9ac90f", "rgba(0,0,0,0.1)"];
+const sensitivityColor = ["#0088FE", "rgba(0,0,0,0.1)"];
+const specificityColor = ["#d45517", "rgba(0,0,0,0.1)"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const Dashboardpage = ({ handleChange, dashboardStats }) => {
@@ -57,14 +58,14 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
 
     return (
         <DashboardContainer>
-            <SubTitle>Autism AI Statistics</SubTitle>
-            <SubTitle>Total Tests Conducted: {dashboardStats.total_participants}</SubTitle>
+            <HeaderText>Autism AI Statistics</HeaderText>
             <Row>
                 <Col className="d-flex justify-content-center mb-5">
                     <div>
+                        <GraphTitle>Age Distrubution</GraphTitle>
                         <PieChart width={370} height={200}>
                             <Tooltip cursor={false} />
-                            <Legend verticalAlign="top" height={36} />
+                            {/*<Legend layout="vertical" align="left" verticalAlign="middle" />*/}
                             <Pie
                                 data={age}
                                 cx={180}
@@ -75,16 +76,22 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                 label
                             >
                                 {age.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={ageColor[index % COLORS.length]} />
+                                    <Cell key={`cell-${index}`}
+                                        fill={ageColor[index % COLORS.length]}
+                                        stroke={`rgba(0,0,0,0)`}
+                                    />
                                 ))}
                             </Pie>
                         </PieChart>
-                        <GraphTitle>Age Distrubution Graph</GraphTitle>
                     </div>
+                    <TestsTaken>
+                        <SmallSubTitle>Total Tests</SmallSubTitle>
+                        <TotalTestsNumber>{dashboardStats.total_participants}</TotalTestsNumber>
+                    </TestsTaken>
                     <div>
+                        <GraphTitle>Gender Distribution</GraphTitle>
                         <PieChart width={370} height={200}>
                             <Tooltip cursor={false} />
-                            <Legend verticalAlign="top" height={36} />
                             <Pie
                                 data={gender}
                                 cx={180}
@@ -95,18 +102,20 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                 label
                             >
                                 {gender.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={genderColor[index % COLORS.length]} />
+                                    <Cell key={`cell-${index}`}
+                                        fill={genderColor[index % COLORS.length]}
+                                        stroke={`rgba(0,0,0,0)`}
+                                    />
                                 ))}
                             </Pie>
                         </PieChart>
-                        <GraphTitle>Gender Distribution</GraphTitle>
                     </div>
                 </Col>
             </Row>
             <Container>
                 <Row>
                     <Col className="d-flex justify-content-center mb-5">
-                        <div>
+                        <GraphContainer>
                             <PieChart width={370} height={200}>
                                 <Tooltip cursor={false} />
                                     <Pie
@@ -122,14 +131,15 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                             <Cell
                                                 key={`cell-${index}`}
                                                 fill={accuracyColor[index % COLORS.length]}
+                                                stroke={`rgba(0,0,0,0)`}
                                             />
                                         ))}
-                                        <Label value="Accuracy" position="center" />
+                                    <Label value={accuracy[0].value} position="center" />
                                     </Pie>
                                 </PieChart>
                                 <GraphTitle>Accuracy vs Concentional Sceening</GraphTitle>
-                            </div>
-                            <div>
+                        </GraphContainer>
+                        <GraphContainer>
                             <PieChart width={370} height={200}>
                                 <Tooltip cursor={false} />
                                     <Pie
@@ -144,15 +154,16 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                         {sensitivity.map((entry, index) => (
                                             <Cell
                                                 key={`cell-${index}`}
-                                                fill={specificityColor[index % COLORS.length]}
+                                                fill={sensitivityColor[index % COLORS.length]}
+                                                stroke={`rgba(0,0,0,0)`}
                                             />
                                         ))}
-                                        <Label value="Sensitivity" position="center" />
+                                        <Label value={sensitivity[0].value} position="center" />
                                     </Pie>
                                 </PieChart>
                                 <GraphTitle>Sensitivity vs Concentional Sceening</GraphTitle>
-                            </div>
-                            <div>
+                            </GraphContainer>
+                            <GraphContainer>
                             <PieChart width={370} height={200}>
                                 <Tooltip cursor={false}/>
                                     <Pie
@@ -167,18 +178,18 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                         {specificity.map((entry, index) => (
                                             <Cell
                                                 key={`cell-${index}`}
-                                                fill={sensitivityColor[index % COLORS.length]}
+                                                fill={specificityColor[index % COLORS.length]}
+                                                stroke={`rgba(0,0,0,0)`}
                                             />
                                         ))}
-                                        <Label value="Specificity" position="center" />
+                                    <Label value={specificity[0].value} position="center" />
                                     </Pie>
                                 </PieChart>
                                 <GraphTitle>Specificity vs Concentional Sceening</GraphTitle>
-                            </div>
+                            </GraphContainer>
                     </Col>
                 </Row>
             </Container>
-            <p>btw tool tips / additional info for each graph </p>
         </DashboardContainer>
     );
 };
