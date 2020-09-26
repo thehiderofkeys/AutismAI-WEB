@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import {
     Row,
     Col,
@@ -8,7 +8,8 @@ import {
     legend,
     Input,
     ButtonGroup,
-    Button
+    Button,
+    Tooltip
 } from "reactstrap";
 import { isAllowedNumericInput } from "../../util/helpers";
 
@@ -20,6 +21,11 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick, getQuestions
             handleChange(event);
         }
     };
+
+
+    const [tooltipOpen, setTooltipOpen] = useState(false);
+
+    const toggle = () => setTooltipOpen(!tooltipOpen);
 
     return (
         <Container className="d-flex justify-content-center">
@@ -69,13 +75,38 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick, getQuestions
                     </Input>
 
                     <legend>Age</legend>
-                    <Input
-                        type="textbox"
-                        name="userAge"
-                        id="exampleText"
-                        onChange={checkIsNumber}
-                        value={details.userAge}
-                    />
+                    <Col className="d-flex" style={{
+                        paddingLeft: "0px",
+                        paddingRight: "0px"
+                    }}>
+                        <Input
+                            type="textbox"
+                            name="userAge"
+                            id="exampleText"
+                            onChange={checkIsNumber}
+                            value={details.userAge}
+                        />
+                        <Input
+                            type="select"
+                            name="months-or-years"
+                            id="monthsOrYearsSelect"
+                            onChange={handleChange}
+                            value={details.monthsOrYears}
+                            style={{
+                                maxWidth: "25%",
+                                paddingRight:"15px"
+                            }}
+                        >
+                            {["Years","Months"].map((option, i) => (
+                                <option key={`months-or-years-option-${i}`}>{option}</option>
+                                
+                            ))}
+                            <Tooltip placement="right" isOpen={tooltipOpen} target="monthsOrYearsSelect" toggle={toggle}>
+                                Select months for todlers upto 36 months and years otherwise
+                            </Tooltip>
+                        </Input>
+                    </Col>
+
                 </FormGroup>
             </Col>
         </Container>
