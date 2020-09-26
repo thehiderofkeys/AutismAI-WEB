@@ -386,7 +386,6 @@ const Frontpage = ({
                         </Row>
                     </Container>
                 </HeaderBottom>
-                 </HeaderTop>*/}
                                     
                 <HeaderTop>
                     <Container>
@@ -482,7 +481,8 @@ const Frontpage = ({
                             </Col>
                         </Row>
                     </Container>
-                </HeaderTop>
+                 </HeaderTop>*/}
+
 
                 <HeaderBottom className="text-center">
                     <Container>
