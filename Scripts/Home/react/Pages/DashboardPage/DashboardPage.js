@@ -63,7 +63,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                 <Col className="d-flex justify-content-center mb-5">
                     <div>
                         <GraphTitle>Age Distrubution</GraphTitle>
-                        <PieChart width={370} height={200}>
+                        <PieChart width={370} height={250}>
                             <Tooltip cursor={false} />
                             {/*<Legend layout="vertical" align="left" verticalAlign="middle" />*/}
                             <Pie
@@ -74,6 +74,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                 fill="#8884d8"
                                 dataKey="value"
                                 label
+                                isAnimationActive={false}
                             >
                                 {age.map((entry, index) => (
                                     <Cell key={`cell-${index}`}
@@ -90,7 +91,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     </TestsTaken>
                     <div>
                         <GraphTitle>Gender Distribution</GraphTitle>
-                        <PieChart width={370} height={200}>
+                        <PieChart width={370} height={250}>
                             <Tooltip cursor={false} />
                             <Pie
                                 data={gender}
@@ -100,6 +101,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                 fill="#8884d8"
                                 dataKey="value"
                                 label
+                                isAnimationActive={false}
                             >
                                 {gender.map((entry, index) => (
                                     <Cell key={`cell-${index}`}
