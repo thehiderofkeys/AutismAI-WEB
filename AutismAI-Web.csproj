@@ -140,7 +140,6 @@
     <Content Include="Scripts\Home\react\Components\Profile\ProfileStyles.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
-    <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\QuizPageContainer.js" />
@@ -150,8 +149,6 @@
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\frontpageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
@@ -160,6 +157,8 @@
     <Content Include="Scripts\Home\react\Pages\QuizPage\QuizPage.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\styles.module.css" />
     <Content Include="Scripts\Home\react\routes\paths.js" />
+    <Content Include="Scripts\Home\react\services\ApiRoutes.js" />
+    <Content Include="Scripts\Home\react\services\DashboardStatsService.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\Home\react\Pages\PeoplePage\index.js" />
@@ -170,6 +169,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\MetricController.cs" />
     <Compile Include="Controllers\ReactController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -198,7 +198,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\Home\react\Pages\PeoplePage\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
