@@ -141,7 +141,7 @@ const Frontpage = ({
                         </Col>
                     </Row>
                 </Container>
-
+            
                 <Container>
                     <Row>
                         <Col className="d-flex justify-content-center mb-5">
@@ -323,7 +323,7 @@ const Frontpage = ({
                     </DetailContainer>
                 </BackgroundImage>
 
-                <HeaderTop>
+                {/*<HeaderTop>
                     <Container>
                         <Row>
                             <Col className="col-12 col-lg-6 order-1 order-lg-2 d-flex justify-content-center">
@@ -386,7 +386,8 @@ const Frontpage = ({
                         </Row>
                     </Container>
                 </HeaderBottom>
-
+                 </HeaderTop>*/}
+                                    
                 <HeaderTop>
                     <Container>
                         <Row>
