@@ -1,4 +1,5 @@
 ﻿import styled from 'styled-components';
+import {Card, CardBody, Container, CardTitle} from 'reactstrap';
 
 export const DashboardContainer = styled.div`
   width: 100%;
@@ -53,3 +54,21 @@ export const GraphContainer = styled.div`
   background-color: rgba(50,50,50,0.1);
   padding: 10px 10px 10px 10px;
 `;
+
+export const StatsCard = styled(Card)`
+ border-radius: 15px;
+ box-shadow: 5px 5px 20px lightgray;
+ height: 100%;
+`
+export const StatsCardBody = styled(CardBody)`
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction:column;
+`
+
+export const StatsCardTitle = styled(CardTitle)`  
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: bold;
+`
