@@ -7,7 +7,6 @@ import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
 import { getQuestions } from "../../services/questionsService";
 
-
 const Quizpage = ({
     handleQuestionAnswer,
     questions,
@@ -22,8 +21,6 @@ const Quizpage = ({
     testTakerOptions,
     getQuestions
 }) => {
-    //const requiredFields = [["age", "gender", "ethnicity"], ["jaundice", "testTaker", "familyConnection"]];
-
     return (
         <div className={styles["test"]}>
             {currentQuestion == 0 && (
@@ -46,7 +43,7 @@ const Quizpage = ({
             {currentQuestion > 1 && (
                 <Question
                     question={questions[currentQuestion - 2]}
-                    answerOptions={answerOptions}
+                    //answerOptions={answerOptions}
                     handleChange={handleQuestionAnswer}
                     questionAnswers={questionAnswers.answers}
                     currentQuestion={currentQuestion}
@@ -58,7 +55,6 @@ const Quizpage = ({
                 handlePrevQuestion={handlePrevQuestion}
                 currentQuestion={currentQuestion}
             />
-
         </div>
     );
 };

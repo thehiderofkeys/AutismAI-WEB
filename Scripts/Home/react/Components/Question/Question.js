@@ -1,22 +1,23 @@
 ﻿import React from "react";
 import { Row, Col, Container, FormGroup, Label, legend, Input } from "reactstrap";
 
-const Question = ({ question, answerOptions, handleChange, questionAnswers, currentQuestion }) => {
+const Question = ({ question, handleChange, questionAnswers, currentQuestion }) => {
     const onClick = (event) => {
         handleChange({ question: question.name, answer: event.target.value });
     };
 
     return (
         <Container className="d-flex justify-content-center">
-
-            <Col style={{
-                maxWidth: "50%",
-                backgroundColor: '#ebf0ff',
-                borderRadius: '15px'
-            }}>
+            <Col
+                style={{
+                    maxWidth: "50%",
+                    backgroundColor: "#ebf0ff",
+                    borderRadius: "15px"
+                }}
+            >
                 <FormGroup tag="fieldset">
                     <legend>{question.questionText}</legend>
-                    {answerOptions.map((option, i) => (
+                    {question.answerSet.map((option, i) => (
                         <Row
                             className="mt-3 border rounded d-flex justify-content-left"
                             style={{
@@ -24,13 +25,17 @@ const Question = ({ question, answerOptions, handleChange, questionAnswers, curr
                                 height: "calc(1.5em + .75rem + 2px)",
                                 padding: ".375rem .75rem",
                                 marginLeft: "0",
-                                backgroundColor: '#fff'
+                                backgroundColor: "#fff"
                             }}
                             key={`${question.name}-option-${i}`}
                         >
-                            <Label check className="ml-4" style={{
-                                width: "100%"
-                            }}>
+                            <Label
+                                check
+                                className="ml-4"
+                                style={{
+                                    width: "100%"
+                                }}
+                            >
                                 <Input
                                     type="radio"
                                     onChange={onClick}

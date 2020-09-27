@@ -7,7 +7,7 @@ import {
 
 const QuizPageContainer = ({ children }) => {
     const [questionAnswers, setQuestionAnswers] = useState({
-        details: { userAge: "", ethnicity: "", gender: "", testTaker: "" },
+        details: { userAge: "", ethnicity: "", gender: "", testTaker: "", monthsOrYears: "Years" },
         answers: {}
     });
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -21,8 +21,11 @@ const QuizPageContainer = ({ children }) => {
     }, []);
 
     const getQuestions = () => {
+        const { details } = questionAnswers;
         if (questionAnswers.details.userAge) {
-            setQuestions(getQuestionsRequest(parseInt(questionAnswers.details.userAge)));
+            setQuestions(
+                getQuestionsRequest({ age: parseInt(details.userAge), unit: details.monthsOrYears })
+            );
         }
     };
 
@@ -43,6 +46,8 @@ const QuizPageContainer = ({ children }) => {
         if (currentQuestion < questions.length + 2) {
             setCurrentQuestion(currentQuestion + 1);
         }
+
+        console.log(questionAnswers);
     };
 
     const handlePrevQuestion = () => {
@@ -69,11 +74,8 @@ const QuizPageContainer = ({ children }) => {
         });
     };
 
-    const answerOptions = ["Very Easy", "Quite Easy", "Very Difficult", "Impossible"];
-
     const newProps = {
         questions,
-        answerOptions,
         handleQuestionAnswer,
         handleNextQuestion,
         handlePrevQuestion,
