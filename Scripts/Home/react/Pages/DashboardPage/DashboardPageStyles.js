@@ -1,14 +1,12 @@
 ﻿import styled from 'styled-components';
+import {Card, CardBody, Container, CardTitle} from 'reactstrap';
 
-export const DashboardContainer = styled.div`
+export const DashboardContainer = styled(Container)`
   width: 100%;
   margin-top: 150px;
   margin-bottom: 200px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
 `;
 
 export const SubTitle = styled.div`
@@ -50,6 +48,30 @@ export const TotalTestsNumber = styled.div`
 `;
 
 export const GraphContainer = styled.div`
-  background-color: rgba(50,50,50,0.1);
   padding: 10px 10px 10px 10px;
 `;
+
+export const StatsCard = styled(Card)`
+ border-radius: 15px;
+ box-shadow: 3px 3px 10px lightgray;
+ height: 100%;
+`
+export const StatsCardBody = styled(CardBody)`
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction:column;
+`
+
+export const StatsCardTitle = styled(CardTitle)`  
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: bold;
+`
+
+export const StatsCardColumn = styled.div`
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction:column;
+`
