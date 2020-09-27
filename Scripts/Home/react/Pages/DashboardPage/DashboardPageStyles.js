@@ -53,7 +53,7 @@ export const GraphContainer = styled.div`
 
 export const StatsCard = styled(Card)`
  border-radius: 15px;
- box-shadow: 5px 5px 20px lightgray;
+ box-shadow: 3px 3px 10px lightgray;
  height: 100%;
 `
 export const StatsCardBody = styled(CardBody)`
