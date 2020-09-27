@@ -1,16 +1,94 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {
+    getQuestions as getQuestionsRequest,
+    getTestTakerOptions,
+    getEthnicity
+} from "../services/questionsService";
 
 const QuizPageContainer = ({ children }) => {
-  // Any variables or methods declared in newProps will be passed through to children
-  // components as declared in frontpage.jsx
+    const [questionAnswers, setQuestionAnswers] = useState({
+        details: { userAge: "", ethnicity: "", gender: "", testTaker: "", monthsOrYears: "Years" },
+        answers: {}
+    });
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [questions, setQuestions] = useState({});
+    const [ethnicities, setEthnicities] = useState([]);
+    const [testTakerOptions, setTestTakerOptions] = useState([]);
 
-  const handleChange = () => {
-    console.log("handleChange");
-  };
+    useEffect(() => {
+        setEthnicities(getEthnicity);
+        setTestTakerOptions(getTestTakerOptions);
+    }, []);
 
-  const newProps = { handleChange };
+    const getQuestions = () => {
+        const { details } = questionAnswers;
+        if (questionAnswers.details.userAge) {
+            setQuestions(
+                getQuestionsRequest({ age: parseInt(details.userAge), unit: details.monthsOrYears })
+            );
+        }
+    };
 
-  return React.cloneElement(children, { ...newProps });
+    const handleQuestionAnswer = ({ question, answer }) => {
+        setQuestionAnswers((prevQuestions) => {
+            const newQuestions = { ...prevQuestions };
+            newQuestions.answers[question] = answer;
+            return newQuestions;
+        });
+    };
+
+    const handleNextQuestion = () => {
+        if (currentQuestion == 0) {
+            setCurrentQuestion(currentQuestion + 1);
+            getQuestions();
+        }
+
+        if (currentQuestion < questions.length + 2) {
+            setCurrentQuestion(currentQuestion + 1);
+        }
+
+        console.log(questionAnswers);
+    };
+
+    const handlePrevQuestion = () => {
+        if (currentQuestion > 0) {
+            setCurrentQuestion(currentQuestion - 1);
+        }
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setQuestionAnswers((prevQuestions) => {
+            const newQuestions = { ...prevQuestions };
+            newQuestions.details[name] = value;
+            return newQuestions;
+        });
+    };
+
+    const handleClick = (name, event) => {
+        const { value } = event.target;
+        setQuestionAnswers((prevQuestions) => {
+            const newQuestions = { ...prevQuestions };
+            newQuestions.details[name] = value;
+            return newQuestions;
+        });
+    };
+
+    const newProps = {
+        questions,
+        handleQuestionAnswer,
+        handleNextQuestion,
+        handlePrevQuestion,
+        currentQuestion,
+        questionAnswers,
+        ethnicities,
+        handleChange,
+        handleClick,
+        testTakerOptions,
+        getQuestions
+    };
+
+    return React.cloneElement(children, { ...newProps });
 };
 
 export default QuizPageContainer;
