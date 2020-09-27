@@ -11,9 +11,9 @@ import {
 
 const ageColor = ["#9ac90f", "#fcba03", "#0088FE", "#d45517"];
 const genderColor = ["#9ac90f", "#fcba03"];
-const accuracyColor = ["#9ac90f", "rgba(0,0,0,0.1)"];
-const sensitivityColor = ["#0088FE", "rgba(0,0,0,0.1)"];
-const specificityColor = ["#d45517", "rgba(0,0,0,0.1)"];
+const accuracyColor = ["#9ac90f", "rgba(0,0,0,0)"];
+const sensitivityColor = ["#0088FE", "rgba(0,0,0,0)"];
+const specificityColor = ["#d45517", "rgba(0,0,0,0)"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const Dashboardpage = ({ handleChange, dashboardStats }) => {
