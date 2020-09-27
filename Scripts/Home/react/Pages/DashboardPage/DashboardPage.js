@@ -50,7 +50,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
 
     return (
         <DashboardContainer>
-            <HeaderText>Autism AI Statistics</HeaderText>
+            <HeaderText>Dashboard</HeaderText>
             <Row>
                 <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
                     <StatsCard>
