@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GraphTitle, DashboardContainer, TotalTestsNumber, StatsCard,  StatsCardBody, StatsCardTitle } from "./DashboardPageStyles";
+import { GraphTitle, DashboardContainer, TotalTestsNumber, StatsCard,  StatsCardBody, StatsCardTitle, StatsCardColumn} from "./DashboardPageStyles";
 import { HeaderText } from "../Frontpage/frontpageStyles";
 import { PieChart, Pie, Tooltip, Cell, Label} from "recharts";
 import {
@@ -76,7 +76,25 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                <Col className='col-12 d-none d-xl-block mb-4 order-2'>
+                    <StatsCard>
+                        <StatsCardBody style={{flexDirection:'row', justifyContent:'space-between'}}>
+                            <StatsCardColumn>
+                                <StatsCardTitle>Accuracy vs Concentional Sceening</StatsCardTitle>
+                                <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value}/>
+                            </StatsCardColumn>
+                            <StatsCardColumn>
+                                <StatsCardTitle>Sensitivity vs Concentional Sceening</StatsCardTitle>
+                                <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value}/>
+                            </StatsCardColumn>
+                            <StatsCardColumn>
+                                <StatsCardTitle>Specificity vs Concentional Sceening</StatsCardTitle>
+                                <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value}/>
+                            </StatsCardColumn>
+                        </StatsCardBody>
+                    </StatsCard>
+                </Col>
+                <Col className='col-12 d-block d-xl-none col-md-6 col-xl-4 mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Accuracy vs Concentional Sceening</StatsCardTitle>
@@ -84,7 +102,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                <Col className='col-12 d-block d-xl-none col-md-6 col-xl-4 mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Sensitivity vs Concentional Sceening</StatsCardTitle>
@@ -92,7 +110,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                <Col className='col-12 d-block d-xl-none col-md-6 col-xl-4 mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Specificity vs Concentional Sceening</StatsCardTitle>
