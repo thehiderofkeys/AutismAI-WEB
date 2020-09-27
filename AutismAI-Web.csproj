@@ -154,6 +154,7 @@
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPageStyles.js" />
+    <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\frontpageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
