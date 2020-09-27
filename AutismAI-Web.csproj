@@ -135,6 +135,8 @@
     <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
     <Content Include="Scripts\Home\react\Components\Header\header.js" />
     <Content Include="Scripts\Home\react\Components\Header\headerStyle.js" />
+    <Content Include="Scripts\Home\react\Components\Loading\Loading.js" />
+    <Content Include="Scripts\Home\react\Components\Loading\LoadingStyles.js" />
     <Content Include="Scripts\Home\react\Components\Profile\ProfileDescription.js" />
     <Content Include="Scripts\Home\react\Components\Profile\Profile.js" />
     <Content Include="Scripts\Home\react\Components\Profile\ProfileStyles.js" />
