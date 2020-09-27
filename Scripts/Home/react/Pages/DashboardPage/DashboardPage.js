@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GraphTitle, DashboardContainer, SubTitle, GraphCol, TestsTaken, SmallSubTitle, TotalTestsNumber, GraphContainer } from "./DashboardPageStyles";
+import { GraphTitle, DashboardContainer, TotalTestsNumber, StatsCard,  StatsCardBody, StatsCardTitle } from "./DashboardPageStyles";
 import { HeaderText } from "../Frontpage/frontpageStyles";
 import { PieChart, Pie, Tooltip, Cell, Label} from "recharts";
 import {
@@ -52,69 +52,74 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
         <DashboardContainer>
             <HeaderText>Autism AI Statistics</HeaderText>
             <Row>
-                <Col className="d-flex justify-content-center mb-5">
-                    <div>
-                        <GraphTitle>Age Distrubution</GraphTitle>
-                        <PieChart width={370} height={250}>
-                            <Tooltip cursor={false} />
-                            {/*<Legend layout="vertical" align="left" verticalAlign="middle" />*/}
-                            <Pie
-                                data={age}
-                                cx={180}
-                                innerRadius={0}
-                                outerRadius={80}
-                                fill="#8884d8"
-                                dataKey="value"
-                                label
-                                isAnimationActive={false}
-                            >
-                                {age.map((entry, index) => (
-                                    <Cell key={`cell-${index}`}
-                                        fill={ageColor[index % COLORS.length]}
-                                        stroke={`rgba(0,0,0,0)`}
-                                    />
-                                ))}
-                            </Pie>
-                        </PieChart>
-                    </div>
-                    <TestsTaken>
-                        <SmallSubTitle>Total Tests Conducted</SmallSubTitle>
-                        <TotalTestsNumber>{dashboardStats.total_participants}</TotalTestsNumber>
-                    </TestsTaken>
-                    <div>
-                        <GraphTitle>Gender Distribution</GraphTitle>
-                        <PieChart width={370} height={250}>
-                            <Tooltip cursor={false} />
-                            <Pie
-                                data={gender}
-                                cx={180}
-                                innerRadius={0}
-                                outerRadius={80}
-                                fill="#8884d8"
-                                dataKey="value"
-                                label
-                                isAnimationActive={false}
-                            >
-                                {gender.map((entry, index) => (
-                                    <Cell key={`cell-${index}`}
-                                        fill={genderColor[index % COLORS.length]}
-                                        stroke={`rgba(0,0,0,0)`}
-                                    />
-                                ))}
-                            </Pie>
-                        </PieChart>
-                    </div>
+                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                    <StatsCard>
+                        <StatsCardBody>
+                            <StatsCardTitle>Age Distrubution</StatsCardTitle>
+                            <PieChart width={300} height={250}>
+                                <Tooltip cursor={false} />
+                                <Pie
+                                    data={age}
+                                    innerRadius={0}
+                                    outerRadius={80}
+                                    fill="#8884d8"
+                                    dataKey="value"
+                                    label
+                                    isAnimationActive={false}
+                                >
+                                    {age.map((entry, index) => (
+                                        <Cell key={`cell-${index}`}
+                                            fill={ageColor[index % COLORS.length]}
+                                            stroke={`rgba(0,0,0,0)`}
+                                        />
+                                    ))}
+                                </Pie>
+                            </PieChart>
+                        </StatsCardBody>
+                    </StatsCard>
                 </Col>
-            </Row>
-            <Container>
-                <Row>
-                    <Col className="d-flex justify-content-center mb-5">
-                        <GraphContainer>
-                            <PieChart width={370} height={200}>
+                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-1 order-xl-2'>
+                    <StatsCard>
+                        <StatsCardBody>
+                            <StatsCardTitle>Total Tests Conducted</StatsCardTitle>
+                            <TotalTestsNumber>{dashboardStats.total_participants}</TotalTestsNumber>
+                        </StatsCardBody>
+                    </StatsCard>
+                </Col>
+                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                    <StatsCard>
+                        <StatsCardBody>
+                            <StatsCardTitle>Gender Distribution</StatsCardTitle>
+                            <PieChart width={300} height={250}>
+                                <Tooltip cursor={false} />
+                                <Pie
+                                    data={gender}
+                                    innerRadius={0}
+                                    outerRadius={80}
+                                    fill="#8884d8"
+                                    dataKey="value"
+                                    label
+                                    isAnimationActive={false}
+                                >
+                                    {gender.map((entry, index) => (
+                                        <Cell key={`cell-${index}`}
+                                            fill={genderColor[index % COLORS.length]}
+                                            stroke={`rgba(0,0,0,0)`}
+                                        />
+                                    ))}
+                                </Pie>
+                            </PieChart>
+                        </StatsCardBody>
+                    </StatsCard>
+                </Col>
+                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                    <StatsCard>
+                        <StatsCardBody>
+                            <StatsCardTitle>Accuracy vs Concentional Sceening</StatsCardTitle>
+                            <PieChart width={300} height={250}>
                                 <Tooltip cursor={false} />
                                     <Pie
                                         data={accuracy}
-                                        cx={180}
                                         innerRadius={60}
                                         outerRadius={80}
                                         fill="#8884d8"
@@ -131,14 +136,17 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                     <Label value={accuracy[0].value} position="center" />
                                     </Pie>
                                 </PieChart>
-                                <GraphTitle>Accuracy vs Concentional Sceening</GraphTitle>
-                        </GraphContainer>
-                        <GraphContainer>
-                            <PieChart width={370} height={200}>
+                        </StatsCardBody>
+                    </StatsCard>
+                </Col>
+                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                    <StatsCard>
+                        <StatsCardBody>
+                            <StatsCardTitle>Sensitivity vs Concentional Sceening</StatsCardTitle>
+                            <PieChart width={300} height={250}>
                                 <Tooltip cursor={false} />
                                     <Pie
                                         data={sensitivity}
-                                        cx={180}
                                         innerRadius={60}
                                         outerRadius={80}
                                         fill="#8884d8"
@@ -155,14 +163,17 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                         <Label value={sensitivity[0].value} position="center" />
                                     </Pie>
                                 </PieChart>
-                                <GraphTitle>Sensitivity vs Concentional Sceening</GraphTitle>
-                            </GraphContainer>
-                            <GraphContainer>
-                            <PieChart width={370} height={200}>
+                        </StatsCardBody>
+                    </StatsCard>
+                </Col>
+                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-2'>
+                    <StatsCard>
+                        <StatsCardBody>
+                            <StatsCardTitle>Specificity vs Concentional Sceening</StatsCardTitle>
+                            <PieChart width={300} height={250}>
                                 <Tooltip cursor={false}/>
                                     <Pie
                                         data={specificity}
-                                        cx={180}
                                         innerRadius={60}
                                         outerRadius={80}
                                         fill="#8884d8"
@@ -179,11 +190,10 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                                     <Label value={specificity[0].value} position="center" />
                                     </Pie>
                                 </PieChart>
-                                <GraphTitle>Specificity vs Concentional Sceening</GraphTitle>
-                            </GraphContainer>
-                    </Col>
-                </Row>
-            </Container>
+                        </StatsCardBody>
+                    </StatsCard>
+                </Col>
+            </Row>
         </DashboardContainer>
     );
 };
