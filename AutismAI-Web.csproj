@@ -130,6 +130,7 @@
     <Content Include="Images\TeamPhotos\Yinhu.png" />
     <Content Include="Images\wave.svg" />
     <Content Include="Images\waveBottom.svg" />
+    <Content Include=".prettierrc.js" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
@@ -142,6 +143,11 @@
     <Content Include="Scripts\Home\react\Components\Question\QuestionStyle.js" />
     <Content Include="Scripts\Home\react\Components\StepOne\StepOne.js" />
     <Content Include="Scripts\Home\react\Components\StepTwo\StepTwo.js" />
+    <Content Include="Scripts\Home\react\Components\Loading\Loading.js" />
+    <Content Include="Scripts\Home\react\Components\Loading\LoadingStyles.js" />
+    <Content Include="Scripts\Home\react\Components\Profile\ProfileDescription.js" />
+    <Content Include="Scripts\Home\react\Components\Profile\Profile.js" />
+    <Content Include="Scripts\Home\react\Components\Profile\ProfileStyles.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
@@ -155,7 +161,7 @@
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\frontpageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
@@ -166,12 +172,19 @@
     <Content Include="Scripts\Home\react\routes\paths.js" />
     <Content Include="Scripts\Home\react\services\questionsService.js" />
     <Content Include="Scripts\Home\react\util\helpers.js" />
+    <Content Include="Scripts\Home\react\services\ApiRoutes.js" />
+    <Content Include="Scripts\Home\react\services\DashboardStatsService.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
+    <Content Include="Scripts\Home\react\Pages\PeoplePage\index.js" />
+    <Content Include="Scripts\Home\react\Container\PeoplePageContainer.js" />
+    <Content Include="Scripts\Home\react\Pages\PeoplePage\PeoplePage.js" />
+    <Content Include="Scripts\Home\react\Pages\PeoplePage\PeoplePageStyles.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\MetricController.cs" />
     <Compile Include="Controllers\ReactController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,6 +201,9 @@
     <None Include="packages.config" />
     <Content Include="Views\React\Index.cshtml" />
     <None Include="Questions\questions.json" />
+    <None Include="Properties\PublishProfiles\autism-ai - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\autism-ai - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\autism-ai - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -223,6 +239,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

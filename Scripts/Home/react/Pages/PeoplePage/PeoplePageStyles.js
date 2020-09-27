@@ -1,6 +1,6 @@
 ﻿import styled from 'styled-components';
 
-export const EmailContainer = styled.div`
+export const PeopleInfoContainer = styled.div`
   width: 100%;
   margin-top: 150px;
   margin-bottom: 200px;
@@ -24,13 +24,19 @@ export const EmailTitlesContainer = styled.div`
   text-align: center;
 `;
 
-export const TextContent = styled.div`
+export const NameHeading = styled.div`
     font-size: 20px;
     margin-bottom: 1em;
+    margin-top: 1em;
 `;
 
 
 export const LineDivider = styled.hr`
     width: 100%;
     colour: #e5e5e5;
+`;
+
+export const CenteredText = styled.div`
+    width: 80%;
+    margin-bottom: 50px;
 `;

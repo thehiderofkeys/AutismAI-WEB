@@ -3,5 +3,6 @@
     QUIZ: "/quiz",
     ADMIN: "/admin",
     DASHBOARD: "/dashboard",
-    CONTRIBUTIONS: "/about"
+    CONTRIBUTIONS: "/contribute",
+    PEOPLE: "/people"
 }

@@ -15,7 +15,7 @@ export const IconImage = styled.img`
   margin: 0 15px 0 0;
 `;
 
-export const SmallText = styled.a`
+export const SmallText = styled.span`
   text-decoration: none;
   font-size: 15px;
   color: white;
