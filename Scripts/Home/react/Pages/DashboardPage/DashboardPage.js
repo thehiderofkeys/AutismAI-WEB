@@ -106,7 +106,6 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
 };
 
 function StatsPieChart({dataMap,colorArray,labelValue,donut=false}){
-    console.log('hello');
     return(
         <PieChart width={300} height={250}>
             <Tooltip cursor={false} />
