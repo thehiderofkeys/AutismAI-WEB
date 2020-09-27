@@ -56,25 +56,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Age Distrubution</StatsCardTitle>
-                            <PieChart width={300} height={250}>
-                                <Tooltip cursor={false} />
-                                <Pie
-                                    data={age}
-                                    innerRadius={0}
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    dataKey="value"
-                                    label
-                                    isAnimationActive={false}
-                                >
-                                    {age.map((entry, index) => (
-                                        <Cell key={`cell-${index}`}
-                                            fill={ageColor[index % COLORS.length]}
-                                            stroke={`rgba(0,0,0,0)`}
-                                        />
-                                    ))}
-                                </Pie>
-                            </PieChart>
+                            <StatsPieChart colorArray={ageColor} dataMap={age}/>
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -90,25 +72,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Gender Distribution</StatsCardTitle>
-                            <PieChart width={300} height={250}>
-                                <Tooltip cursor={false} />
-                                <Pie
-                                    data={gender}
-                                    innerRadius={0}
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    dataKey="value"
-                                    label
-                                    isAnimationActive={false}
-                                >
-                                    {gender.map((entry, index) => (
-                                        <Cell key={`cell-${index}`}
-                                            fill={genderColor[index % COLORS.length]}
-                                            stroke={`rgba(0,0,0,0)`}
-                                        />
-                                    ))}
-                                </Pie>
-                            </PieChart>
+                            <StatsPieChart colorArray={genderColor} dataMap={gender}/>
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -116,26 +80,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Accuracy vs Concentional Sceening</StatsCardTitle>
-                            <PieChart width={300} height={250}>
-                                <Tooltip cursor={false} />
-                                    <Pie
-                                        data={accuracy}
-                                        innerRadius={60}
-                                        outerRadius={80}
-                                        fill="#8884d8"
-                                        dataKey="value"
-                                        label
-                                    >
-                                        {accuracy.map((entry, index) => (
-                                            <Cell
-                                                key={`cell-${index}`}
-                                                fill={accuracyColor[index % COLORS.length]}
-                                                stroke={`rgba(0,0,0,0)`}
-                                            />
-                                        ))}
-                                    <Label value={accuracy[0].value} position="center" />
-                                    </Pie>
-                                </PieChart>
+                            <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value}/>
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -143,26 +88,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Sensitivity vs Concentional Sceening</StatsCardTitle>
-                            <PieChart width={300} height={250}>
-                                <Tooltip cursor={false} />
-                                    <Pie
-                                        data={sensitivity}
-                                        innerRadius={60}
-                                        outerRadius={80}
-                                        fill="#8884d8"
-                                        dataKey="value"
-                                        label
-                                    >
-                                        {sensitivity.map((entry, index) => (
-                                            <Cell
-                                                key={`cell-${index}`}
-                                                fill={sensitivityColor[index % COLORS.length]}
-                                                stroke={`rgba(0,0,0,0)`}
-                                            />
-                                        ))}
-                                        <Label value={sensitivity[0].value} position="center" />
-                                    </Pie>
-                                </PieChart>
+                            <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value}/>
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -170,26 +96,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Specificity vs Concentional Sceening</StatsCardTitle>
-                            <PieChart width={300} height={250}>
-                                <Tooltip cursor={false}/>
-                                    <Pie
-                                        data={specificity}
-                                        innerRadius={60}
-                                        outerRadius={80}
-                                        fill="#8884d8"
-                                        dataKey="value"
-                                        label
-                                    >
-                                        {specificity.map((entry, index) => (
-                                            <Cell
-                                                key={`cell-${index}`}
-                                                fill={specificityColor[index % COLORS.length]}
-                                                stroke={`rgba(0,0,0,0)`}
-                                            />
-                                        ))}
-                                    <Label value={specificity[0].value} position="center" />
-                                    </Pie>
-                                </PieChart>
+                            <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value}/>
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -197,6 +104,32 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
         </DashboardContainer>
     );
 };
+
+function StatsPieChart({dataMap,colorArray,labelValue,donut=false}){
+    console.log('hello');
+    return(
+        <PieChart width={300} height={250}>
+            <Tooltip cursor={false} />
+            <Pie
+                data={dataMap}
+                innerRadius={donut?60:0}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+                label
+                isAnimationActive={donut}
+            >
+                {dataMap.map((entry, index) => (
+                    <Cell key={`cell-${index}`}
+                        fill={colorArray[index % colorArray.length]}
+                        stroke={`rgba(0,0,0,0)`}
+                    />
+                ))}
+                {donut?<Label value={labelValue} position="center" />:<></>}
+            </Pie>
+        </PieChart>
+    );
+}
 
 Dashboardpage.defaultProps = {
     handleChange: () => {}
