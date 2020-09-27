@@ -60,7 +60,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 col-md-6 col-xl-4 mb-4 order-1 order-xl-2'>
+                <Col className='col-12 col-xl-4 mb-4 order-1 order-xl-2'>
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Total Tests Conducted</StatsCardTitle>
@@ -76,7 +76,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 d-none d-xl-block mb-4 order-2'>
+                <Col className='col-12 d-none d-lg-block mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody style={{flexDirection:'row', justifyContent:'space-between'}}>
                             <StatsCardColumn>
@@ -94,7 +94,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 d-block d-xl-none col-md-6 col-xl-4 mb-4 order-2'>
+                <Col className='col-12 d-block d-lg-none col-md-6 mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Accuracy vs Concentional Sceening</StatsCardTitle>
@@ -102,7 +102,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 d-block d-xl-none col-md-6 col-xl-4 mb-4 order-2'>
+                <Col className='col-12 d-block d-lg-none col-md-6 mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Sensitivity vs Concentional Sceening</StatsCardTitle>
@@ -110,7 +110,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
-                <Col className='col-12 d-block d-xl-none col-md-6 col-xl-4 mb-4 order-2'>
+                <Col className='col-12 d-block d-lg-none mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Specificity vs Concentional Sceening</StatsCardTitle>
