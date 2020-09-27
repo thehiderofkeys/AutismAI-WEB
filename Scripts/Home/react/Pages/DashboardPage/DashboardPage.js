@@ -2,19 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { GraphTitle, DashboardContainer, SubTitle, GraphCol, TestsTaken, SmallSubTitle, TotalTestsNumber, GraphContainer } from "./DashboardPageStyles";
 import { HeaderText } from "../Frontpage/frontpageStyles";
-import { PieChart, Pie, Tooltip, Cell, Label, Legend } from "recharts";
+import { PieChart, Pie, Tooltip, Cell, Label} from "recharts";
 import {
     Row,
     Col,
     Container,
-    Collapse,
-    Button,
-    CardBody,
-    Card,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    ModalFooter
 } from "reactstrap";
 
 const ageColor = ["#9ac90f", "#fcba03", "#0088FE", "#d45517"];
