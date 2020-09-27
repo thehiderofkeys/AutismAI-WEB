@@ -42,7 +42,7 @@ export const TestsTaken = styled.div`
 `;
 
 export const SmallSubTitle = styled.div`
-  font-size: 12px;
+  font-size: 18px;
 `;
 
 export const TotalTestsNumber = styled.div`

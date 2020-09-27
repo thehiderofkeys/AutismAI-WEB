@@ -30,10 +30,10 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
     const specificityStats = Math.round(dashboardStats.Class_Vs_DNN_Specificity * 10000) / 100;
 
     const age = [
-        { name: "Adolescent", value: dashboardStats.no_adolescent_participants },
-        { name: "Child", value: dashboardStats.no_child_participants },
-        { name: "Baby", value: dashboardStats.no_child_participants },
-        { name: "Adult", value: dashboardStats.no_adult_participants }
+        { name: "Teen (11 to 16 years old)", value: dashboardStats.no_adolescent_participants },
+        { name: "Child (3 to 11 years old)", value: dashboardStats.no_child_participants },
+        { name: "Toddler (18 months to 3 years old)", value: dashboardStats.no_child_participants },
+        { name: "Adult (16 to 65 years old)", value: dashboardStats.no_adult_participants }
     ];
 
     const gender = [
@@ -86,7 +86,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         </PieChart>
                     </div>
                     <TestsTaken>
-                        <SmallSubTitle>Total Tests</SmallSubTitle>
+                        <SmallSubTitle>Total Tests Conducted</SmallSubTitle>
                         <TotalTestsNumber>{dashboardStats.total_participants}</TotalTestsNumber>
                     </TestsTaken>
                     <div>
