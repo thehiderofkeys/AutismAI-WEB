@@ -1,19 +1,28 @@
 ﻿import React, { useState } from "react";
 import {
-    Row,
     Col,
     Container,
     FormGroup,
-    Label,
-    legend,
     Input,
     ButtonGroup,
     Button,
-    Tooltip
+    Tooltip,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter
 } from "reactstrap";
 import { isAllowedNumericInput } from "../../util/helpers";
 
-const StepOne = ({ handleChange, details, ethnicities, handleClick, getQuestions }) => {
+const StepOne = ({
+    handleChange,
+    details,
+    ethnicities,
+    handleClick,
+    toggleRespondentAgeModal,
+    isAgeModalOpen,
+    handleAgeRespondentClick
+}) => {
     const checkIsNumber = (event) => {
         const val = event.target.value;
 
@@ -22,98 +31,122 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick, getQuestions
         }
     };
 
-    const [tooltipOpen, setTooltipOpen] = useState(false);
-
-    const toggle = () => setTooltipOpen(!tooltipOpen);
-
     return (
-        <Container className="d-flex justify-content-center">
-            <Col
-                style={{
-                    maxWidth: "50%",
-                    backgroundColor: "#ebf0ff",
-                    borderRadius: "15px"
-                }}
-            >
-                <FormGroup tag="fieldset">
-                    <legend>Gender</legend>
-                    <ButtonGroup>
+        <>
+            <div>
+                <Modal isOpen={isAgeModalOpen} toggle={toggleRespondentAgeModal}>
+                    <ModalHeader toggle={toggleRespondentAgeModal}>Respondent Age</ModalHeader>
+                    <ModalBody>
+                        <p>Are you taking the test for a toddler less than 36 months old?</p>
+                    </ModalBody>
+                    <ModalFooter>
                         <Button
-                            className="bg-white text-dark"
-                            style={{ border: "1px solid #ced4da" }}
-                            value={"Male"}
-                            onClick={(e) => {
-                                handleClick("gender", e);
+                            color="primary"
+                            onClick={() => {
+                                handleAgeRespondentClick(true);
                             }}
                         >
-                            Male
+                            Yes
                         </Button>
                         <Button
-                            className=" bg-white text-dark"
-                            style={{ border: "1px solid #ced4da" }}
-                            value={"Female"}
-                            onClick={(e) => {
-                                handleClick("gender", e);
+                            color="primary"
+                            onClick={() => {
+                                handleAgeRespondentClick(false);
                             }}
                         >
-                            Female
+                            No
                         </Button>
-                    </ButtonGroup>
+                    </ModalFooter>
+                </Modal>
+            </div>
+            <Container className="d-flex justify-content-center">
+                <Col
+                    style={{
+                        maxWidth: "50%",
+                        backgroundColor: "#ebf0ff",
+                        borderRadius: "15px"
+                    }}
+                >
+                    <FormGroup tag="fieldset">
+                        <legend>Gender</legend>
+                        <ButtonGroup>
+                            <Button
+                                className="bg-white text-dark"
+                                style={{ border: "1px solid #ced4da" }}
+                                value={"Male"}
+                                onClick={(e) => {
+                                    handleClick("gender", e);
+                                }}
+                            >
+                                Male
+                            </Button>
+                            <Button
+                                className=" bg-white text-dark"
+                                style={{ border: "1px solid #ced4da" }}
+                                value={"Female"}
+                                onClick={(e) => {
+                                    handleClick("gender", e);
+                                }}
+                            >
+                                Female
+                            </Button>
+                        </ButtonGroup>
 
-                    <legend>Ethnicity</legend>
-                    <Input
-                        type="select"
-                        name="ethnicity"
-                        id="exampleSelect"
-                        onChange={handleChange}
-                        value={details.ethnicity}
-                    >
-                        {ethnicities.map((option, i) => (
-                            <option key={`ethnicity-option-${i}`}>{option}</option>
-                        ))}
-                    </Input>
-
-                    <legend>Age</legend>
-                    <Col
-                        className="d-flex"
-                        style={{
-                            paddingLeft: "0px",
-                            paddingRight: "0px"
-                        }}
-                    >
-                        <Input
-                            type="textbox"
-                            name="userAge"
-                            onChange={checkIsNumber}
-                            value={details.userAge}
-                        />
+                        <legend>Ethnicity</legend>
                         <Input
                             type="select"
-                            name="monthsOrYears"
-                            id="monthsOrYearsSelect"
+                            name="ethnicity"
+                            id="exampleSelect"
                             onChange={handleChange}
-                            value={details.monthsOrYears}
+                            value={details.ethnicity}
+                        >
+                            {ethnicities.map((option, i) => (
+                                <option key={`ethnicity-option-${i}`}>{option}</option>
+                            ))}
+                        </Input>
+
+                        <legend>Age</legend>
+                        <Col
+                            className="d-flex"
                             style={{
-                                maxWidth: "25%",
-                                paddingRight: "15px"
+                                paddingLeft: "0px",
+                                paddingRight: "0px"
                             }}
                         >
-                            {["Years", "Months"].map((option, i) => (
-                                <option key={`months-or-years-option-${i}`}>{option}</option>
-                            ))}
-                            <Tooltip
-                                placement="right"
-                                isOpen={tooltipOpen}
-                                target="monthsOrYearsSelect"
-                                toggle={toggle}
+                            <Input
+                                type="textbox"
+                                name="userAge"
+                                onChange={checkIsNumber}
+                                value={details.userAge}
+                            />
+                            <Input
+                                type="select"
+                                name="monthsOrYears"
+                                id="monthsOrYearsSelect"
+                                onChange={handleChange}
+                                value={details.monthsOrYears}
+                                style={{
+                                    maxWidth: "25%",
+                                    paddingRight: "15px"
+                                }}
                             >
-                                Select months for todlers upto 36 months and years otherwise
-                            </Tooltip>
-                        </Input>
-                    </Col>
-                </FormGroup>
-            </Col>
-        </Container>
+                                {["Years", "Months"].map((option, i) => (
+                                    <option key={`months-or-years-option-${i}`}>{option}</option>
+                                ))}
+                                <Tooltip
+                                    placement="right"
+                                    isOpen={tooltipOpen}
+                                    target="monthsOrYearsSelect"
+                                    toggle={toggle}
+                                >
+                                    Select months for todlers upto 36 months and years otherwise
+                                </Tooltip>
+                            </Input>
+                        </Col>
+                    </FormGroup>
+                </Col>
+            </Container>
+        </>
     );
 };
 

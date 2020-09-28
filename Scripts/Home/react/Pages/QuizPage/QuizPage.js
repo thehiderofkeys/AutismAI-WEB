@@ -19,7 +19,10 @@ const Quizpage = ({
     handleChange,
     handleClick,
     testTakerOptions,
-    getQuestions
+    getQuestions,
+    toggleRespondentAgeModal,
+    isAgeModalOpen,
+    handleAgeRespondentClick
 }) => {
     return (
         <div className={styles["test"]}>
@@ -30,6 +33,9 @@ const Quizpage = ({
                     handleClick={handleClick}
                     details={questionAnswers.details}
                     getQuestions={getQuestions}
+                    toggleRespondentAgeModal={toggleRespondentAgeModal}
+                    isAgeModalOpen={isAgeModalOpen}
+                    handleAgeRespondentClick={handleAgeRespondentClick}
                 />
             )}
             {currentQuestion == 1 && (

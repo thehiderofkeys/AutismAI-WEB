@@ -14,6 +14,7 @@ const QuizPageContainer = ({ children }) => {
     const [questions, setQuestions] = useState({});
     const [ethnicities, setEthnicities] = useState([]);
     const [testTakerOptions, setTestTakerOptions] = useState([]);
+    const [isAgeModalOpen, setIsAgeModalOpen] = useState(true);
 
     useEffect(() => {
         const ethnicityResponse = getEthnicity();
@@ -25,6 +26,19 @@ const QuizPageContainer = ({ children }) => {
         setTestTakerOptions(testTakerResponse);
     }, []);
 
+    const toggleRespondentAgeModal = () => setIsAgeModalOpen(!isAgeModalOpen);
+
+    const handleAgeRespondentClick = (confirmation) => {
+        if (confirmation) {
+            setQuestionAnswers((prevAnswers) => {
+                const newAnswers = { ...prevAnswers };
+                newAnswers.details.monthsOrYears = "Months";
+                return newAnswers;
+            });
+        }
+        setIsAgeModalOpen(false);
+    };
+
     const getQuestions = () => {
         const { details } = questionAnswers;
         if (questionAnswers.details.userAge) {
@@ -35,10 +49,10 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleQuestionAnswer = ({ question, answer }) => {
-        setQuestionAnswers((prevQuestions) => {
-            const newQuestions = { ...prevQuestions };
-            newQuestions.answers[question] = answer;
-            return newQuestions;
+        setQuestionAnswers((prevAnswers) => {
+            const newAnswers = { ...prevAnswers };
+            newAnswers.answers[question] = answer;
+            return newAnswers;
         });
     };
 
@@ -88,7 +102,10 @@ const QuizPageContainer = ({ children }) => {
         handleChange,
         handleClick,
         testTakerOptions,
-        getQuestions
+        getQuestions,
+        toggleRespondentAgeModal,
+        isAgeModalOpen,
+        handleAgeRespondentClick
     };
 
     return React.cloneElement(children, { ...newProps });
