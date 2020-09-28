@@ -7,7 +7,7 @@ export const getDashboardStats = async () => {
             "Content-Type": "application/json"
         }
     }).then((response) => response.json());
-    return JSON.parse(res[0]);
+    return JSON.parse(res);
 };
 
 export default { getDashboardStats };

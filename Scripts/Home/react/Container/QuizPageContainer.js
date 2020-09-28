@@ -16,8 +16,13 @@ const QuizPageContainer = ({ children }) => {
     const [testTakerOptions, setTestTakerOptions] = useState([]);
 
     useEffect(() => {
-        setEthnicities(getEthnicity);
-        setTestTakerOptions(getTestTakerOptions);
+        const ethnicityResponse = getEthnicity();
+        ethnicityResponse.push("Others");
+        setEthnicities(ethnicityResponse);
+
+        const testTakerResponse = getTestTakerOptions();
+        testTakerResponse.push("Others");
+        setTestTakerOptions(testTakerResponse);
     }, []);
 
     const getQuestions = () => {
@@ -46,8 +51,6 @@ const QuizPageContainer = ({ children }) => {
         if (currentQuestion < questions.length + 2) {
             setCurrentQuestion(currentQuestion + 1);
         }
-
-        console.log(questionAnswers);
     };
 
     const handlePrevQuestion = () => {

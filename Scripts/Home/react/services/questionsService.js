@@ -76,12 +76,11 @@ export const getQuestions = ({ age, unit }) => {
 
 export const getEthnicity = () => {
     const ethnicities = questions.spinner_ethnicity_items.sort();
-    ethnicities.push("Others");
     return ethnicities;
 };
 
 export const getTestTakerOptions = () => {
-    const testTakerOptions = questions.spinner_user_items.sort();
-    testTakerOptions.push("Others");
+    let testTakerOptions = questions.spinner_user_items.sort();
+    console.log(testTakerOptions);
     return testTakerOptions;
 };
