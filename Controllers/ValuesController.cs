@@ -4,16 +4,31 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace AutismAI_Web.Controllers
 {
     public class ValuesController : ApiController
     {
+
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = await GetDashboardStats();
+
+            return new string[] { result };
         }
+
+        private async Task<string> GetDashboardStats()
+        {
+            var client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync("https://rshahamiri.pythonanywhere.com/metrics");
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadAsStringAsync();
+            return result;
+        }
+        
 
         // GET api/<controller>/5
         [HttpGet]
