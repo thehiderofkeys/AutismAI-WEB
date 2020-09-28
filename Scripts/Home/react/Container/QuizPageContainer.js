@@ -60,10 +60,10 @@ const QuizPageContainer = ({ children }) => {
         if (currentQuestion == 0) {
             setCurrentQuestion(currentQuestion + 1);
             getQuestions();
-        }
-
-        if (currentQuestion < questions.length + 2) {
+        } else if (currentQuestion < questions.length + 1) {
             setCurrentQuestion(currentQuestion + 1);
+        } else {
+            console.log("end");
         }
     };
 

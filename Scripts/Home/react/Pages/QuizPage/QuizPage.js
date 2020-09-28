@@ -10,7 +10,6 @@ import { getQuestions } from "../../services/questionsService";
 const Quizpage = ({
     handleQuestionAnswer,
     questions,
-    answerOptions,
     currentQuestion,
     handleNextQuestion,
     handlePrevQuestion,
@@ -24,6 +23,12 @@ const Quizpage = ({
     isAgeModalOpen,
     handleAgeRespondentClick
 }) => {
+    let isCurrentQuestionAnswered = true;
+
+    if (currentQuestion > 1) {
+        isCurrentQuestionAnswered = !!questionAnswers.answers[questions[currentQuestion - 2].name];
+    }
+
     return (
         <div className={styles["test"]}>
             {currentQuestion == 0 && (
@@ -49,7 +54,6 @@ const Quizpage = ({
             {currentQuestion > 1 && (
                 <Question
                     question={questions[currentQuestion - 2]}
-                    //answerOptions={answerOptions}
                     handleChange={handleQuestionAnswer}
                     questionAnswers={questionAnswers.answers}
                     currentQuestion={currentQuestion}
@@ -60,6 +64,7 @@ const Quizpage = ({
                 handleNextQuestion={handleNextQuestion}
                 handlePrevQuestion={handlePrevQuestion}
                 currentQuestion={currentQuestion}
+                disableNext={!isCurrentQuestionAnswered}
             />
         </div>
     );
