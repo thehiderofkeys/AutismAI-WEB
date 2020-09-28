@@ -12,6 +12,7 @@ import {
     ModalBody,
     ModalFooter
 } from "reactstrap";
+import { HelpCircle } from "react-feather";
 import { isAllowedNumericInput } from "../../util/helpers";
 
 const StepOne = ({
@@ -32,8 +33,10 @@ const StepOne = ({
     };
 
     const [tooltipOpen, setTooltipOpen] = useState(false);
-
     const toggle = () => setTooltipOpen(!tooltipOpen);
+
+    const [ageToolTip, setAgeToolTip] = useState(false);
+    const toggleAgeToolTip = () => setAgeToolTip(!ageToolTip);
 
     return (
         <>
@@ -109,7 +112,24 @@ const StepOne = ({
                             ))}
                         </Input>
 
-                        <legend>Age</legend>
+                        <legend>
+                            Age{" "}
+                            <HelpCircle
+                                style={{
+                                    marginBottom: "3px"
+                                }}
+                                size={20}
+                                id="ageHelp"
+                            />
+                            <Tooltip
+                                placement="right"
+                                isOpen={ageToolTip}
+                                target="ageHelp"
+                                toggle={toggleAgeToolTip}
+                            >
+                                Test Test Test
+                            </Tooltip>
+                        </legend>
                         <Col
                             className="d-flex"
                             style={{
