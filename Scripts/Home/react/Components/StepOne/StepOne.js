@@ -14,7 +14,15 @@ import {
 } from "reactstrap";
 import { isAllowedNumericInput } from "../../util/helpers";
 
-const StepOne = ({ handleChange, details, ethnicities, handleClick, toggleRespondentAgeModal, isAgeModalOpen, handleAgeRespondentClick }) => {
+const StepOne = ({
+    handleChange,
+    details,
+    ethnicities,
+    handleClick,
+    toggleRespondentAgeModal,
+    isAgeModalOpen,
+    handleAgeRespondentClick
+}) => {
     const checkIsNumber = (event) => {
         const val = event.target.value;
 
@@ -36,10 +44,20 @@ const StepOne = ({ handleChange, details, ethnicities, handleClick, toggleRespon
                         <p>Are you taking the test for a toddler less than 36 months old?</p>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={() => { handleAgeRespondentClick(true) }}>
+                        <Button
+                            color="primary"
+                            onClick={() => {
+                                handleAgeRespondentClick(true);
+                            }}
+                        >
                             Yes
                         </Button>
-                        <Button color="primary" onClick={() => { handleAgeRespondentClick(false) }}>
+                        <Button
+                            color="primary"
+                            onClick={() => {
+                                handleAgeRespondentClick(false);
+                            }}
+                        >
                             No
                         </Button>
                     </ModalFooter>

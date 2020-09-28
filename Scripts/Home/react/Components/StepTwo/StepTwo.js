@@ -12,8 +12,7 @@ import {
 } from "reactstrap";
 
 const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
-
-    let calculatedAge = details.userAge
+    let calculatedAge = details.userAge;
     let filteredOptions = testTakerOptions;
 
     if (details.monthsOrYears === "Months") {
@@ -21,14 +20,17 @@ const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
     }
 
     if (calculatedAge <= 7) {
-        filteredOptions = testTakerOptions.filter(option => (option !== "Self"));
+        filteredOptions = testTakerOptions.filter((option) => option !== "Self");
     }
     return (
         <Container className="d-flex justify-content-center">
-            <Col style={{
-                maxWidth: "50%",
-                backgroundColor: '#ebf0ff',
-                borderRadius: '15px'}}>
+            <Col
+                style={{
+                    maxWidth: "50%",
+                    backgroundColor: "#ebf0ff",
+                    borderRadius: "15px"
+                }}
+            >
                 <FormGroup tag="fieldset">
                     <legend>Were you born with jaundice?</legend>
                     <ButtonGroup>

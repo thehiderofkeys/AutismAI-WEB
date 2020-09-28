@@ -25,8 +25,19 @@ const Quizpage = ({
 }) => {
     let isCurrentQuestionAnswered = true;
 
+    const answerFields = [
+        ["gender", "ethnicity", "userAge"],
+        ["jaundice", "familyConnection", "testTaker"]
+    ];
+
     if (currentQuestion > 1) {
         isCurrentQuestionAnswered = !!questionAnswers.answers[questions[currentQuestion - 2].name];
+    } else {
+        answerFields[currentQuestion].forEach((field) => {
+            if (!questionAnswers.details[field]) {
+                isCurrentQuestionAnswered = false;
+            }
+        });
     }
 
     return (
