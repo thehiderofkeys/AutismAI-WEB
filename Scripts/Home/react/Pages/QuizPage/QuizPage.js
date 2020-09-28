@@ -5,12 +5,10 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
-import { getQuestions } from "../../services/questionsService";
 
 const Quizpage = ({
     handleQuestionAnswer,
     questions,
-    answerOptions,
     currentQuestion,
     handleNextQuestion,
     handlePrevQuestion,
@@ -19,8 +17,30 @@ const Quizpage = ({
     handleChange,
     handleClick,
     testTakerOptions,
-    getQuestions
+    getQuestions,
+    toggleRespondentAgeModal,
+    isAgeModalOpen,
+    handleAgeRespondentClick,
+    isToddler,
+    isInAgeLimit
 }) => {
+    let isCurrentQuestionAnswered = true;
+
+    const answerFields = [
+        ["gender", "ethnicity", "userAge"],
+        ["jaundice", "familyConnection", "testTaker"]
+    ];
+
+    if (currentQuestion > 1) {
+        isCurrentQuestionAnswered = !!questionAnswers.answers[questions[currentQuestion - 2].name];
+    } else {
+        answerFields[currentQuestion].forEach((field) => {
+            if (!questionAnswers.details[field]) {
+                isCurrentQuestionAnswered = false;
+            }
+        });
+    }
+
     return (
         <div className={styles["test"]}>
             {currentQuestion == 0 && (
@@ -30,6 +50,10 @@ const Quizpage = ({
                     handleClick={handleClick}
                     details={questionAnswers.details}
                     getQuestions={getQuestions}
+                    toggleRespondentAgeModal={toggleRespondentAgeModal}
+                    isAgeModalOpen={isAgeModalOpen}
+                    handleAgeRespondentClick={handleAgeRespondentClick}
+                    isToddler={isToddler}
                 />
             )}
             {currentQuestion == 1 && (
@@ -38,12 +62,12 @@ const Quizpage = ({
                     handleChange={handleChange}
                     handleClick={handleClick}
                     details={questionAnswers.details}
+                    isToddler={isToddler}
                 />
             )}
             {currentQuestion > 1 && (
                 <Question
                     question={questions[currentQuestion - 2]}
-                    //answerOptions={answerOptions}
                     handleChange={handleQuestionAnswer}
                     questionAnswers={questionAnswers.answers}
                     currentQuestion={currentQuestion}
@@ -54,6 +78,7 @@ const Quizpage = ({
                 handleNextQuestion={handleNextQuestion}
                 handlePrevQuestion={handlePrevQuestion}
                 currentQuestion={currentQuestion}
+                disableNext={!isCurrentQuestionAnswered || !isInAgeLimit}
             />
         </div>
     );

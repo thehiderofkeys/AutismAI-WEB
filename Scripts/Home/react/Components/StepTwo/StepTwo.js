@@ -11,13 +11,22 @@ import {
     Button
 } from "reactstrap";
 
-const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
+const StepTwo = ({ handleChange, details, testTakerOptions, handleClick, isToddler }) => {
+    const parsedAge = parseInt(details.userAge);
+    let filteredOptions = testTakerOptions;
+
+    if (isToddler || (!isToddler && parsedAge < 12)) {
+        filteredOptions = testTakerOptions.filter((option) => option !== "Self");
+    }
     return (
         <Container className="d-flex justify-content-center">
-            <Col style={{
-                maxWidth: "50%",
-                backgroundColor: '#ebf0ff',
-                borderRadius: '15px'}}>
+            <Col
+                style={{
+                    maxWidth: "50%",
+                    backgroundColor: "#ebf0ff",
+                    borderRadius: "15px"
+                }}
+            >
                 <FormGroup tag="fieldset">
                     <legend>Were you born with jaundice?</legend>
                     <ButtonGroup>
@@ -75,7 +84,7 @@ const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
                         onChange={handleChange}
                         value={details.testTaker}
                     >
-                        {testTakerOptions.map((option, i) => (
+                        {filteredOptions.map((option, i) => (
                             <option key={`testTaker-${i}`}>{option}</option>
                         ))}
                     </Input>

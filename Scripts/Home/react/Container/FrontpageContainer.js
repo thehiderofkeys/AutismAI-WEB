@@ -1,6 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from "react";
 import { getDashboardStats } from "../services/DashboardStatsService";
-
 
 const FrontpageContainer = ({ children }) => {
     const [autismInfoIsOpen, setAutismIsOpen] = useState(false);
@@ -15,12 +14,11 @@ const FrontpageContainer = ({ children }) => {
 
     const onAutismInfoClick = () => {
         setAutismIsOpen(!autismInfoIsOpen);
-    }
+    };
 
     const onStatsInfoClick = () => {
         setStatsIsOpen(!statsInfoIsOpen);
-    }
-
+    };
 
     useEffect(() => {
         async function getMetrics() {
@@ -36,14 +34,13 @@ const FrontpageContainer = ({ children }) => {
 
             const sensitivityStats = [
                 { name: "", value: sensitivity },
-                { name: "", value: Math.round((100 - sensitivity) * 100)/100 }
+                { name: "", value: Math.round((100 - sensitivity) * 100) / 100 }
             ];
 
             const specificityStats = [
                 { name: "", value: specificity },
                 { name: "", value: Math.round((100 - specificity) * 100) / 100 }
             ];
-
 
             setAccuracyStats(accuracyStats);
             setSensitivityStats(sensitivityStats);
@@ -53,9 +50,15 @@ const FrontpageContainer = ({ children }) => {
     }, []);
 
     const newProps = {
-        onAutismInfoClick, autismInfoIsOpen, statsInfoIsOpen,
-        onStatsInfoClick, contributionModal, toggleContributionModal,
-        accuracyStats, sensitivityStats, specificityStats
+        onAutismInfoClick,
+        autismInfoIsOpen,
+        statsInfoIsOpen,
+        onStatsInfoClick,
+        contributionModal,
+        toggleContributionModal,
+        accuracyStats,
+        sensitivityStats,
+        specificityStats
     };
 
     return React.cloneElement(children, { ...newProps });

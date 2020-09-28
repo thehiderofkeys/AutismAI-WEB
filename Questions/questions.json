@@ -83,8 +83,7 @@
         "Middle Eastern",
         "Native Indian",
         "Mixed",
-        "Hispanic",
-        "Others"
+        "Hispanic"
     ],
     "spinner_user_items": [
         "",
@@ -92,8 +91,8 @@
         "Parent",
         "Family",
         "Member",
-        "Self",
-        "Others"
+        "Self"    
+
     ],
 
     "agree_answer_options": [
