@@ -18,26 +18,16 @@ const answerSetType = {
 export const getAnswerSet = (answerSet) => {
     return questions[answerSet];
 };
-export const getQuestions = ({ age, unit }) => {
+export const getQuestions = ( age , isToddler) => {
     let category = categories.ADULT;
-    let calculatedAge;
-    let isToddler = false;
-
-    if (unit === "Years") {
-        calculatedAge = age;
-    } else {
-        calculatedAge = age / 12;
-    }
 
     switch (true) {
-        case calculatedAge < 3:
+        case isToddler:
             category = categories.CHAT;
-            isToddler = true;
-        case calculatedAge <= 11:
-            console.log("child");
+        case age <= 11:
             category = categories.CHILD;
             break;
-        case calculatedAge <= 16:
+        case age <= 16:
             category = categories.ADOLESCENT;
             break;
         default:

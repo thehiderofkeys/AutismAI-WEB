@@ -5,7 +5,6 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
-import { getQuestions } from "../../services/questionsService";
 
 const Quizpage = ({
     handleQuestionAnswer,
@@ -21,7 +20,9 @@ const Quizpage = ({
     getQuestions,
     toggleRespondentAgeModal,
     isAgeModalOpen,
-    handleAgeRespondentClick
+    handleAgeRespondentClick,
+    isToddler,
+    isInAgeLimit
 }) => {
     let isCurrentQuestionAnswered = true;
 
@@ -52,6 +53,7 @@ const Quizpage = ({
                     toggleRespondentAgeModal={toggleRespondentAgeModal}
                     isAgeModalOpen={isAgeModalOpen}
                     handleAgeRespondentClick={handleAgeRespondentClick}
+                    isToddler={isToddler}
                 />
             )}
             {currentQuestion == 1 && (
@@ -60,6 +62,7 @@ const Quizpage = ({
                     handleChange={handleChange}
                     handleClick={handleClick}
                     details={questionAnswers.details}
+                    isToddler={isToddler}
                 />
             )}
             {currentQuestion > 1 && (
@@ -75,7 +78,7 @@ const Quizpage = ({
                 handleNextQuestion={handleNextQuestion}
                 handlePrevQuestion={handlePrevQuestion}
                 currentQuestion={currentQuestion}
-                disableNext={!isCurrentQuestionAnswered}
+                disableNext={!isCurrentQuestionAnswered || !isInAgeLimit}
             />
         </div>
     );

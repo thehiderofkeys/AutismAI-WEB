@@ -15,6 +15,8 @@ const QuizPageContainer = ({ children }) => {
     const [ethnicities, setEthnicities] = useState([]);
     const [testTakerOptions, setTestTakerOptions] = useState([]);
     const [isAgeModalOpen, setIsAgeModalOpen] = useState(true);
+    const [isToddler, setIsToddler] = useState(false);
+    const [isInAgeLimit, setIsInAgeLimit] = useState(true);
 
     useEffect(() => {
         const ethnicityResponse = getEthnicity();
@@ -35,6 +37,7 @@ const QuizPageContainer = ({ children }) => {
                 newAnswers.details.monthsOrYears = "Months";
                 return newAnswers;
             });
+            setIsToddler(true);
         }
         setIsAgeModalOpen(false);
     };
@@ -42,9 +45,7 @@ const QuizPageContainer = ({ children }) => {
     const getQuestions = () => {
         const { details } = questionAnswers;
         if (questionAnswers.details.userAge) {
-            setQuestions(
-                getQuestionsRequest({ age: parseInt(details.userAge), unit: details.monthsOrYears })
-            );
+            setQuestions(getQuestionsRequest(parseInt(details.userAge), isToddler));
         }
     };
 
@@ -80,6 +81,24 @@ const QuizPageContainer = ({ children }) => {
             newQuestions.details[name] = value;
             return newQuestions;
         });
+
+        if (name === "userAge") {
+            const parsedAge = parseInt(value);
+
+            if (isToddler) {
+                if (parsedAge < 18 || parsedAge > 35) {
+                    setIsInAgeLimit(false);
+                } else {
+                    setIsInAgeLimit(true);
+                }
+            } else {
+                if (parsedAge < 3 || parsedAge > 80) {
+                    setIsInAgeLimit(false);
+                } else {
+                    setIsInAgeLimit(true);
+                }
+            }
+        }
     };
 
     const handleClick = (name, event) => {
@@ -105,7 +124,9 @@ const QuizPageContainer = ({ children }) => {
         getQuestions,
         toggleRespondentAgeModal,
         isAgeModalOpen,
-        handleAgeRespondentClick
+        handleAgeRespondentClick,
+        isToddler,
+        isInAgeLimit
     };
 
     return React.cloneElement(children, { ...newProps });

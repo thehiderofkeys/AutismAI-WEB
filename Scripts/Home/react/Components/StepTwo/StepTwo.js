@@ -11,15 +11,11 @@ import {
     Button
 } from "reactstrap";
 
-const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
-    let calculatedAge = details.userAge;
+const StepTwo = ({ handleChange, details, testTakerOptions, handleClick, isToddler }) => {
+    const parsedAge = parseInt(details.userAge);
     let filteredOptions = testTakerOptions;
 
-    if (details.monthsOrYears === "Months") {
-        calculatedAge = age / 12;
-    }
-
-    if (calculatedAge <= 7) {
+    if (isToddler || (!isToddler && parsedAge < 12)) {
         filteredOptions = testTakerOptions.filter((option) => option !== "Self");
     }
     return (

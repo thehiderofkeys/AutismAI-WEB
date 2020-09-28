@@ -22,7 +22,8 @@ const StepOne = ({
     handleClick,
     toggleRespondentAgeModal,
     isAgeModalOpen,
-    handleAgeRespondentClick
+    handleAgeRespondentClick,
+    isToddler
 }) => {
     const checkIsNumber = (event) => {
         const val = event.target.value;
@@ -127,7 +128,14 @@ const StepOne = ({
                                 target="ageHelp"
                                 toggle={toggleAgeToolTip}
                             >
-                                Test Test Test
+                                {isToddler ? (
+                                    <span>Toddler age can only be between 18 and 35 months.</span>
+                                ) : (
+                                    <span>
+                                        Non-toddler selected. Valid ages are between 3 and 80 years
+                                        old. years old.
+                                    </span>
+                                )}
                             </Tooltip>
                         </legend>
                         <Col
@@ -144,19 +152,15 @@ const StepOne = ({
                                 value={details.userAge}
                             />
                             <Input
-                                type="select"
+                                type="textbox"
                                 name="monthsOrYears"
                                 id="monthsOrYearsSelect"
-                                onChange={handleChange}
-                                value={details.monthsOrYears}
+                                value={isToddler ? "Months" : "Years"}
                                 style={{
-                                    maxWidth: "25%",
-                                    paddingRight: "15px"
+                                    maxWidth: "25%"
                                 }}
+                                disabled
                             >
-                                {["Years", "Months"].map((option, i) => (
-                                    <option key={`months-or-years-option-${i}`}>{option}</option>
-                                ))}
                                 <Tooltip
                                     placement="right"
                                     isOpen={tooltipOpen}
