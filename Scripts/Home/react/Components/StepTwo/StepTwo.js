@@ -12,6 +12,17 @@ import {
 } from "reactstrap";
 
 const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
+
+    let calculatedAge = details.userAge
+    let filteredOptions = testTakerOptions;
+
+    if (details.monthsOrYears === "Months") {
+        calculatedAge = age / 12;
+    }
+
+    if (calculatedAge <= 7) {
+        filteredOptions = testTakerOptions.filter(option => (option !== "Self"));
+    }
     return (
         <Container className="d-flex justify-content-center">
             <Col style={{
@@ -75,7 +86,7 @@ const StepTwo = ({ handleChange, details, testTakerOptions, handleClick }) => {
                         onChange={handleChange}
                         value={details.testTaker}
                     >
-                        {testTakerOptions.map((option, i) => (
+                        {filteredOptions.map((option, i) => (
                             <option key={`testTaker-${i}`}>{option}</option>
                         ))}
                     </Input>
