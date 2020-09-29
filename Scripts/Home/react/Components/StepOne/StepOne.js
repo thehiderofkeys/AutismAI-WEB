@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { HelpCircle } from "react-feather";
 import { isAllowedNumericInput } from "../../util/helpers";
+import { QuizContainer } from "../Question/QuestionStyle";
 
 const StepOne = ({
     handleChange,
@@ -68,16 +69,10 @@ const StepOne = ({
                 </Modal>
             </div>
             <Container className="d-flex justify-content-center">
-                <Col
-                    style={{
-                        maxWidth: "50%",
-                        backgroundColor: "#ebf0ff",
-                        borderRadius: "15px"
-                    }}
-                >
+                <QuizContainer>
                     <FormGroup tag="fieldset">
                         <legend>Gender</legend>
-                        <ButtonGroup>
+                        <ButtonGroup className="mb-3">
                             <Button
                                 className="bg-white text-dark"
                                 style={{ border: "1px solid #ced4da" }}
@@ -100,8 +95,10 @@ const StepOne = ({
                             </Button>
                         </ButtonGroup>
 
+
                         <legend>Ethnicity</legend>
                         <Input
+                            className="mb-3"
                             type="select"
                             name="ethnicity"
                             id="exampleSelect"
@@ -133,7 +130,7 @@ const StepOne = ({
                                 ) : (
                                     <span>
                                         Non-toddler selected. Valid ages are between 3 and 80 years
-                                        old. years old.
+                                        old.
                                     </span>
                                 )}
                             </Tooltip>
@@ -172,7 +169,7 @@ const StepOne = ({
                             </Input>
                         </Col>
                     </FormGroup>
-                </Col>
+                </QuizContainer>
             </Container>
         </>
     );

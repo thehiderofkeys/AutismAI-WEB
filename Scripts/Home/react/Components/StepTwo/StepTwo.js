@@ -10,6 +10,7 @@ import {
     ButtonGroup,
     Button
 } from "reactstrap";
+import { QuizContainer } from "../Question/QuestionStyle";
 
 const StepTwo = ({ handleChange, details, testTakerOptions, handleClick, isToddler }) => {
     const parsedAge = parseInt(details.userAge);
@@ -20,16 +21,10 @@ const StepTwo = ({ handleChange, details, testTakerOptions, handleClick, isToddl
     }
     return (
         <Container className="d-flex justify-content-center">
-            <Col
-                style={{
-                    maxWidth: "50%",
-                    backgroundColor: "#ebf0ff",
-                    borderRadius: "15px"
-                }}
-            >
+            <QuizContainer>
                 <FormGroup tag="fieldset">
                     <legend>Were you born with jaundice?</legend>
-                    <ButtonGroup>
+                    <ButtonGroup className="mb-3">
                         <Button
                             className="bg-white text-dark"
                             style={{ border: "1px solid #ced4da" }}
@@ -53,7 +48,7 @@ const StepTwo = ({ handleChange, details, testTakerOptions, handleClick, isToddl
                     </ButtonGroup>
 
                     <legend>Has anyone in your immediate family been diagnosed with autism?</legend>
-                    <ButtonGroup>
+                    <ButtonGroup className="mb-3">
                         <Button
                             className="bg-white text-dark"
                             style={{ border: "1px solid #ced4da" }}
@@ -89,7 +84,7 @@ const StepTwo = ({ handleChange, details, testTakerOptions, handleClick, isToddl
                         ))}
                     </Input>
                 </FormGroup>
-            </Col>
+            </QuizContainer>
         </Container>
     );
 };

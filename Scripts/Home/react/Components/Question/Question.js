@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import { Row, Col, Container, FormGroup, Label, legend, Input } from "reactstrap";
+import { QuizContainer } from "./QuestionStyle";
 
 const Question = ({ question, handleChange, questionAnswers, currentQuestion }) => {
     const onClick = (event) => {
@@ -8,13 +9,7 @@ const Question = ({ question, handleChange, questionAnswers, currentQuestion }) 
 
     return (
         <Container className="d-flex justify-content-center">
-            <Col
-                style={{
-                    maxWidth: "50%",
-                    backgroundColor: "#ebf0ff",
-                    borderRadius: "15px"
-                }}
-            >
+            <QuizContainer>
                 <FormGroup tag="fieldset">
                     <legend>{question.questionText}</legend>
                     {question.answerSet.map((option, i) => (
@@ -48,7 +43,7 @@ const Question = ({ question, handleChange, questionAnswers, currentQuestion }) 
                         </Row>
                     ))}
                 </FormGroup>
-            </Col>
+            </QuizContainer>
         </Container>
     );
 };
