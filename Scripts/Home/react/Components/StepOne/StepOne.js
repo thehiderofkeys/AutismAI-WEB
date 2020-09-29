@@ -73,26 +73,31 @@ const StepOne = ({
                     <FormGroup tag="fieldset">
                         <legend>Gender</legend>
                         <ButtonGroup className="mb-3">
+
                             <Button
-                                className="bg-white text-dark"
+                                className="btn btn-light"
                                 style={{ border: "1px solid #ced4da" }}
                                 value={"Male"}
+                                active={details.gender === "Male"}
                                 onClick={(e) => {
                                     handleClick("gender", e);
                                 }}
                             >
                                 Male
                             </Button>
+
                             <Button
-                                className=" bg-white text-dark"
+                                className="btn btn-light"
                                 style={{ border: "1px solid #ced4da" }}
                                 value={"Female"}
+                                active={details.gender === "Female"}
                                 onClick={(e) => {
                                     handleClick("gender", e);
                                 }}
                             >
                                 Female
                             </Button>
+
                         </ButtonGroup>
 
 

@@ -19,56 +19,67 @@ const StepTwo = ({ handleChange, details, testTakerOptions, handleClick, isToddl
     if (isToddler || (!isToddler && parsedAge < 12)) {
         filteredOptions = testTakerOptions.filter((option) => option !== "Self");
     }
+
     return (
         <Container className="d-flex justify-content-center">
             <QuizContainer>
                 <FormGroup tag="fieldset">
                     <legend>Were you born with jaundice?</legend>
                     <ButtonGroup className="mb-3">
+
                         <Button
-                            className="bg-white text-dark"
+                            className="btn btn-light"
                             style={{ border: "1px solid #ced4da" }}
                             value={false}
+                            active={details.jaundice === "false"}
                             onClick={(e) => {
                                 handleClick("jaundice", e);
                             }}
                         >
                             No
                         </Button>
+
                         <Button
-                            className=" bg-white text-dark"
+                            className="btn btn-light"
                             style={{ border: "1px solid #ced4da" }}
                             value={true}
+                            active={details.jaundice === "true"}
                             onClick={(e) => {
                                 handleClick("jaundice", e);
                             }}
                         >
                             Yes
                         </Button>
+
                     </ButtonGroup>
 
                     <legend>Has anyone in your immediate family been diagnosed with autism?</legend>
                     <ButtonGroup className="mb-3">
+
                         <Button
-                            className="bg-white text-dark"
+                            className="btn btn-light"
                             style={{ border: "1px solid #ced4da" }}
                             value={false}
+                            active={details.familyConnection === "false"}
                             onClick={(e) => {
                                 handleClick("familyConnection", e);
                             }}
                         >
                             No
                         </Button>
+
                         <Button
-                            className=" bg-white text-dark"
+                            className="btn btn-light"
                             style={{ border: "1px solid #ced4da" }}
                             value={true}
+                            active={details.familyConnection === "true"}
                             onClick={(e) => {
                                 handleClick("familyConnection", e);
                             }}
                         >
                             Yes
                         </Button>
+
                     </ButtonGroup>
 
                     <legend>Who is completing this test?</legend>
