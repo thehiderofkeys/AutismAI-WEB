@@ -81,15 +81,15 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         <StatsCardBody style={{flexDirection:'row', justifyContent:'space-between'}}>
                             <StatsCardColumn>
                                 <StatsCardTitle>Accuracy vs Conventional Sceening</StatsCardTitle>
-                                <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value}/>
+                                <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value + "%"}/>
                             </StatsCardColumn>
                             <StatsCardColumn>
                                 <StatsCardTitle>Sensitivity vs Conventional Sceening</StatsCardTitle>
-                                <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value}/>
+                                <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value + "%"}/>
                             </StatsCardColumn>
                             <StatsCardColumn>
                                 <StatsCardTitle>Specificity vs Conventional Sceening</StatsCardTitle>
-                                <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value}/>
+                                <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value + "%"}/>
                             </StatsCardColumn>
                         </StatsCardBody>
                     </StatsCard>
