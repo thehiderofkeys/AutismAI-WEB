@@ -60,7 +60,6 @@ export const getQuestions = ( age , isToddler) => {
             answerSet
         };
     });
-    console.log(mappedQuestions);
     return mappedQuestions;
 };
 
@@ -71,6 +70,5 @@ export const getEthnicity = () => {
 
 export const getTestTakerOptions = () => {
     let testTakerOptions = questions.spinner_user_items.sort();
-    console.log(testTakerOptions);
     return testTakerOptions;
 };
