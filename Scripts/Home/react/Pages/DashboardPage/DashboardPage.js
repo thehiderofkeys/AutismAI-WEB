@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { GraphTitle, DashboardContainer, TotalTestsNumber, StatsCard,  StatsCardBody, StatsCardTitle, StatsCardColumn} from "./DashboardPageStyles";
 import { HeaderText } from "../Frontpage/frontpageStyles";
-import { PieChart, Pie, Tooltip, Cell, Label} from "recharts";
+import { PieChart, Pie, Tooltip, Cell, Label, Legend} from "recharts";
 import {
     Row,
     Col,
@@ -56,7 +56,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Age Distrubution</StatsCardTitle>
-                            <StatsPieChart colorArray={ageColor} dataMap={age}/>
+                            <StatsPieChart colorArray={ageColor} dataMap={age} width={300} height={350} />
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -72,7 +72,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Gender Distribution</StatsCardTitle>
-                            <StatsPieChart colorArray={genderColor} dataMap={gender}/>
+                            <StatsPieChart colorArray={genderColor} dataMap={gender} width={300} height={350}/>
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -80,15 +80,15 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody style={{flexDirection:'row', justifyContent:'space-between'}}>
                             <StatsCardColumn>
-                                <StatsCardTitle>Accuracy vs Concentional Sceening</StatsCardTitle>
+                                <StatsCardTitle>Accuracy vs Conventional Sceening</StatsCardTitle>
                                 <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value}/>
                             </StatsCardColumn>
                             <StatsCardColumn>
-                                <StatsCardTitle>Sensitivity vs Concentional Sceening</StatsCardTitle>
+                                <StatsCardTitle>Sensitivity vs Conventional Sceening</StatsCardTitle>
                                 <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value}/>
                             </StatsCardColumn>
                             <StatsCardColumn>
-                                <StatsCardTitle>Specificity vs Concentional Sceening</StatsCardTitle>
+                                <StatsCardTitle>Specificity vs Conventional Sceening</StatsCardTitle>
                                 <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value}/>
                             </StatsCardColumn>
                         </StatsCardBody>
@@ -97,7 +97,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                 <Col className='col-12 d-block d-lg-none col-md-6 mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
-                            <StatsCardTitle>Accuracy vs Concentional Sceening</StatsCardTitle>
+                            <StatsCardTitle>Accuracy vs Conventional Sceening</StatsCardTitle>
                             <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value}/>
                         </StatsCardBody>
                     </StatsCard>
@@ -105,7 +105,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                 <Col className='col-12 d-block d-lg-none col-md-6 mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
-                            <StatsCardTitle>Sensitivity vs Concentional Sceening</StatsCardTitle>
+                            <StatsCardTitle>Sensitivity vs Conventional Sceening</StatsCardTitle>
                             <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value}/>
                         </StatsCardBody>
                     </StatsCard>
@@ -113,7 +113,7 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                 <Col className='col-12 d-block d-lg-none mb-4 order-2'>
                     <StatsCard>
                         <StatsCardBody>
-                            <StatsCardTitle>Specificity vs Concentional Sceening</StatsCardTitle>
+                            <StatsCardTitle>Specificity vs Conventional Sceening</StatsCardTitle>
                             <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value}/>
                         </StatsCardBody>
                     </StatsCard>
@@ -123,10 +123,11 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
     );
 };
 
-function StatsPieChart({dataMap,colorArray,labelValue,donut=false}){
+function StatsPieChart({ dataMap, colorArray, labelValue, donut = false, width = 300, height = 250 }){
     return(
-        <PieChart width={300} height={250}>
+        <PieChart width={width} height={height}>
             <Tooltip cursor={false} />
+            {donut ? <></> : <Legend />}
             <Pie
                 data={dataMap}
                 innerRadius={donut?60:0}
