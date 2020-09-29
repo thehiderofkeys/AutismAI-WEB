@@ -7,6 +7,11 @@ import {
     Row,
     Col,
     Container,
+    Button,
+    Popover,
+    PopoverHeader,
+    PopoverBody, 
+    UncontrolledPopover
 } from "reactstrap";
 
 const ageColor = ["#9ac90f", "#fcba03", "#0088FE", "#d45517"];
@@ -16,7 +21,7 @@ const sensitivityColor = ["#0088FE", "rgba(0,0,0,0)"];
 const specificityColor = ["#d45517", "rgba(0,0,0,0)"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-const Dashboardpage = ({ handleChange, dashboardStats }) => {
+const Dashboardpage = ({ handleChange, dashboardStats, }) => {
     const accuracyStats = Math.round(dashboardStats.Class_Vs_DNN_Accuracy * 10000) / 100; //Need to * by 10000 cause the data from the API is in 0.0000....
     const sensitivityStats = Math.round(dashboardStats.Class_Vs_DNN_Sensitivity * 10000) / 100;
     const specificityStats = Math.round(dashboardStats.Class_Vs_DNN_Specificity * 10000) / 100;
@@ -47,6 +52,14 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
         { name: "Specificity", value: specificityStats },
         { name: "Conventional Screening", value: 100 - specificityStats }
     ];
+
+    const ACCURACY_DESCRIPTION = "Accuracy is measured live as the ratio of correct Autism Al classifications to the number of total tests conducted in compare to the results obtained from Autism Spectrum Quotient (AQ-10) (for Adult, Adolescent, and Child versions) and Quantitative Checklist for Autism in Toddlers (Q-CHAT-10) ASD screening methods proposed by Allison et al.";
+    const SENSITIVITY_DESCRIPTION = "Sensitivity is the ratio of autistic individuals correctly identified by Autism Al. It is verified against the Autism Spectrum Quotient (AQ-10) (for Adult, Adolescent, and Child versions) and the Quantitative Checklist for Autism in Toddlers (Q-CHAT-10) ASD screening methods proposed by Allison et al.";
+    const SPECIFICITY_DESCRIPTION = "Specificity the proportion of non-autistic individuals that were correctly identified by Autism Al. Such individuals are identified by the Autism Spectrum Quotient (AQ-10) (for Adult, Adolescent, and Child versions) and the Quantitative Checklist for Autism in Toddlers (Q-CHAT-10) ASD screening methods proposed by Allison et al.";
+
+    const ACCURACY_HEADER = "What is Accuracy?";
+    const SENSITIVITY_HEADER = "What is Sensitivity?";
+    const SPECIFICITY_HEADER = "What is Specificity?";
 
     return (
         <DashboardContainer>
@@ -81,15 +94,18 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                         <StatsCardBody style={{flexDirection:'row', justifyContent:'space-between'}}>
                             <StatsCardColumn>
                                 <StatsCardTitle>Accuracy vs Conventional Sceening</StatsCardTitle>
-                                <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value + "%"}/>
+                                <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value + "%"} />
+                                <PopOver headerText={ACCURACY_HEADER} bodyText={ACCURACY_DESCRIPTION} buttonId={"accuracyButton"} />
                             </StatsCardColumn>
                             <StatsCardColumn>
                                 <StatsCardTitle>Sensitivity vs Conventional Sceening</StatsCardTitle>
-                                <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value + "%"}/>
+                                <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value + "%"} />
+                                <PopOver headerText={SENSITIVITY_HEADER} bodyText={SENSITIVITY_DESCRIPTION} buttonId={"sensitivityButton"} />
                             </StatsCardColumn>
                             <StatsCardColumn>
                                 <StatsCardTitle>Specificity vs Conventional Sceening</StatsCardTitle>
-                                <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value + "%"}/>
+                                <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value + "%"} />
+                                <PopOver headerText={SPECIFICITY_HEADER} bodyText={SPECIFICITY_DESCRIPTION} buttonId={"specificityButton"} />
                             </StatsCardColumn>
                         </StatsCardBody>
                     </StatsCard>
@@ -98,7 +114,8 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Accuracy vs Conventional Sceening</StatsCardTitle>
-                            <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value}/>
+                            <StatsPieChart colorArray={accuracyColor} dataMap={accuracy} donut={true} labelValue={accuracy[0].value} />
+                            <PopOver headerText={ACCURACY_HEADER} bodyText={ACCURACY_DESCRIPTION} buttonId={"accuracyButton"} />
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -106,7 +123,8 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Sensitivity vs Conventional Sceening</StatsCardTitle>
-                            <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value}/>
+                            <StatsPieChart colorArray={sensitivityColor} dataMap={sensitivity} donut={true} labelValue={sensitivity[0].value} />
+                            <PopOver headerText={SENSITIVITY_HEADER} bodyText={SENSITIVITY_DESCRIPTION} buttonId={"sensitivityButton"} />
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -114,7 +132,8 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
                     <StatsCard>
                         <StatsCardBody>
                             <StatsCardTitle>Specificity vs Conventional Sceening</StatsCardTitle>
-                            <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value}/>
+                            <StatsPieChart colorArray={specificityColor} dataMap={specificity} donut={true} labelValue={specificity[0].value} />
+                            <PopOver headerText={SPECIFICITY_HEADER} bodyText={SPECIFICITY_DESCRIPTION} buttonId={"specificityButton"} />
                         </StatsCardBody>
                     </StatsCard>
                 </Col>
@@ -122,6 +141,20 @@ const Dashboardpage = ({ handleChange, dashboardStats }) => {
         </DashboardContainer>
     );
 };
+
+function PopOver({ headerText, bodyText, buttonId }) {
+    return (
+        <>
+            <Button id={buttonId} type="button">
+            Learn More
+            </Button>
+            <UncontrolledPopover trigger="legacy" placement="top" target={buttonId}>
+                <PopoverHeader>{headerText}</PopoverHeader>
+                <PopoverBody>{bodyText}</PopoverBody>
+            </UncontrolledPopover>
+        </>
+        );
+}
 
 function StatsPieChart({ dataMap, colorArray, labelValue, donut = false, width = 300, height = 250 }){
     return(

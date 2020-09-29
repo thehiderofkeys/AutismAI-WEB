@@ -9,6 +9,7 @@ const DashboardPageContainer = ({ children }) => {
     const [dashboardStats, setDashboardStats] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
+
     useEffect(() => {
         async function getDashboardStatistics() {
             const stats = await getDashboardStats();
@@ -20,11 +21,12 @@ const DashboardPageContainer = ({ children }) => {
         getDashboardStatistics();
     }, []);
 
+
     const handleChange = () => {
         console.log("handleChange");
     };
 
-    const newProps = { handleChange, dashboardStats };
+    const newProps = { handleChange, dashboardStats, };
 
     return (
         <>
