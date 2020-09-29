@@ -13,20 +13,20 @@ import Footer from "./Components/Footer/footer";
 import paths from "./routes/paths";
 
 const App = () => (
-    <React.StrictMode>
-        <Router>
-            <Header />
-            <Switch>
-                <Route exact path={paths.FRONTPAGE} component={Frontpage} />
-                <Route exact path={paths.QUIZ} component={QuizPage} />
-                <Route exact path={paths.ADMIN} component={AdminPage} />
-                <Route exact path={paths.CONTRIBUTIONS} component={ContributionsPage} />
-                <Route exact path={paths.PEOPLE} component={PeoplePage} />
-                <Route exact path={paths.DASHBOARD} component={DashboardPage} />
-            </Switch>
-            <Footer />
-        </Router>
-    </React.StrictMode>
+    //<React.StrictMode>
+    <Router>
+        <Header />
+        <Switch>
+            <Route exact path={paths.FRONTPAGE} component={Frontpage} />
+            <Route exact path={paths.QUIZ} component={QuizPage} />
+            <Route exact path={paths.ADMIN} component={AdminPage} />
+            <Route exact path={paths.CONTRIBUTIONS} component={ContributionsPage} />
+            <Route exact path={paths.PEOPLE} component={PeoplePage} />
+            <Route exact path={paths.DASHBOARD} component={DashboardPage} />
+        </Switch>
+        <Footer />
+    </Router>
+    //</React.StrictMode>
 );
 
 render(<App />, document.getElementById("app"));

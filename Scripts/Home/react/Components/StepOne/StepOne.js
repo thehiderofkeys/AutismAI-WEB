@@ -43,7 +43,7 @@ const StepOne = ({
         <>
             <div>
                 <Modal isOpen={isAgeModalOpen} toggle={toggleRespondentAgeModal}>
-                    <ModalHeader toggle={toggleRespondentAgeModal}>Respondent Age</ModalHeader>
+                    <ModalHeader>Respondent Age</ModalHeader>
                     <ModalBody>
                         <p>Are you taking the test for a toddler less than 36 months old?</p>
                     </ModalBody>
@@ -160,16 +160,15 @@ const StepOne = ({
                                     maxWidth: "25%"
                                 }}
                                 disabled
+                            />
+                            {/*<Tooltip
+                                placement="right"
+                                isOpen={tooltipOpen}
+                                target="monthsOrYearsSelect"
+                                toggle={toggle}
                             >
-                                <Tooltip
-                                    placement="right"
-                                    isOpen={tooltipOpen}
-                                    target="monthsOrYearsSelect"
-                                    toggle={toggle}
-                                >
-                                    Select months for todlers upto 36 months and years otherwise
-                                </Tooltip>
-                            </Input>
+                                Select months for todlers upto 36 months and years otherwise
+                            </Tooltip>*/}
                         </Col>
                     </FormGroup>
                 </Col>
