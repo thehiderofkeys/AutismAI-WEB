@@ -8,19 +8,20 @@ const BackAndNextBtn = ({
     disableNext
 }) => {
     return (
-        <Container className="d-flex justify-content-center mt-4">
-            <Col
+        <Container className="d-flex justify-content-center">
+            <ButtonGroup
                 style={{
-                    maxWidth: "15%"
+                    width: "65%",
+                    marginTop: "15px"
                 }}
-            >
-                <ButtonGroup>
+                    >
                     <Button
                         onClick={handlePrevQuestion}
-                        className="text-dark"
+                        className="text-dark btn-block"
                         style={{
                             backgroundColor: "#ebf0ff",
-                            border: "1px solid #ced4da"
+                            border: "1px solid #ced4da",
+                            borderRadius:"15px"
                         }}
                         disabled={currentQuestion <= 0}
                     >
@@ -29,18 +30,19 @@ const BackAndNextBtn = ({
                     </Button>
                     <Button
                         onClick={handleNextQuestion}
-                        className="text-dark"
+                        className="text-dark btn-block"
                         style={{
                             backgroundColor: "#ebf0ff",
-                            border: "1px solid #ced4da"
+                            border: "1px solid #ced4da",
+                            borderRadius: "15px",
+                            marginTop: "0px"
                         }}
                         disabled={disableNext}
                     >
                         {" "}
                         Next{" "}
-                    </Button>
-                </ButtonGroup>
-            </Col>
+                </Button>
+            </ButtonGroup>
         </Container>
     );
 };
