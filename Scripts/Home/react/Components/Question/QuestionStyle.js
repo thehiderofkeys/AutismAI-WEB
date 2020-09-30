@@ -6,4 +6,5 @@ export const QuizContainer = styled.div`
   background-color: #ebf0ff;
   border-radius: 15px;
   padding: 30px;
+  border: 1px solid #ced4da;
 `;
