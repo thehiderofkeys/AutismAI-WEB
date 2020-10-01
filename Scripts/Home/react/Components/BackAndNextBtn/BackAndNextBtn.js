@@ -17,11 +17,12 @@ const BackAndNextBtn = ({
                     >
                     <Button
                         onClick={handlePrevQuestion}
-                        className="text-dark btn-block"
+                        className="text-light btn-block"
                         style={{
-                            backgroundColor: "#ebf0ff",
+                            backgroundColor: "#242e4c",
                             border: "1px solid #ced4da",
-                            borderRadius:"15px"
+                            borderRadius: "15px",
+                            padding: "12px"
                         }}
                         disabled={currentQuestion <= 0}
                     >
@@ -30,12 +31,13 @@ const BackAndNextBtn = ({
                     </Button>
                     <Button
                         onClick={handleNextQuestion}
-                        className="text-dark btn-block"
+                        className="text-light btn-block"
                         style={{
-                            backgroundColor: "#ebf0ff",
+                            backgroundColor: "#242e4c",
                             border: "1px solid #ced4da",
                             borderRadius: "15px",
-                            marginTop: "0px"
+                            marginTop: "0px",
+                            padding: "12px"
                         }}
                         disabled={disableNext}
                     >
