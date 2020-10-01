@@ -19,11 +19,11 @@ namespace AutismAI_Web.Controllers
             var baseUrl = "https://rshahamiri.pythonanywhere.com/predict/6Hnka286/" + userData.Concatenate();
 
             //Console.WriteLine(userData.Concatenate());
-            return userData.Concatenate(); 
-            //HttpResponseMessage response = await client.GetAsync(baseUrl);
-            //response.EnsureSuccessStatusCode();
-            //var result = await response.Content.ReadAsStringAsync();
-            //return result;
+            //return userData.Concatenate(); 
+            HttpResponseMessage response = await client.GetAsync(baseUrl);
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadAsStringAsync();
+            return result;
         }
     }
 }

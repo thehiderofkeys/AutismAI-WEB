@@ -115,8 +115,8 @@ export const postQuizResults = async (userData) => {
             Accept: "application/json",
             "Content-Type": "application/json"
         },
-        body: JSON.parse(reqBody),
+        body: JSON.stringify(reqBody),
     }).then((response) => response.json());
-    return res;
+    return JSON.parse(res);
 
 };
