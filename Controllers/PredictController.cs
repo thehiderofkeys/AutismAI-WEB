@@ -16,9 +16,9 @@ namespace AutismAI_Web.Controllers
         public async Task<string> Post([FromBody]QuizResponse userData)
         {
             var client = new HttpClient();
-            var baseUrl = "https://rshahamiri.pythonanywhere.com/predict/6Hnka286/" + userData;
+            var baseUrl = "https://rshahamiri.pythonanywhere.com/predict/6Hnka286/" + userData.Concatenate();
 
-            //Console.WriteLine(userData);
+            Console.WriteLine(userData.Concatenate());
                
             HttpResponseMessage response = await client.GetAsync(baseUrl);
             response.EnsureSuccessStatusCode();

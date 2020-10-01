@@ -18,12 +18,12 @@
 
     public string Concatenate()
     {
-        
+        string response;
         string[] list = new string[] { questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen };
 
-  
+        response = string.Join(",", list);
+        response += "," + age + "," + gender + "," + jaundice + "," + familyASD;
 
-
-        return null;
+        return response;
     }
 }
