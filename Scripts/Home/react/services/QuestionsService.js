@@ -1,4 +1,5 @@
 ﻿import questions from "../../../../Questions/questions.json";
+import { predictionRoute } from './ApiRoutes';
 
 export const categories = {
     ADULT: "questions_adult",
@@ -71,4 +72,35 @@ export const getEthnicity = () => {
 export const getTestTakerOptions = () => {
     let testTakerOptions = questions.spinner_user_items.sort();
     return testTakerOptions;
+};
+
+
+export const postQuizResults = async (userData) => {
+
+    const postiveAnswer = [
+        "Definitely Agree",
+        "Slightly Agree",
+        "Always",
+        "Usually","Very Easy",
+        "Quite Easy",
+        "Many times a day",
+        "A few times a day",
+        "Very typical",
+        "Quite typical"
+        ];
+    const negativeAnswer = [
+        "Slightly Disagree",
+        "Definitely Disagree",
+        "Rarely","Never","Very Difficult",
+        "Impossible", "Less than once a week","Never","Very unusuall",
+        "My child does not speak"
+        ];
+
+    let reqBody = {}
+
+    Object.key(userData.answers).foreach((key) => {
+        reqBody.key = postiveAnswer.includes(userData.answers[key]) ? "1" : "0"; 
+    });
+
+    console.log(reqBody);
 };

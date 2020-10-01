@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import {
     getQuestions as getQuestionsRequest,
     getTestTakerOptions,
-    getEthnicity
-} from "../services/questionsService";
+    getEthnicity,
+    postQuizResults
+} from "../services/QuestionsService";
 
 const QuizPageContainer = ({ children }) => {
     const [questionAnswers, setQuestionAnswers] = useState({
@@ -65,6 +66,7 @@ const QuizPageContainer = ({ children }) => {
             setCurrentQuestion(currentQuestion + 1);
         } else {
             console.log("end");
+            postQuizResults(questionAnswers);
         }
     };
 
