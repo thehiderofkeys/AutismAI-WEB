@@ -58,7 +58,7 @@ const QuizPageContainer = ({ children }) => {
         });
     };
 
-    const handleNextQuestion = () => {
+    const handleNextQuestion = async () => {
         if (currentQuestion == 0) {
             setCurrentQuestion(currentQuestion + 1);
             getQuestions();
@@ -66,7 +66,8 @@ const QuizPageContainer = ({ children }) => {
             setCurrentQuestion(currentQuestion + 1);
         } else {
             console.log("end");
-            postQuizResults(questionAnswers);
+            const results = await postQuizResults(questionAnswers);
+            console.log(results);
         }
     };
 

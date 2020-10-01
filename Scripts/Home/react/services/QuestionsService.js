@@ -56,7 +56,7 @@ export const getQuestions = ( age , isToddler) => {
             }
         }
         return {
-            name: `Question ${i + 1}`,
+            name: `question${i + 1}`,
             questionText: question,
             answerSet
         };
@@ -77,6 +77,7 @@ export const getTestTakerOptions = () => {
 
 export const postQuizResults = async (userData) => {
 
+    const {details, answers } = userData;
     const postiveAnswer = [
         "Definitely Agree",
         "Slightly Agree",
@@ -98,9 +99,24 @@ export const postQuizResults = async (userData) => {
 
     let reqBody = {}
 
-    Object.key(userData.answers).foreach((key) => {
-        reqBody.key = postiveAnswer.includes(userData.answers[key]) ? "1" : "0"; 
+    Object.keys(answers).forEach((key) => {
+        reqBody[key] = postiveAnswer.includes(answers[key]) ? "1" : "0"; 
     });
+    reqBody.age = details.userAge;
+    reqBody.gender = details.gender === "Male" ? "m" : "f";
+    reqBody.jaundice = details.jaundice ? "yes" : "no";
+    reqBody.familyASD = details.familyASD ? "yes" : "no";
 
     console.log(reqBody);
+
+    const res = await fetch(predictionRoute, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.parse(reqBody),
+    }).then((response) => response.json());
+    return res;
+
 };
