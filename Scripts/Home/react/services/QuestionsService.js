@@ -89,13 +89,6 @@ export const postQuizResults = async (userData) => {
         "Very typical",
         "Quite typical"
         ];
-    const negativeAnswer = [
-        "Slightly Disagree",
-        "Definitely Disagree",
-        "Rarely","Never","Very Difficult",
-        "Impossible", "Less than once a week","Never","Very unusuall",
-        "My child does not speak"
-        ];
 
     let reqBody = {}
 
@@ -107,7 +100,6 @@ export const postQuizResults = async (userData) => {
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
 
-    console.log(reqBody);
 
     const res = await fetch(predictionRoute, {
         method: "POST",
