@@ -1,4 +1,5 @@
 ﻿import questions from "../../../../Questions/questions.json";
+import { predictionRoute } from './ApiRoutes';
 
 export const categories = {
     ADULT: "questions_adult",
@@ -55,7 +56,7 @@ export const getQuestions = ( age , isToddler) => {
             }
         }
         return {
-            name: `Question ${i + 1}`,
+            name: `question${i + 1}`,
             questionText: question,
             answerSet
         };
@@ -71,4 +72,43 @@ export const getEthnicity = () => {
 export const getTestTakerOptions = () => {
     let testTakerOptions = questions.spinner_user_items.sort();
     return testTakerOptions;
+};
+
+
+export const postQuizResults = async (userData) => {
+
+    const {details, answers } = userData;
+    const postiveAnswer = [
+        "Definitely Agree",
+        "Slightly Agree",
+        "Always",
+        "Usually","Very Easy",
+        "Quite Easy",
+        "Many times a day",
+        "A few times a day",
+        "Very typical",
+        "Quite typical"
+        ];
+
+    let reqBody = {}
+
+    Object.keys(answers).forEach((key) => {
+        reqBody[key] = postiveAnswer.includes(answers[key]) ? "1" : "0"; 
+    });
+    reqBody.age = details.userAge;
+    reqBody.gender = details.gender === "Male" ? "m" : "f";
+    reqBody.jaundice = details.jaundice ? "yes" : "no";
+    reqBody.familyASD = details.familyASD ? "yes" : "no";
+
+
+    const res = await fetch(predictionRoute, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reqBody),
+    }).then((response) => response.json());
+    return JSON.parse(res);
+
 };
