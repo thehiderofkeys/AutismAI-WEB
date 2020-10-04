@@ -5,6 +5,8 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
+import { reactLocalStorage } from 'reactjs-localstorage';
+
 
 const Quizpage = ({
     handleQuestionAnswer,
@@ -82,6 +84,7 @@ const Quizpage = ({
             />
         </div>
     );
+
 };
 
 Quizpage.defaultProps = {

@@ -20,6 +20,15 @@ const QuizPageContainer = ({ children }) => {
     const [isInAgeLimit, setIsInAgeLimit] = useState(true);
 
     useEffect(() => {
+        async function getCachedQuestionAnswers() {
+            let cachedData = localStorage.getItem('questionAnswers');
+            if (cachedData) {
+                let questionAnswers = await JSON.parse(cachedData);
+                console.log(questionAnswers);
+                setQuestionAnswers(questionAnswers);
+            }
+        }
+
         const ethnicityResponse = getEthnicity();
         ethnicityResponse.push("Others");
         setEthnicities(ethnicityResponse);
@@ -27,6 +36,8 @@ const QuizPageContainer = ({ children }) => {
         const testTakerResponse = getTestTakerOptions();
         testTakerResponse.push("Others");
         setTestTakerOptions(testTakerResponse);
+
+        getCachedQuestionAnswers();
     }, []);
 
     const toggleRespondentAgeModal = () => setIsAgeModalOpen(!isAgeModalOpen);
@@ -79,9 +90,11 @@ const QuizPageContainer = ({ children }) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setQuestionAnswers((prevQuestions) => {
-            const newQuestions = { ...prevQuestions };
+
+        setQuestionAnswers((prevAnswers) => {
+            const newQuestions = { ...prevAnswers };
             newQuestions.details[name] = value;
+            localStorage.setItem('questionAnswers', JSON.stringify(newQuestions));
             return newQuestions;
         });
 
