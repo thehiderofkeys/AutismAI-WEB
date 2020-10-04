@@ -47,6 +47,7 @@ const QuizPageContainer = ({ children }) => {
             setQuestionAnswers((prevAnswers) => {
                 const newAnswers = { ...prevAnswers };
                 newAnswers.details.monthsOrYears = "Months";
+                localStorage.setItem('questionAnswers', JSON.stringify(newAnswers));
                 return newAnswers;
             });
             setIsToddler(true);
@@ -65,6 +66,7 @@ const QuizPageContainer = ({ children }) => {
         setQuestionAnswers((prevAnswers) => {
             const newAnswers = { ...prevAnswers };
             newAnswers.answers[question] = answer;
+            localStorage.setItem('questionAnswers', JSON.stringify(newAnswers));
             return newAnswers;
         });
     };
@@ -77,6 +79,7 @@ const QuizPageContainer = ({ children }) => {
             setCurrentQuestion(currentQuestion + 1);
         } else {
             console.log("end");
+            localStorage.removeItem('questionAnswers');
             const results = await postQuizResults(questionAnswers);
             console.log(results);
         }
@@ -92,10 +95,10 @@ const QuizPageContainer = ({ children }) => {
         const { name, value } = event.target;
 
         setQuestionAnswers((prevAnswers) => {
-            const newQuestions = { ...prevAnswers };
-            newQuestions.details[name] = value;
-            localStorage.setItem('questionAnswers', JSON.stringify(newQuestions));
-            return newQuestions;
+            const newAnswers = { ...prevAnswers };
+            newAnswers.details[name] = value;
+            localStorage.setItem('questionAnswers', JSON.stringify(newAnswers));
+            return newAnswers;
         });
 
         if (name === "userAge") {
@@ -119,10 +122,11 @@ const QuizPageContainer = ({ children }) => {
 
     const handleClick = (name, event) => {
         const { value } = event.target;
-        setQuestionAnswers((prevQuestions) => {
-            const newQuestions = { ...prevQuestions };
-            newQuestions.details[name] = value;
-            return newQuestions;
+        setQuestionAnswers((prevAnswers) => {
+            const newAnswers = { ...prevAnswers };
+            newAnswers.details[name] = value;
+            localStorage.setItem('questionAnswers', JSON.stringify(newAnswers));
+            return newAnswers;
         });
     };
 
