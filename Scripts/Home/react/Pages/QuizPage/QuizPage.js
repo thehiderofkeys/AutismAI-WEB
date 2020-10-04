@@ -5,8 +5,6 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
-import { reactLocalStorage } from 'reactjs-localstorage';
-
 
 const Quizpage = ({
     handleQuestionAnswer,
@@ -24,7 +22,10 @@ const Quizpage = ({
     isAgeModalOpen,
     handleAgeRespondentClick,
     isToddler,
-    isInAgeLimit
+    isInAgeLimit,
+    toggleRestartModal,
+    restartQuiz,
+    isRestartModalOpen
 }) => {
     let isCurrentQuestionAnswered = true;
 
@@ -56,6 +57,9 @@ const Quizpage = ({
                     isAgeModalOpen={isAgeModalOpen}
                     handleAgeRespondentClick={handleAgeRespondentClick}
                     isToddler={isToddler}
+                    toggleRestartModal={toggleRestartModal}
+                    restartQuiz={restartQuiz}
+                    isRestartModalOpen={isRestartModalOpen}
                 />
             )}
             {currentQuestion == 1 && (
