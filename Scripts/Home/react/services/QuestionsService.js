@@ -25,6 +25,7 @@ export const getQuestions = ( age , isToddler) => {
     switch (true) {
         case isToddler:
             category = categories.CHAT;
+            break;
         case age <= 11:
             category = categories.CHILD;
             break;
