@@ -96,7 +96,7 @@ export const postQuizResults = async (userData) => {
     Object.keys(answers).forEach((key) => {
         reqBody[key] = postiveAnswer.includes(answers[key]) ? "1" : "0"; 
     });
-    reqBody.age = details.userAge;
+    reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Maths.floor(details.age / 12);
     reqBody.gender = details.gender === "Male" ? "m" : "f";
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
