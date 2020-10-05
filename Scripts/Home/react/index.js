@@ -22,7 +22,7 @@ const App = () => (
             <Route exact path={paths.ADMIN} component={AdminPage} />
             <Route exact path={paths.CONTRIBUTIONS} component={ContributionsPage} />
             <Route exact path={paths.PEOPLE} component={PeoplePage} />
-            <Route exact path={paths.DASHBOARD} component={DashboardPage} />
+            <Route exact path={paths.STATS} component={DashboardPage} />
         </Switch>
         <Footer />
     </Router>

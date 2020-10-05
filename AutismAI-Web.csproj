@@ -140,7 +140,6 @@
     <Content Include="Images\waveBottom.svg" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
     <Content Include="Scripts\Home\react\Components\BackAndNextBtn\BackAndNextBtn.js" />
-    <Content Include="Scripts\Home\react\Components\BackAndNextBtn\BackAndNextBtnStyle.css" />
     <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
     <Content Include="Scripts\Home\react\Components\Header\header.js" />
@@ -225,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
