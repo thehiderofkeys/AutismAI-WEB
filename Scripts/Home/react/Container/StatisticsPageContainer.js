@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getDashboardStats } from "../services/DashboardStatsService";
+import { getDashboardStats } from "../services/StatisticsService";
 import Loading from "../Components/Loading/Loading";
 
-const DashboardPageContainer = ({ children }) => {
+const StatisticsPageContainer = ({ children }) => {
     // Any variables or methods declared in newProps will be passed through to children
     // components as declared in frontpage.jsx
 
@@ -36,4 +36,4 @@ const DashboardPageContainer = ({ children }) => {
     );
 };
 
-export default DashboardPageContainer;
+export default StatisticsPageContainer;

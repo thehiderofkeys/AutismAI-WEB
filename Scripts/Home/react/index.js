@@ -5,7 +5,7 @@ import Frontpage from "./Pages/Frontpage/index";
 import PeoplePage from "./Pages/PeoplePage/index";
 import QuizPage from "./Pages/QuizPage/index";
 import AdminPage from "./Pages/AdminPage/index";
-import DashboardPage from "./Pages/DashboardPage/index";
+import StatisticsPage from "./Pages/StatisticsPage/index";
 import ContributionsPage from "./Pages/ContributionsPage/index";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./Components/Header/header";
@@ -22,7 +22,7 @@ const App = () => (
             <Route exact path={paths.ADMIN} component={AdminPage} />
             <Route exact path={paths.CONTRIBUTIONS} component={ContributionsPage} />
             <Route exact path={paths.PEOPLE} component={PeoplePage} />
-            <Route exact path={paths.STATS} component={DashboardPage} />
+            <Route exact path={paths.STATS} component={StatisticsPage} />
         </Switch>
         <Footer />
     </Router>

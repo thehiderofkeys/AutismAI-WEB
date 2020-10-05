@@ -158,7 +158,7 @@
     <Content Include="Scripts\Home\react\Components\Profile\ProfileStyles.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
-    <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\StatisticsPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\QuizPageContainer.js" />
@@ -168,9 +168,9 @@
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPageStyles.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\StatisticsPage\StatisticsPage.js" />
+    <Content Include="Scripts\Home\react\Pages\StatisticsPage\StatisticsPageStyles.js" />
+    <Content Include="Scripts\Home\react\Pages\StatisticsPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\frontpageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
@@ -182,7 +182,7 @@
     <Content Include="Scripts\Home\react\services\QuestionsService.js" />
     <Content Include="Scripts\Home\react\util\helpers.js" />
     <Content Include="Scripts\Home\react\services\ApiRoutes.js" />
-    <Content Include="Scripts\Home\react\services\DashboardStatsService.js" />
+    <Content Include="Scripts\Home\react\services\StatisticsService.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\Home\react\Pages\PeoplePage\index.js" />

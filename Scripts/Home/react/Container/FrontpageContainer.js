@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect } from "react";
-import { getDashboardStats } from "../services/DashboardStatsService";
+import { getDashboardStats } from "../services/StatisticsService";
 
 const FrontpageContainer = ({ children }) => {
     const [autismInfoIsOpen, setAutismIsOpen] = useState(false);
