@@ -22,7 +22,10 @@ const Quizpage = ({
     isAgeModalOpen,
     handleAgeRespondentClick,
     isToddler,
-    isInAgeLimit
+    isInAgeLimit,
+    toggleRestartModal,
+    restartQuiz,
+    isRestartModalOpen
 }) => {
     let isCurrentQuestionAnswered = true;
 
@@ -54,6 +57,9 @@ const Quizpage = ({
                     isAgeModalOpen={isAgeModalOpen}
                     handleAgeRespondentClick={handleAgeRespondentClick}
                     isToddler={isToddler}
+                    toggleRestartModal={toggleRestartModal}
+                    restartQuiz={restartQuiz}
+                    isRestartModalOpen={isRestartModalOpen}
                 />
             )}
             {currentQuestion == 1 && (
@@ -82,6 +88,7 @@ const Quizpage = ({
             />
         </div>
     );
+
 };
 
 Quizpage.defaultProps = {

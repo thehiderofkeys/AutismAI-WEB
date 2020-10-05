@@ -24,7 +24,10 @@ const StepOne = ({
     toggleRespondentAgeModal,
     isAgeModalOpen,
     handleAgeRespondentClick,
-    isToddler
+    isToddler,
+    toggleRestartModal,
+    restartQuiz,
+    isRestartModalOpen
 }) => {
     const checkIsNumber = (event) => {
         const val = event.target.value;
@@ -68,12 +71,41 @@ const StepOne = ({
                     </ModalFooter>
                 </Modal>
             </div>
+
+            <div>
+                <Modal isOpen={isRestartModalOpen} toggle={toggleRestartModal}>
+                    <ModalHeader>Continue Quiz</ModalHeader>
+                    <ModalBody>
+                        <p>
+                            Do you want to continue the quiz from where you left off? Or restart
+                            again?
+                        </p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button
+                            color="primary"
+                            onClick={() => {
+                                restartQuiz(false);
+                            }}
+                        >
+                            Restart
+                        </Button>
+                        <Button
+                            color="primary"
+                            onClick={() => {
+                                restartQuiz(true);
+                            }}
+                        >
+                            Continue
+                        </Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
             <Container className="d-flex justify-content-center">
                 <QuizContainer>
                     <FormGroup tag="fieldset">
                         <legend>Gender</legend>
                         <ButtonGroup className="mb-3">
-
                             <Button
                                 className="btn btn-light"
                                 style={{ border: "1px solid #ced4da" }}
@@ -97,9 +129,7 @@ const StepOne = ({
                             >
                                 Female
                             </Button>
-
                         </ButtonGroup>
-
 
                         <legend>Ethnicity</legend>
                         <Input
