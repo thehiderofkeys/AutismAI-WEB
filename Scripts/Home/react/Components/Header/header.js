@@ -58,8 +58,8 @@ class Header extends React.Component {
                         </Link>
                     </Col>
                     <Col className="col-2 d-flex justify-content-center align-center">
-                        <Link to={paths.DASHBOARD} style={this.state.link}>
-                            Dashboard
+                        <Link to={paths.STATS} style={this.state.link}>
+                            Statistics
                         </Link>
                     </Col>
                     <Col className="col-2 d-flex justify-content-center align-center">

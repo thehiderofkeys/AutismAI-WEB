@@ -2,7 +2,7 @@
     FRONTPAGE: "/",
     QUIZ: "/quiz",
     ADMIN: "/admin",
-    DASHBOARD: "/dashboard",
+    STATS: "/statistics",
     CONTRIBUTIONS: "/contribute",
     PEOPLE: "/people"
 }

@@ -1,7 +1,7 @@
 ﻿import styled from 'styled-components';
 import {Card, CardBody, Container, CardTitle} from 'reactstrap';
 
-export const DashboardContainer = styled(Container)`
+export const DashboardStyleContainer = styled(Container)`
   width: 100%;
   margin-top: 150px;
   margin-bottom: 200px;

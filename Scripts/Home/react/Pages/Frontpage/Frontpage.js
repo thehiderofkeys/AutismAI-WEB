@@ -247,7 +247,7 @@ const Frontpage = ({
                                             Toddlers (Q-CHAT-10) ASD screening methods proposed by
                                             Allison et al.
                                         </DetailDescription>
-                                        <Link to={paths.DASHBOARD}>
+                                        <Link to={paths.STATS}>
                                             <Button color="primary" className="mt-3">
                                                 Statistics Dashboard
                                             </Button>
