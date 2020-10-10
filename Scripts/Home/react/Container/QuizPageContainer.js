@@ -137,6 +137,7 @@ const QuizPageContainer = ({ children }) => {
             sessionStorage.removeItem("isToddler");
 
             const results = await postQuizResults(questionAnswers);
+            console.log(results);
             setQuizResults(results);
             setIsDisclaimerOpen(true);
         }

@@ -1,8 +1,10 @@
 ﻿import React from "react";
 import styles from "./styles.module.css";
 import Question from "../../Components/Question/Question";
+import { Button } from "reactstrap";
 
-const LastQuestion = ({ questionAnswers, handleNextPage }) => {
+
+const LastQuestion = ({ questionAnswers, handleNextPage, handleQuestionAnswer }) => {
     const lastQuestion = {
         name: `lastQuestion`,
         questionText:

@@ -100,14 +100,14 @@ export const postQuizResults = async (userData) => {
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
 
-    //const res = await fetch(predictionRoute, {
-    //    method: "POST",
-    //    headers: {
-    //        Accept: "application/json",
-    //        "Content-Type": "application/json"
-    //    },
-    //    body: JSON.stringify(reqBody)
-    //}).then((response) => response.json());
-    //return JSON.parse(res);
-    return reqBody;
+    const res = await fetch(predictionRoute, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reqBody)
+    }).then((response) => response.json());
+    return JSON.parse(res);
+    //return reqBody;
 };
