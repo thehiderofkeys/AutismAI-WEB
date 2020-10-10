@@ -18,32 +18,45 @@ const ResultsPage = ({ quizResults, isToddler }) => {
     return (
         <div className={styles["test"]}>
             {quizResults.prediction === "True" && (
+                <div>
                 <p>
-                    ASD traits have been detected by Autism AI screening tool based on the provided
-                    answers. We recommend that you visit a health professional for further
-                    evaluation. Autism AI identified the respondent's behavioral indicators
-                    similarity to other respodents on ASD spectrum in our database is{" "}
-                    {Math.round(quizResults.asd_probability * 100)}%. For your reference, based on
+                        ASD traits have been detected by Autism AI screening tool based on the provided
+                        answers. We recommend that you visit a health professional for further
+                        evaluation.
+                </p>
+
+                <p>
+                    Autism AI identified the respondent's behavioral indicators
+                    similarity to other respodents on ASD spectrum in our database is{" "}{Math.round(quizResults.asd_probability * 100)}%.
+                </p>
+                <p>
+                    For your reference, based on
                     conventional ASD screening {screeningTechnique} technique, autistic traits have
                     been identified in the respondent given the provided information. The{" "}
                     {screeningTechnique} score for the respondent is {quizResults.score}. This
                     result is not obtained from our AI. For more information about this conventional
                     method please refer to https://doi.org/10.1016/j.jaac.2011.11.003
                 </p>
+                </div>
             )}
 
             {quizResults.prediction === "False" && (
+                <div>
                 <p>
-                    Autism AI has not identified any autistic traits based on the answers provided.
+                        Autism AI has not identified any autistic traits based on the answers provided.
+                </p>
+                <p>
                     Autism AI identified the respondent's behavioral indicators similarity to other
-                    respodents on ASD spectrum in our database is{" "}
-                    {Math.round(quizResults.asd_probability * 100)}%. For your reference, based on
-                    conventional ASD screening {screeningTechnique} technique, autistic traits have
+                    respodents on ASD spectrum in our database is{" "}{Math.round(quizResults.asd_probability * 100)}%.
+                </p>
+                <p>
+                    For your reference, based on conventional ASD screening {screeningTechnique} technique, autistic traits have
                     not been identified in the respondent given the provided information. The{" "}
                     {screeningTechnique} score for the respondent is {quizResults.score}. This
                     result is not obtained from our AI. For more information about this conventional
                     method please refer to https://doi.org/10.1016/j.jaac.2011.11.003
                 </p>
+                </div>
             )}
 
             <Button
