@@ -145,7 +145,7 @@ const QuizPageContainer = ({ children }) => {
 
     const handleNextPage = () => {
         setCurrentComponent(currentComponent + 1);
-    }
+    }   
     const handlePrevQuestion = () => {
         if (currentQuestion > 0) {
             setCurrentQuestion(currentQuestion - 1);
@@ -214,7 +214,8 @@ const QuizPageContainer = ({ children }) => {
         isDisclaimerOpen,
         toggleDisclaimerModal,
         handleDisclaimerClick,
-        quizResults
+        quizResults,
+        handleNextPage
     };
 
     return React.cloneElement(children[currentComponent], { ...newProps });
