@@ -95,18 +95,19 @@ export const postQuizResults = async (userData) => {
     Object.keys(answers).forEach((key) => {
         reqBody[key] = postiveAnswer.includes(answers[key]) ? "1" : "0";
     });
-    reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Maths.floor(details.age / 12);
+    reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Math.floor(details.age / 12);
     reqBody.gender = details.gender === "Male" ? "m" : "f";
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
 
-    const res = await fetch(predictionRoute, {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(reqBody)
-    }).then((response) => response.json());
-    return JSON.parse(res);
+    //const res = await fetch(predictionRoute, {
+    //    method: "POST",
+    //    headers: {
+    //        Accept: "application/json",
+    //        "Content-Type": "application/json"
+    //    },
+    //    body: JSON.stringify(reqBody)
+    //}).then((response) => response.json());
+    //return JSON.parse(res);
+    return reqBody;
 };

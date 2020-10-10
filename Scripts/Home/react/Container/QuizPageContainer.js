@@ -19,6 +19,9 @@ const QuizPageContainer = ({ children }) => {
     const [isToddler, setIsToddler] = useState(false);
     const [isInAgeLimit, setIsInAgeLimit] = useState(true);
     const [isRestartModalOpen, setIsRestartModalOpen] = useState(false);
+    const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+
+    const [currentComponent, setCurrentComponent] = useState(0);
 
     useEffect(() => {
         function getCachedQuestionAnswers() {
@@ -65,11 +68,14 @@ const QuizPageContainer = ({ children }) => {
         setIsRestartModalOpen(false);
     };
 
+    const toggleRespondentAgeModal = () => setIsAgeModalOpen(!isAgeModalOpen);
+    const toggleRestartModal = () => setisRestartModalOpen(!isRestartModalOpen);
+    const toggleDisclaimerModal = () => setIsDisclaimerOpen(!isDisclaimerOpen);
+
     const restartQuiz = (confirmation) => {
         if (confirmation) {
             continueQuiz();
         } else {
-
             setIsRestartModalOpen(false);
             setIsAgeModalOpen(true);
 
@@ -79,8 +85,9 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
-    const toggleRespondentAgeModal = () => setIsAgeModalOpen(!isAgeModalOpen);
-    const toggleRestartModal = () => setisRestartModalOpen(!isRestartModalOpen);
+    const handleDisclaimerClick = () => {
+        setCurrentComponent(1);
+    };
 
     const handleAgeRespondentClick = (confirmation) => {
         if (confirmation) {
@@ -127,6 +134,7 @@ const QuizPageContainer = ({ children }) => {
             sessionStorage.removeItem("isToddler");
 
             const results = await postQuizResults(questionAnswers);
+            setIsDisclaimerOpen(true);
             console.log(results);
         }
     };
@@ -195,10 +203,13 @@ const QuizPageContainer = ({ children }) => {
         isInAgeLimit,
         toggleRestartModal,
         restartQuiz,
-        isRestartModalOpen
+        isRestartModalOpen,
+        isDisclaimerOpen,
+        toggleDisclaimerModal,
+        handleDisclaimerClick
     };
 
-    return React.cloneElement(children, { ...newProps });
+    return React.cloneElement(children[currentComponent], { ...newProps });
 };
 
 export default QuizPageContainer;
