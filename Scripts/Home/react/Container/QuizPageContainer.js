@@ -5,6 +5,7 @@ import {
     getEthnicity,
     postQuizResults
 } from "../services/QuestionsService";
+import Loading from "../Components/Loading/Loading";
 
 const QuizPageContainer = ({ children }) => {
     const [questionAnswers, setQuestionAnswers] = useState({
@@ -20,7 +21,7 @@ const QuizPageContainer = ({ children }) => {
     const [isInAgeLimit, setIsInAgeLimit] = useState(true);
     const [isRestartModalOpen, setIsRestartModalOpen] = useState(false);
     const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(false);
     const [currentComponent, setCurrentComponent] = useState(0);
 
     const [quizResults, setQuizResults] = useState({});
@@ -132,6 +133,7 @@ const QuizPageContainer = ({ children }) => {
             sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
             setCurrentQuestion(currentQuestion + 1);
         } else {
+            setIsLoading(true);
             sessionStorage.removeItem("questionAnswers");
             sessionStorage.removeItem("currentQuestion");
             sessionStorage.removeItem("isToddler");
@@ -140,12 +142,14 @@ const QuizPageContainer = ({ children }) => {
             console.log(results);
             setQuizResults(results);
             setIsDisclaimerOpen(true);
+            setIsLoading(false);
         }
     };
 
     const handleNextPage = () => {
         setCurrentComponent(currentComponent + 1);
-    }   
+    };
+    
     const handlePrevQuestion = () => {
         if (currentQuestion > 0) {
             setCurrentQuestion(currentQuestion - 1);
@@ -218,7 +222,12 @@ const QuizPageContainer = ({ children }) => {
         handleNextPage
     };
 
-    return React.cloneElement(children[currentComponent], { ...newProps });
+    return (
+        <>
+            {isLoading && <Loading />}
+            {React.cloneElement(children[currentComponent], { ...newProps })}
+        </>
+    );
 };
 
 export default QuizPageContainer;
