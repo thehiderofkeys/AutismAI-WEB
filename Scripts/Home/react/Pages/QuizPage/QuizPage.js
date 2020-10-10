@@ -5,13 +5,7 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
-import {
-    Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    ModalFooter
-} from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const Quizpage = ({
     handleQuestionAnswer,
@@ -56,7 +50,7 @@ const Quizpage = ({
 
     return (
         <div className={styles["test"]}>
-            {currentQuestion == 0 && (
+            {currentQuestion === 0 && (
                 <StepOne
                     ethnicities={ethnicities}
                     handleChange={handleChange}
@@ -72,7 +66,7 @@ const Quizpage = ({
                     isRestartModalOpen={isRestartModalOpen}
                 />
             )}
-            {currentQuestion == 1 && (
+            {currentQuestion === 1 && (
                 <StepTwo
                     testTakerOptions={testTakerOptions}
                     handleChange={handleChange}
@@ -86,7 +80,6 @@ const Quizpage = ({
                     question={questions[currentQuestion - 2]}
                     handleChange={handleQuestionAnswer}
                     questionAnswers={questionAnswers.answers}
-                    currentQuestion={currentQuestion}
                 />
             )}
 

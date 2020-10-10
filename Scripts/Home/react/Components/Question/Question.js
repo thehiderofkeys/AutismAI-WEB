@@ -2,7 +2,7 @@
 import { Row, Col, Container, FormGroup, Label, legend, Input } from "reactstrap";
 import { QuizContainer } from "./QuestionStyle";
 
-const Question = ({ question, handleChange, questionAnswers, currentQuestion }) => {
+const Question = ({ question, handleChange, questionAnswers }) => {
     const onClick = (event) => {
         handleChange({ question: question.name, answer: event.target.value });
     };

@@ -23,6 +23,8 @@ const QuizPageContainer = ({ children }) => {
 
     const [currentComponent, setCurrentComponent] = useState(0);
 
+    const [quizResults, setQuizResults] = useState({});
+
     useEffect(() => {
         function getCachedQuestionAnswers() {
             let cachedData = sessionStorage.getItem("questionAnswers");
@@ -86,7 +88,7 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleDisclaimerClick = () => {
-        setCurrentComponent(1);
+        handleNextPage();
     };
 
     const handleAgeRespondentClick = (confirmation) => {
@@ -114,7 +116,9 @@ const QuizPageContainer = ({ children }) => {
         setQuestionAnswers((prevAnswers) => {
             const newAnswers = { ...prevAnswers };
             newAnswers.answers[question] = answer;
-            sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
+            if (question !== "lastQuestion") {
+                sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
+            }
             return newAnswers;
         });
     };
@@ -128,17 +132,19 @@ const QuizPageContainer = ({ children }) => {
             sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
             setCurrentQuestion(currentQuestion + 1);
         } else {
-            console.log("end");
             sessionStorage.removeItem("questionAnswers");
             sessionStorage.removeItem("currentQuestion");
             sessionStorage.removeItem("isToddler");
 
             const results = await postQuizResults(questionAnswers);
+            setQuizResults(results);
             setIsDisclaimerOpen(true);
-            console.log(results);
         }
     };
 
+    const handleNextPage = () => {
+        setCurrentComponent(currentComponent + 1);
+    }
     const handlePrevQuestion = () => {
         if (currentQuestion > 0) {
             setCurrentQuestion(currentQuestion - 1);
@@ -206,7 +212,8 @@ const QuizPageContainer = ({ children }) => {
         isRestartModalOpen,
         isDisclaimerOpen,
         toggleDisclaimerModal,
-        handleDisclaimerClick
+        handleDisclaimerClick,
+        quizResults
     };
 
     return React.cloneElement(children[currentComponent], { ...newProps });
