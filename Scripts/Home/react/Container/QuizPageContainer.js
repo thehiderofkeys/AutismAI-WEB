@@ -217,7 +217,8 @@ const QuizPageContainer = ({ children }) => {
         isDisclaimerOpen,
         toggleDisclaimerModal,
         handleDisclaimerClick,
-        quizResults
+        quizResults,
+        handleNextPage
     };
 
     return (
