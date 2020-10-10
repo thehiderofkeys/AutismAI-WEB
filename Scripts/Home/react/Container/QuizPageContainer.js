@@ -3,7 +3,9 @@ import {
     getQuestions as getQuestionsRequest,
     getTestTakerOptions,
     getEthnicity,
-    postQuizResults
+    postQuizResults,
+    getDiagnosticQuestion,
+    getLastQuestion
 } from "../services/QuestionsService";
 import Loading from "../Components/Loading/Loading";
 
@@ -21,10 +23,14 @@ const QuizPageContainer = ({ children }) => {
     const [isInAgeLimit, setIsInAgeLimit] = useState(true);
     const [isRestartModalOpen, setIsRestartModalOpen] = useState(false);
     const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+    const [isASDMethodOpen, setIsASDMethodOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [currentComponent, setCurrentComponent] = useState(0);
 
     const [quizResults, setQuizResults] = useState({});
+
+    const diagnosticQuestion = getDiagnosticQuestion();
+    const lastQuestion = getLastQuestion();
 
     useEffect(() => {
         function getCachedQuestionAnswers() {
@@ -74,6 +80,7 @@ const QuizPageContainer = ({ children }) => {
     const toggleRespondentAgeModal = () => setIsAgeModalOpen(!isAgeModalOpen);
     const toggleRestartModal = () => setisRestartModalOpen(!isRestartModalOpen);
     const toggleDisclaimerModal = () => setIsDisclaimerOpen(!isDisclaimerOpen);
+    const toggleASDMethodModal = () => setIsASDMethodOpen(!isASDMethodOpen);
 
     const restartQuiz = (confirmation) => {
         if (confirmation) {
@@ -90,6 +97,12 @@ const QuizPageContainer = ({ children }) => {
 
     const handleDisclaimerClick = () => {
         handleNextPage();
+    };
+
+    const handleASDMethodClick = () => {
+        if (questionAnswers.answers.diagnosticMethod) {
+            setIsASDMethodOpen(false);
+        }
     };
 
     const handleAgeRespondentClick = (confirmation) => {
@@ -114,10 +127,21 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleQuestionAnswer = ({ question, answer }) => {
+        if (question === "lastQuestion") {
+            setQuestionAnswers((prevAnswers) => {
+                const newAnswers = { ...prevAnswers };
+                delete newAnswers.answers.diagnosticMethod;
+                return newAnswers;
+            });
+
+            if (answer.includes("Yes")) {
+                setIsASDMethodOpen(true);
+            }
+        }
         setQuestionAnswers((prevAnswers) => {
             const newAnswers = { ...prevAnswers };
             newAnswers.answers[question] = answer;
-            if (question !== "lastQuestion") {
+            if (question !== "lastQuestion" && question !== "diagnosticMethod") {
                 sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
             }
             return newAnswers;
@@ -149,7 +173,7 @@ const QuizPageContainer = ({ children }) => {
     const handleNextPage = () => {
         setCurrentComponent(currentComponent + 1);
     };
-    
+
     const handlePrevQuestion = () => {
         if (currentQuestion > 0) {
             setCurrentQuestion(currentQuestion - 1);
@@ -219,7 +243,12 @@ const QuizPageContainer = ({ children }) => {
         toggleDisclaimerModal,
         handleDisclaimerClick,
         quizResults,
-        handleNextPage
+        handleNextPage,
+        diagnosticQuestion,
+        lastQuestion,
+        isASDMethodOpen,
+        toggleASDMethodModal,
+        handleASDMethodClick
     };
 
     return (
