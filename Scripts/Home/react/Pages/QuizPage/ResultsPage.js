@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import Question from "../../Components/Question/Question";
 import { Button } from "reactstrap";
 
-const ResultsPage = ({ quizResults, isToddler }) => {
+const ResultsPage = ({ quizResults, isToddler, handleRestart }) => {
     console.log(quizResults);
 
     let screeningTechnique;
@@ -60,6 +60,7 @@ const ResultsPage = ({ quizResults, isToddler }) => {
             )}
 
             <Button
+                onClick={handleRestart}
                 className="text-light btn-block"
                 style={{
                     backgroundColor: "#242e4c",
@@ -69,6 +70,7 @@ const ResultsPage = ({ quizResults, isToddler }) => {
                     padding: "12px",
                     width: "361px"
                 }}
+         
             >
                 Restart
             </Button>

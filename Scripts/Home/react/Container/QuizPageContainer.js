@@ -209,6 +209,11 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
+
+    const handleRestart = () => {
+        window.location.reload(false); 
+    };
+
     const handleClick = (name, event) => {
         const { value } = event.target;
         setQuestionAnswers((prevAnswers) => {
@@ -229,6 +234,7 @@ const QuizPageContainer = ({ children }) => {
         ethnicities,
         handleChange,
         handleClick,
+        handleRestart,
         testTakerOptions,
         getQuestions,
         toggleRespondentAgeModal,
