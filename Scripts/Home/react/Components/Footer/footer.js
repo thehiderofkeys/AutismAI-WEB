@@ -55,8 +55,8 @@ const PageFooter = ({}) => {
                                 <BigText>Related Links</BigText>
                             </Col>
                             <Col className="col-12 mb-2">
-                                <Link to={paths.DASHBOARD}>
-                                    <SmallText>Dashboard</SmallText>
+                                <Link to={paths.STATS}>
+                                    <SmallText>Statistics</SmallText>
                                 </Link>
                             </Col>
                             <Col className="col-12 mb-2">

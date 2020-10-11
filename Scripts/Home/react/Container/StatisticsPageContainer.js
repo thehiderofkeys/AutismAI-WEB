@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { getDashboardStats } from "../services/DashboardStatsService";
+import { getDashboardStats } from "../services/StatisticsService";
 import Loading from "../Components/Loading/Loading";
 
-const DashboardPageContainer = ({ children }) => {
+const StatisticsPageContainer = ({ children }) => {
     // Any variables or methods declared in newProps will be passed through to children
     // components as declared in frontpage.jsx
 
     const [dashboardStats, setDashboardStats] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(() => {
         async function getDashboardStatistics() {
@@ -20,11 +21,12 @@ const DashboardPageContainer = ({ children }) => {
         getDashboardStatistics();
     }, []);
 
+
     const handleChange = () => {
         console.log("handleChange");
     };
 
-    const newProps = { handleChange, dashboardStats };
+    const newProps = { handleChange, dashboardStats, };
 
     return (
         <>
@@ -34,4 +36,4 @@ const DashboardPageContainer = ({ children }) => {
     );
 };
 
-export default DashboardPageContainer;
+export default StatisticsPageContainer;

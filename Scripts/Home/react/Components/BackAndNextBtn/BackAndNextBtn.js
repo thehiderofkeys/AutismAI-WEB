@@ -1,36 +1,50 @@
 ﻿import React from "react";
 import { Col, Container, ButtonGroup, Button } from "reactstrap";
 
-const BackAndNextBtn = ({ handlePrevQuestion, handleNextQuestion, currentQuestion }) => {
-    const onClick = (event) => {
-        handleChange({ });
-    };
-
+const BackAndNextBtn = ({
+    handlePrevQuestion,
+    handleNextQuestion,
+    currentQuestion,
+    disableNext
+}) => {
     return (
-        <Container className="d-flex justify-content-center mt-4">
-
-            <Col style={{
-                maxWidth: "15%",
-            }}> 
-                <ButtonGroup >
-                    <Button onClick={handlePrevQuestion}
-                        className="text-dark"
-                        style={{
-                            backgroundColor: '#ebf0ff',
-                            border: "1px solid #ced4da"
-                        }} disabled={currentQuestion <= 0}>
-                        {" "}
-                Back{" "}
-                    </Button>
-                    <Button onClick={handleNextQuestion}
-                        className="text-dark"
-                        style={{
-                            backgroundColor: '#ebf0ff',
-                            border: "1px solid #ced4da"
-                        }}
-                    > Next </Button>
-                </ButtonGroup>
-            </Col>
+        <Container className="d-flex justify-content-center">
+            <ButtonGroup
+                style={{
+                    width: "65%",
+                    marginTop: "15px"
+                }}
+            >
+                <Button
+                    onClick={handlePrevQuestion}
+                    className="text-light btn-block"
+                    style={{
+                        backgroundColor: "#242e4c",
+                        border: "1px solid #ced4da",
+                        borderRadius: "15px",
+                        padding: "12px"
+                    }}
+                    disabled={currentQuestion <= 0}
+                >
+                    {" "}
+                    Back{" "}
+                </Button>
+                <Button
+                    onClick={handleNextQuestion}
+                    className="text-light btn-block"
+                    style={{
+                        backgroundColor: "#242e4c",
+                        border: "1px solid #ced4da",
+                        borderRadius: "15px",
+                        marginTop: "0px",
+                        padding: "12px"
+                    }}
+                    disabled={disableNext}
+                >
+                    {" "}
+                    Next{" "}
+                </Button>
+            </ButtonGroup>
         </Container>
     );
 };

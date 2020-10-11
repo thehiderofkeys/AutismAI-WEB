@@ -103,35 +103,43 @@
   <ItemGroup>
     <Content Include=".prettierrc.js" />
     <Content Include="Global.asax" />
+    <Content Include=".prettierrc.js" />
+    <Content Include="Images\annon.png" />
     <Content Include="Images\Background_dark.png" />
     <Content Include="Images\calendar.png" />
+    <Content Include="Images\fb.png" />
+    <Content Include="Images\google.png" />
     <Content Include="Images\hd.jpg" />
+    <Content Include="Images\insta.png" />
+    <Content Include="Images\linkedin.png" />
     <Content Include="Images\logoDark.png" />
     <Content Include="Images\logoLight.png" />
     <Content Include="Images\Marketing.png" />
     <Content Include="Images\Marketing_Phone.png" />
+    <Content Include="Images\TeamPhotos\Hideaki.JPG" />
     <Content Include="Images\TeamPhotos\Hideaki.png" />
+    <Content Include="Images\TeamPhotos\Josh.JPG" />
     <Content Include="Images\TeamPhotos\Josh.png" />
+    <Content Include="Images\TeamPhotos\Mario.JPG" />
     <Content Include="Images\TeamPhotos\Mario.png" />
+    <Content Include="Images\TeamPhotos\Reza.png" />
+    <Content Include="Images\TeamPhotos\Ryan.JPG" />
     <Content Include="Images\TeamPhotos\Ryan.png" />
+    <Content Include="Images\TeamPhotos\Sam.JPG" />
     <Content Include="Images\TeamPhotos\Sam.png" />
+    <Content Include="Images\TeamPhotos\Sean.JPG" />
     <Content Include="Images\TeamPhotos\Sean.png" />
+    <Content Include="Images\TeamPhotos\team.JPG" />
     <Content Include="Images\TeamPhotos\team.png" />
     <Content Include="Images\TeamPhotos\Tyger.JPG" />
-    <Content Include="Images\TeamPhotos\Sam.JPG" />
-    <Content Include="Images\TeamPhotos\Josh.JPG" />
-    <Content Include="Images\TeamPhotos\Hideaki.JPG" />
     <Content Include="Images\TeamPhotos\Tyger.png" />
     <Content Include="Images\TeamPhotos\Yinhu.JPG" />
-    <Content Include="Images\TeamPhotos\Mario.JPG" />
-    <Content Include="Images\TeamPhotos\Sean.JPG" />
-    <Content Include="Images\TeamPhotos\Ryan.JPG" />
-    <Content Include="Images\TeamPhotos\team.JPG" />
     <Content Include="Images\TeamPhotos\Yinhu.png" />
+    <Content Include="Images\uoa.png" />
     <Content Include="Images\wave.svg" />
     <Content Include="Images\waveBottom.svg" />
-    <Content Include=".prettierrc.js" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
+    <Content Include="Scripts\Home\react\Components\BackAndNextBtn\BackAndNextBtn.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footer.js" />
     <Content Include="Scripts\Home\react\Components\Footer\footerStyle.js" />
     <Content Include="Scripts\Home\react\Components\Header\header.js" />
@@ -150,7 +158,7 @@
     <Content Include="Scripts\Home\react\Components\Profile\ProfileStyles.js" />
     <Content Include="Scripts\Home\react\Container\AdminPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
-    <Content Include="Scripts\Home\react\Container\DashboardPageContainer.js" />
+    <Content Include="Scripts\Home\react\Container\StatisticsPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\FrontpageContainer.js" />
     <Content Include="Scripts\Home\react\Container\ContributionPageContainer.js" />
     <Content Include="Scripts\Home\react\Container\QuizPageContainer.js" />
@@ -160,9 +168,11 @@
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPage.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\DashboardPageStyles.js" />
-    <Content Include="Scripts\Home\react\Pages\DashboardPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\QuizPage\LastQuestion.js" />
+    <Content Include="Scripts\Home\react\Pages\QuizPage\ResultsPage.js" />
+    <Content Include="Scripts\Home\react\Pages\StatisticsPage\StatisticsPage.js" />
+    <Content Include="Scripts\Home\react\Pages\StatisticsPage\StatisticsPageStyles.js" />
+    <Content Include="Scripts\Home\react\Pages\StatisticsPage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\frontpageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\index.js" />
     <Content Include="Scripts\Home\react\Pages\Frontpage\Frontpage.js" />
@@ -171,10 +181,10 @@
     <Content Include="Scripts\Home\react\Pages\QuizPage\QuizPage.js" />
     <Content Include="Scripts\Home\react\Pages\QuizPage\styles.module.css" />
     <Content Include="Scripts\Home\react\routes\paths.js" />
-    <Content Include="Scripts\Home\react\services\questionsService.js" />
+    <Content Include="Scripts\Home\react\services\QuestionsService.js" />
     <Content Include="Scripts\Home\react\util\helpers.js" />
     <Content Include="Scripts\Home\react\services\ApiRoutes.js" />
-    <Content Include="Scripts\Home\react\services\DashboardStatsService.js" />
+    <Content Include="Scripts\Home\react\services\StatisticsService.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
     <Content Include="Scripts\Home\react\Pages\PeoplePage\index.js" />
@@ -192,6 +202,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controllers\PredictController.cs" />
+    <Compile Include="Models\QuizResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -214,7 +226,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

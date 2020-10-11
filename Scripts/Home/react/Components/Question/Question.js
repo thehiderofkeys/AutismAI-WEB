@@ -1,20 +1,15 @@
 ﻿import React from "react";
 import { Row, Col, Container, FormGroup, Label, legend, Input } from "reactstrap";
+import { QuizContainer } from "./QuestionStyle";
 
-const Question = ({ question, handleChange, questionAnswers, currentQuestion }) => {
+const Question = ({ question, handleChange, questionAnswers }) => {
     const onClick = (event) => {
         handleChange({ question: question.name, answer: event.target.value });
     };
 
     return (
         <Container className="d-flex justify-content-center">
-            <Col
-                style={{
-                    maxWidth: "50%",
-                    backgroundColor: "#ebf0ff",
-                    borderRadius: "15px"
-                }}
-            >
+            <QuizContainer>
                 <FormGroup tag="fieldset">
                     <legend>{question.questionText}</legend>
                     {question.answerSet.map((option, i) => (
@@ -22,7 +17,7 @@ const Question = ({ question, handleChange, questionAnswers, currentQuestion }) 
                             className="mt-3 border rounded d-flex justify-content-left"
                             style={{
                                 width: "100%",
-                                height: "calc(1.5em + .75rem + 2px)",
+                                height: "auto",
                                 padding: ".375rem .75rem",
                                 marginLeft: "0",
                                 backgroundColor: "#fff"
@@ -48,7 +43,7 @@ const Question = ({ question, handleChange, questionAnswers, currentQuestion }) 
                         </Row>
                     ))}
                 </FormGroup>
-            </Col>
+            </QuizContainer>
         </Container>
     );
 };

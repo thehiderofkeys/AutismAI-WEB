@@ -5,12 +5,11 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
-import { getQuestions } from "../../services/questionsService";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const Quizpage = ({
     handleQuestionAnswer,
     questions,
-    answerOptions,
     currentQuestion,
     handleNextQuestion,
     handlePrevQuestion,
@@ -19,34 +18,68 @@ const Quizpage = ({
     handleChange,
     handleClick,
     testTakerOptions,
-    getQuestions
+    getQuestions,
+    toggleRespondentAgeModal,
+    isAgeModalOpen,
+    handleAgeRespondentClick,
+    isToddler,
+    isInAgeLimit,
+    toggleRestartModal,
+    restartQuiz,
+    isRestartModalOpen,
+    isDisclaimerOpen,
+    toggleDisclaimerModal,
+    handleDisclaimerClick
 }) => {
+    let isCurrentQuestionAnswered = true;
+
+    const answerFields = [
+        ["gender", "ethnicity", "userAge"],
+        ["jaundice", "familyConnection", "testTaker"]
+    ];
+
+    if (currentQuestion > 1) {
+        isCurrentQuestionAnswered = !!questionAnswers.answers[questions[currentQuestion - 2].name];
+    } else {
+        answerFields[currentQuestion].forEach((field) => {
+            if (!questionAnswers.details[field]) {
+                isCurrentQuestionAnswered = false;
+            }
+        });
+    }
+
     return (
-        <div className={styles["test"]}>
-            {currentQuestion == 0 && (
+        <div className={styles["container"]}>
+            {currentQuestion === 0 && (
                 <StepOne
                     ethnicities={ethnicities}
                     handleChange={handleChange}
                     handleClick={handleClick}
                     details={questionAnswers.details}
                     getQuestions={getQuestions}
+                    toggleRespondentAgeModal={toggleRespondentAgeModal}
+                    isAgeModalOpen={isAgeModalOpen}
+                    handleAgeRespondentClick={handleAgeRespondentClick}
+                    isToddler={isToddler}
+                    toggleRestartModal={toggleRestartModal}
+                    restartQuiz={restartQuiz}
+                    isRestartModalOpen={isRestartModalOpen}
                 />
             )}
-            {currentQuestion == 1 && (
+            {currentQuestion === 1 && (
                 <StepTwo
                     testTakerOptions={testTakerOptions}
                     handleChange={handleChange}
                     handleClick={handleClick}
                     details={questionAnswers.details}
+                    isToddler={isToddler}
                 />
             )}
             {currentQuestion > 1 && (
                 <Question
                     question={questions[currentQuestion - 2]}
-                    //answerOptions={answerOptions}
                     handleChange={handleQuestionAnswer}
                     questionAnswers={questionAnswers.answers}
-                    currentQuestion={currentQuestion}
                 />
             )}
 
@@ -54,7 +87,34 @@ const Quizpage = ({
                 handleNextQuestion={handleNextQuestion}
                 handlePrevQuestion={handlePrevQuestion}
                 currentQuestion={currentQuestion}
+                disableNext={!isCurrentQuestionAnswered || !isInAgeLimit}
             />
+
+            <div>
+                <Modal isOpen={isDisclaimerOpen} toggle={toggleDisclaimerModal}>
+                    <ModalHeader>Disclaimer</ModalHeader>
+                    <ModalBody>
+                        <p>
+                            This app is intended for research purposes. The result is not an
+                            indication of Autism Spectrum Disorder (ASD) in the respondent. If you
+                            are concened that you, a friend, or a relative, may have ASD, please
+                            discuss your concerns with a health professional. By using this
+                            application you acknowledge that your anonymised data may be included in
+                            the research study.
+                        </p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button
+                            color="primary"
+                            onClick={() => {
+                                handleDisclaimerClick();
+                            }}
+                        >
+                            Yes
+                        </Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
         </div>
     );
 };

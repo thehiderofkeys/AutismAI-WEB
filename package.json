@@ -30,10 +30,13 @@
     "bootstrap": "^4.5.2",
     "feather-icons": "^4.28.0",
     "feather-icons-react": "^0.4.1",
+    "html2canvas": "^1.0.0-rc.7",
+    "jspdf": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "react-router-dom": "^5.2.0",
+    "reactjs-localstorage": "^1.0.1",
     "reactstrap": "^8.6.0",
     "recharts": "^1.8.5",
     "styled-components": "^5.2.0"

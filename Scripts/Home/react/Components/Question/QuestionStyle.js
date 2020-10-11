@@ -1,23 +1,14 @@
-﻿//import styled from 'styled-components';
+﻿import styled from 'styled-components';
 
-//export const Container = styled.div`
-//  width: 100%;
-//  margin-top: 100%;
-//  margin-bottom: 200px;
-//  display: flex;
-  
-//`;
-
-//export const FormGroup = styled.div`
-//  width: 100%;
-//  margin-top: 100%;
-//  margin-bottom: 200px;
-//  display: flex;
-//  border-bottom: 1em;
-  
-//`;
-
-//export const Label = styled.div`
-//  border-bottom: 1em;
-  
-//`;
+export const QuizContainer = styled.div`
+  width: 670px;
+  min-width: 400px;
+  min-height: 450px;
+  height: auto;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 50px 80px 30px 80px;
+  border: 1px solid #ced4da;
+`;
+    
