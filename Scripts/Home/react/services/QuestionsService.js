@@ -13,12 +13,35 @@ const answerSetType = {
     FREQUENCY: "frequency_answer_options",
     EASE: "ease_answer_options",
     DAILY_FREQ: "daily_frequency_answer_options",
-    FIRST_WORD: "first_word_answer_options"
+    FIRST_WORD: "first_word_answer_options",
+    DIAGNOSTIC_METHOD: "diagnostic_technique"
 };
+
+export const getDiagnosticQuestion = () => {
+    return {
+        name: "diagnosticMethod",
+        questionText: "What was the formal diagnostic technique used to assess the respondent?",
+        answerSet: getAnswerSet(answerSetType.DIAGNOSTIC_METHOD)
+    }
+}
+
+export const getLastQuestion = () => {
+    return {
+        name: `lastQuestion`,
+        questionText:
+            "Has the respondent been formally assessed or dignosed for ASD by licenced health professionals?",
+        answerSet: [
+            "No, the respondant has never been formally assessed",
+            "Yes, the respondant has been asseseed but ASD was not diagnosed",
+            "Yes, the respondant has been assessed and ASD was diagnosed"
+        ]
+    };
+}
 
 export const getAnswerSet = (answerSet) => {
     return questions[answerSet];
 };
+
 export const getQuestions = (age, isToddler) => {
     let category = categories.ADULT;
 
@@ -95,10 +118,12 @@ export const postQuizResults = async (userData) => {
     Object.keys(answers).forEach((key) => {
         reqBody[key] = postiveAnswer.includes(answers[key]) ? "1" : "0";
     });
-    reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Maths.floor(details.age / 12);
+    reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Math.floor(parseInt(details.userAge) / 12).toString();
     reqBody.gender = details.gender === "Male" ? "m" : "f";
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
+
+    console.log(reqBody);
 
     const res = await fetch(predictionRoute, {
         method: "POST",
@@ -109,4 +134,5 @@ export const postQuizResults = async (userData) => {
         body: JSON.stringify(reqBody)
     }).then((response) => response.json());
     return JSON.parse(res);
+    //return reqBody;
 };

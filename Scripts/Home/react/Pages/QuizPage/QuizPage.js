@@ -5,6 +5,7 @@ import Question from "../../Components/Question/Question";
 import StepOne from "../../Components/StepOne/StepOne";
 import StepTwo from "../../Components/StepTwo/StepTwo";
 import BackAndNextBtn from "../../Components/BackAndNextBtn/BackAndNextBtn";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const Quizpage = ({
     handleQuestionAnswer,
@@ -25,7 +26,10 @@ const Quizpage = ({
     isInAgeLimit,
     toggleRestartModal,
     restartQuiz,
-    isRestartModalOpen
+    isRestartModalOpen,
+    isDisclaimerOpen,
+    toggleDisclaimerModal,
+    handleDisclaimerClick
 }) => {
     let isCurrentQuestionAnswered = true;
 
@@ -45,8 +49,8 @@ const Quizpage = ({
     }
 
     return (
-        <div className={styles["test"]}>
-            {currentQuestion == 0 && (
+        <div className={styles["container"]}>
+            {currentQuestion === 0 && (
                 <StepOne
                     ethnicities={ethnicities}
                     handleChange={handleChange}
@@ -62,7 +66,7 @@ const Quizpage = ({
                     isRestartModalOpen={isRestartModalOpen}
                 />
             )}
-            {currentQuestion == 1 && (
+            {currentQuestion === 1 && (
                 <StepTwo
                     testTakerOptions={testTakerOptions}
                     handleChange={handleChange}
@@ -76,7 +80,6 @@ const Quizpage = ({
                     question={questions[currentQuestion - 2]}
                     handleChange={handleQuestionAnswer}
                     questionAnswers={questionAnswers.answers}
-                    currentQuestion={currentQuestion}
                 />
             )}
 
@@ -86,9 +89,34 @@ const Quizpage = ({
                 currentQuestion={currentQuestion}
                 disableNext={!isCurrentQuestionAnswered || !isInAgeLimit}
             />
+
+            <div>
+                <Modal isOpen={isDisclaimerOpen} toggle={toggleDisclaimerModal}>
+                    <ModalHeader>Disclaimer</ModalHeader>
+                    <ModalBody>
+                        <p>
+                            This app is intended for research purposes. The result is not an
+                            indication of Autism Spectrum Disorder (ASD) in the respondent. If you
+                            are concened that you, a friend, or a relative, may have ASD, please
+                            discuss your concerns with a health professional. By using this
+                            application you acknowledge that your anonymised data may be included in
+                            the research study.
+                        </p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button
+                            color="primary"
+                            onClick={() => {
+                                handleDisclaimerClick();
+                            }}
+                        >
+                            Yes
+                        </Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
         </div>
     );
-
 };
 
 Quizpage.defaultProps = {

@@ -2,7 +2,7 @@
 import { Row, Col, Container, FormGroup, Label, legend, Input } from "reactstrap";
 import { QuizContainer } from "./QuestionStyle";
 
-const Question = ({ question, handleChange, questionAnswers, currentQuestion }) => {
+const Question = ({ question, handleChange, questionAnswers }) => {
     const onClick = (event) => {
         handleChange({ question: question.name, answer: event.target.value });
     };
@@ -17,7 +17,7 @@ const Question = ({ question, handleChange, questionAnswers, currentQuestion }) 
                             className="mt-3 border rounded d-flex justify-content-left"
                             style={{
                                 width: "100%",
-                                height: "calc(1.5em + .75rem + 2px)",
+                                height: "auto",
                                 padding: ".375rem .75rem",
                                 marginLeft: "0",
                                 backgroundColor: "#fff"

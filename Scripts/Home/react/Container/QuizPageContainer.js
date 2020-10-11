@@ -3,8 +3,13 @@ import {
     getQuestions as getQuestionsRequest,
     getTestTakerOptions,
     getEthnicity,
-    postQuizResults
+    postQuizResults,
+    getDiagnosticQuestion,
+    getLastQuestion
 } from "../services/QuestionsService";
+import Loading from "../Components/Loading/Loading";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const QuizPageContainer = ({ children }) => {
     const [questionAnswers, setQuestionAnswers] = useState({
@@ -19,6 +24,15 @@ const QuizPageContainer = ({ children }) => {
     const [isToddler, setIsToddler] = useState(false);
     const [isInAgeLimit, setIsInAgeLimit] = useState(true);
     const [isRestartModalOpen, setIsRestartModalOpen] = useState(false);
+    const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+    const [isASDMethodOpen, setIsASDMethodOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [currentComponent, setCurrentComponent] = useState(0);
+
+    const [quizResults, setQuizResults] = useState({});
+
+    const diagnosticQuestion = getDiagnosticQuestion();
+    const lastQuestion = getLastQuestion();
 
     useEffect(() => {
         function getCachedQuestionAnswers() {
@@ -65,11 +79,15 @@ const QuizPageContainer = ({ children }) => {
         setIsRestartModalOpen(false);
     };
 
+    const toggleRespondentAgeModal = () => setIsAgeModalOpen(!isAgeModalOpen);
+    const toggleRestartModal = () => setisRestartModalOpen(!isRestartModalOpen);
+    const toggleDisclaimerModal = () => setIsDisclaimerOpen(!isDisclaimerOpen);
+    const toggleASDMethodModal = () => setIsASDMethodOpen(!isASDMethodOpen);
+
     const restartQuiz = (confirmation) => {
         if (confirmation) {
             continueQuiz();
         } else {
-
             setIsRestartModalOpen(false);
             setIsAgeModalOpen(true);
 
@@ -79,8 +97,15 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
-    const toggleRespondentAgeModal = () => setIsAgeModalOpen(!isAgeModalOpen);
-    const toggleRestartModal = () => setisRestartModalOpen(!isRestartModalOpen);
+    const handleDisclaimerClick = () => {
+        handleNextPage();
+    };
+
+    const handleASDMethodClick = () => {
+        if (questionAnswers.answers.diagnosticMethod) {
+            setIsASDMethodOpen(false);
+        }
+    };
 
     const handleAgeRespondentClick = (confirmation) => {
         if (confirmation) {
@@ -104,10 +129,23 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleQuestionAnswer = ({ question, answer }) => {
+        if (question === "lastQuestion") {
+            setQuestionAnswers((prevAnswers) => {
+                const newAnswers = { ...prevAnswers };
+                delete newAnswers.answers.diagnosticMethod;
+                return newAnswers;
+            });
+
+            if (answer.includes("Yes")) {
+                setIsASDMethodOpen(true);
+            }
+        }
         setQuestionAnswers((prevAnswers) => {
             const newAnswers = { ...prevAnswers };
             newAnswers.answers[question] = answer;
-            sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
+            if (question !== "lastQuestion" && question !== "diagnosticMethod") {
+                sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
+            }
             return newAnswers;
         });
     };
@@ -121,14 +159,21 @@ const QuizPageContainer = ({ children }) => {
             sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
             setCurrentQuestion(currentQuestion + 1);
         } else {
-            console.log("end");
+            setIsLoading(true);
             sessionStorage.removeItem("questionAnswers");
             sessionStorage.removeItem("currentQuestion");
             sessionStorage.removeItem("isToddler");
 
             const results = await postQuizResults(questionAnswers);
             console.log(results);
+            setQuizResults(results);
+            setIsDisclaimerOpen(true);
+            setIsLoading(false);
         }
+    };
+
+    const handleNextPage = () => {
+        setCurrentComponent(currentComponent + 1);
     };
 
     const handlePrevQuestion = () => {
@@ -166,6 +211,10 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
+    const handleRestart = () => {
+        window.location.reload(false);
+    };
+
     const handleClick = (name, event) => {
         const { value } = event.target;
         setQuestionAnswers((prevAnswers) => {
@@ -173,6 +222,16 @@ const QuizPageContainer = ({ children }) => {
             newAnswers.details[name] = value;
             sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
             return newAnswers;
+        });
+    };
+
+    const handleCreatePdf = () => {
+        const input = document.getElementById("capture");
+        html2canvas(input).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, "JPEG", 0, 0);
+            pdf.save("download.pdf");
         });
     };
 
@@ -186,6 +245,8 @@ const QuizPageContainer = ({ children }) => {
         ethnicities,
         handleChange,
         handleClick,
+        handleCreatePdf,
+        handleRestart,
         testTakerOptions,
         getQuestions,
         toggleRespondentAgeModal,
@@ -195,10 +256,25 @@ const QuizPageContainer = ({ children }) => {
         isInAgeLimit,
         toggleRestartModal,
         restartQuiz,
-        isRestartModalOpen
+        isRestartModalOpen,
+        isDisclaimerOpen,
+        toggleDisclaimerModal,
+        handleDisclaimerClick,
+        quizResults,
+        handleNextPage,
+        diagnosticQuestion,
+        lastQuestion,
+        isASDMethodOpen,
+        toggleASDMethodModal,
+        handleASDMethodClick
     };
 
-    return React.cloneElement(children, { ...newProps });
+    return (
+        <>
+            {isLoading && <Loading />}
+            {React.cloneElement(children[currentComponent], { ...newProps })}
+        </>
+    );
 };
 
 export default QuizPageContainer;

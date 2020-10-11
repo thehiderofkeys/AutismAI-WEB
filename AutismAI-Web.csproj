@@ -168,6 +168,8 @@
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\ContributionsPage.js" />
     <Content Include="Scripts\Home\react\Pages\ContributionsPage\index.js" />
+    <Content Include="Scripts\Home\react\Pages\QuizPage\LastQuestion.js" />
+    <Content Include="Scripts\Home\react\Pages\QuizPage\ResultsPage.js" />
     <Content Include="Scripts\Home\react\Pages\StatisticsPage\StatisticsPage.js" />
     <Content Include="Scripts\Home\react\Pages\StatisticsPage\StatisticsPageStyles.js" />
     <Content Include="Scripts\Home\react\Pages\StatisticsPage\index.js" />
