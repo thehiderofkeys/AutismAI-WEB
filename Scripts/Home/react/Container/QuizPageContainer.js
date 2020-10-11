@@ -8,8 +8,8 @@ import {
     getLastQuestion
 } from "../services/QuestionsService";
 import Loading from "../Components/Loading/Loading";
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const QuizPageContainer = ({ children }) => {
     const [questionAnswers, setQuestionAnswers] = useState({
@@ -211,9 +211,8 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
-
     const handleRestart = () => {
-        window.location.reload(false); 
+        window.location.reload(false);
     };
 
     const handleClick = (name, event) => {
@@ -228,13 +227,12 @@ const QuizPageContainer = ({ children }) => {
 
     const handleCreatePdf = () => {
         const input = document.getElementById("capture");
-        html2canvas(input)
-            .then((canvas) => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF();
-                pdf.addImage(imgData, 'JPEG', 0, 0);
-                pdf.save("download.pdf");
-            });
+        html2canvas(input).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, "JPEG", 0, 0);
+            pdf.save("download.pdf");
+        });
     };
 
     const newProps = {
