@@ -13,7 +13,6 @@ const LastQuestion = ({
     handleASDMethodClick,
     lastQuestion
 }) => {
-
     const disableNext = !questionAnswers.answers.lastQuestion;
     return (
         <>
@@ -38,7 +37,7 @@ const LastQuestion = ({
                         borderRadius: "15px",
                         marginTop: "10px",
                         padding: "12px",
-                        width: "361px",
+                        width: "361px"
                     }}
                     disabled={disableNext}
                 >
