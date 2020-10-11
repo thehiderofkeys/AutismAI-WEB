@@ -1,4 +1,9 @@
-﻿.test {
-    margin-top: 15em;
-    margin-bottom: 15em;
+﻿.container {
+    margin: 15em auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
 }

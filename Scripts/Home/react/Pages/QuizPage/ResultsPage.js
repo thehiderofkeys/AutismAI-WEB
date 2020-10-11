@@ -16,7 +16,7 @@ const ResultsPage = ({ quizResults, isToddler }) => {
     }
 
     return (
-        <div className={styles["test"]}>
+        <div className={styles["container"]}>
             {quizResults.prediction === "True" && (
                 <div>
                 <p>
@@ -34,8 +34,8 @@ const ResultsPage = ({ quizResults, isToddler }) => {
                     conventional ASD screening {screeningTechnique} technique, autistic traits have
                     been identified in the respondent given the provided information. The{" "}
                     {screeningTechnique} score for the respondent is {quizResults.score}. This
-                    result is not obtained from our AI. For more information about this conventional
-                    method please refer to https://doi.org/10.1016/j.jaac.2011.11.003
+                        result is not obtained from our AI. For more information about this conventional
+                    method please refer to <a target="_blank" href="https://doi.org/10.1016/j.jaac.2011.11.003">https://doi.org/10.1016/j.jaac.2011.11.003</a>
                 </p>
                 </div>
             )}
@@ -53,8 +53,8 @@ const ResultsPage = ({ quizResults, isToddler }) => {
                     For your reference, based on conventional ASD screening {screeningTechnique} technique, autistic traits have
                     not been identified in the respondent given the provided information. The{" "}
                     {screeningTechnique} score for the respondent is {quizResults.score}. This
-                    result is not obtained from our AI. For more information about this conventional
-                    method please refer to https://doi.org/10.1016/j.jaac.2011.11.003
+                        result is not obtained from our AI. For more information about this conventional
+                    method please refer to <a target="_blank" href="https://doi.org/10.1016/j.jaac.2011.11.003">https://doi.org/10.1016/j.jaac.2011.11.003</a>
                 </p>
                 </div>
             )}
@@ -65,8 +65,9 @@ const ResultsPage = ({ quizResults, isToddler }) => {
                     backgroundColor: "#242e4c",
                     border: "1px solid #ced4da",
                     borderRadius: "15px",
-                    marginTop: "0px",
-                    padding: "12px"
+                    marginTop: "30px",
+                    padding: "12px",
+                    width: "361px"
                 }}
             >
                 Restart
@@ -79,7 +80,8 @@ const ResultsPage = ({ quizResults, isToddler }) => {
                     border: "1px solid #ced4da",
                     borderRadius: "15px",
                     marginTop: "0px",
-                    padding: "12px"
+                    padding: "12px",
+                    width: "361px"
                 }}
             >
                 View Report

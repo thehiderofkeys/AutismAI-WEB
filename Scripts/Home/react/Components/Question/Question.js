@@ -17,7 +17,7 @@ const Question = ({ question, handleChange, questionAnswers }) => {
                             className="mt-3 border rounded d-flex justify-content-left"
                             style={{
                                 width: "100%",
-                                height: "calc(1.5em + .75rem + 2px)",
+                                height: "auto",
                                 padding: ".375rem .75rem",
                                 marginLeft: "0",
                                 backgroundColor: "#fff"

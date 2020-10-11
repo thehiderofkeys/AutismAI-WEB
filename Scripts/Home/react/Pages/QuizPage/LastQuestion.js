@@ -17,7 +17,7 @@ const LastQuestion = ({
     const disableNext = !questionAnswers.answers.lastQuestion;
     return (
         <>
-            <div className={styles["test"]}>
+            <div className={styles["container"]}>
                 <p>
                     One last question, please help us to make Autism AI smarter by answering the
                     following question carefully
@@ -36,8 +36,9 @@ const LastQuestion = ({
                         backgroundColor: "#242e4c",
                         border: "1px solid #ced4da",
                         borderRadius: "15px",
-                        marginTop: "0px",
-                        padding: "12px"
+                        marginTop: "10px",
+                        padding: "12px",
+                        width: "361px",
                     }}
                     disabled={disableNext}
                 >

@@ -49,7 +49,7 @@ const Quizpage = ({
     }
 
     return (
-        <div className={styles["test"]}>
+        <div className={styles["container"]}>
             {currentQuestion === 0 && (
                 <StepOne
                     ethnicities={ethnicities}
