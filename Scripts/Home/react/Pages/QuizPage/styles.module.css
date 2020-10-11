@@ -11,3 +11,9 @@
 .capture {
     width: 390px;
 }
+
+.lastQuestModal {
+    width: 700px !important;
+    min-width: 400px !important;
+    max-width: 700px !important;
+}

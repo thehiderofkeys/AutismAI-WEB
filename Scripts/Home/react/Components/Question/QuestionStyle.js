@@ -1,7 +1,8 @@
 ﻿import styled from 'styled-components';
 
 export const QuizContainer = styled.div`
-  width: 65%;
+  width: 670px;
+  min-width: 400px;
   min-height: 450px;
   height: auto;
   overflow: auto;

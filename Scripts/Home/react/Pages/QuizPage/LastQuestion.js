@@ -47,9 +47,9 @@ const LastQuestion = ({
             </div>
 
             <div>
-                <Modal isOpen={isASDMethodOpen} toggle={toggleASDMethodModal}>
+                <Modal className={styles["lastQuestModal"]} isOpen={isASDMethodOpen} toggle={toggleASDMethodModal}>
                     {/*<ModalHeader>What was the</ModalHeader>*/}
-                    <ModalBody>
+                    <ModalBody className={styles["lastQuestModalBody"]} >
                         <Question
                             question={diagnosticQuestion}
                             handleChange={handleQuestionAnswer}
