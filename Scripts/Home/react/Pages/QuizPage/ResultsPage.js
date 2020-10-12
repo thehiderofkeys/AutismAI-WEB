@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import styles from "./styles.module.css";
 import Question from "../../Components/Question/Question";
 import { Button } from "reactstrap";
+import {
+    StatsCard,
+    StatsCardBody
+} from "../StatisticsPage/StatisticsPageStyles";
 
 const ResultsPage = ({ quizResults, isToddler, handleRestart, handleCreatePdf }) => {
     console.log(quizResults);
@@ -18,6 +22,9 @@ const ResultsPage = ({ quizResults, isToddler, handleRestart, handleCreatePdf })
     return (
         <div className={styles["container"]}>
             <div id="capture" className={styles["capture"]}>
+                <StatsCard>
+                    <div className={styles["resultTitle"]}>Results</div>
+                    <StatsCardBody>
                 {quizResults.prediction === "True" && (
                     <div>
                         <p>
@@ -68,7 +75,9 @@ const ResultsPage = ({ quizResults, isToddler, handleRestart, handleCreatePdf })
                             </a>
                         </p>
                     </div>
-                )}
+                        )}
+                   </StatsCardBody>
+                </StatsCard>
             </div>
             <Button
                 onClick={handleRestart}
