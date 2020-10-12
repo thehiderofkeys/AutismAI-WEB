@@ -91,7 +91,7 @@ const Quizpage = ({
             />
 
             <div>
-                <Modal isOpen={isDisclaimerOpen} toggle={toggleDisclaimerModal}>
+                <Modal isOpen={isDisclaimerOpen} toggle={toggleDisclaimerModal} backdrop={'static'} keyboard={false}>
                     <ModalHeader>Disclaimer</ModalHeader>
                     <ModalBody>
                         <p>
