@@ -98,20 +98,21 @@ export const getTestTakerOptions = () => {
     return testTakerOptions;
 };
 
-export const postQuizResults = async (userData) => {
+const positiveAnswer = [
+    "Definitely Agree",
+    "Slightly Agree",
+    "Always",
+    "Usually",
+    "Very Easy",
+    "Quite Easy",
+    "Many times a day",
+    "A few times a day",
+    "Very typical",
+    "Quite typical"
+];
+
+const buildReqBody = (userData) => {
     const { details, answers } = userData;
-    const postiveAnswer = [
-        "Definitely Agree",
-        "Slightly Agree",
-        "Always",
-        "Usually",
-        "Very Easy",
-        "Quite Easy",
-        "Many times a day",
-        "A few times a day",
-        "Very typical",
-        "Quite typical"
-    ];
 
     let reqBody = {};
 
@@ -122,6 +123,36 @@ export const postQuizResults = async (userData) => {
     reqBody.gender = details.gender === "Male" ? "m" : "f";
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
+
+    return reqBody;
+
+}
+
+export const postQuizResults = async (userData) => {
+
+    const reqBody = buildReqBody(userData);
+    const res = await fetch(predictionRoute, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reqBody)
+    }).then((response) => response.json());
+
+    return JSON.parse(res);
+};
+
+export const postDiagnosticResult = async (userData, quizResponse) => {
+
+    const { details, answers } = userData;
+
+    const reqBody = buildReqBody(userData);
+    reqBody.quizId = quizResponse.next_id - 1;
+    reqBody.ageCategory = quizResponse.autismCategory;
+    reqBody.user = details.testTaker;
+    reqBody.dnn = ""
+
 
     console.log(reqBody);
 
@@ -134,5 +165,4 @@ export const postQuizResults = async (userData) => {
         body: JSON.stringify(reqBody)
     }).then((response) => response.json());
     return JSON.parse(res);
-    //return reqBody;
-};
+}
