@@ -98,7 +98,7 @@ export const getTestTakerOptions = () => {
     return testTakerOptions;
 };
 
-const positiveAnswer = [
+const positiveAnswers = [
     "Definitely Agree",
     "Slightly Agree",
     "Always",
@@ -117,7 +117,7 @@ const buildReqBody = (userData) => {
     let reqBody = {};
 
     Object.keys(answers).forEach((key) => {
-        reqBody[key] = postiveAnswer.includes(answers[key]) ? "1" : "0";
+        reqBody[key] = positiveAnswers.includes(answers[key]) ? "1" : "0";
     });
     reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Math.floor(parseInt(details.userAge) / 12).toString();
     reqBody.gender = details.gender === "Male" ? "m" : "f";
