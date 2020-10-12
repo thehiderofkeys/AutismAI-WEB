@@ -149,10 +149,13 @@ export const postDiagnosticResult = async (userData, quizResponse) => {
 
     const reqBody = buildReqBody(userData);
     reqBody.quizId = quizResponse.next_id - 1;
+    reqBody.ethnicity = details.ethnicity;
     reqBody.ageCategory = quizResponse.autismCategory;
     reqBody.user = details.testTaker;
-    reqBody.dnn = ""
-
+    reqBody.dnn = "";
+    reqBody.formalDiag = "";
+    reqBody.diagWithASD = "";
+    reqBody.diagMethod = "";
 
     console.log(reqBody);
 
