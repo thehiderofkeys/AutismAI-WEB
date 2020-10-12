@@ -46,7 +46,7 @@ const StepOne = ({
     return (
         <>
             <div>
-                <Modal isOpen={isAgeModalOpen} toggle={toggleRespondentAgeModal}>
+                <Modal isOpen={isAgeModalOpen} toggle={toggleRespondentAgeModal} backdrop={'static'} keyboard={false}>
                     <ModalHeader>Respondent Age</ModalHeader>
                     <ModalBody>
                         <p>Are you taking the test for a toddler less than 36 months old?</p>
