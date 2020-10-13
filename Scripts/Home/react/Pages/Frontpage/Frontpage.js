@@ -23,7 +23,8 @@ import {
     ChartContainer,
     IconImage,
     WaveBottomComponent,
-    GraphButtons
+    GraphButtons,
+    CarouselDiv,
 } from "./frontpageStyles";
 import {
     Row,
@@ -209,19 +210,19 @@ const Frontpage = ({
                         {piecharts}
                     </Col>
                     <Col className="col-12 d-flex justify-content-center">
-                        <div style={{display: "block", width:'200px'}}>
+                        <CarouselDiv>
                             <Carousel
                                 activeIndex={carouselIndex}
                                 next={onCarouselNext}
                                 previous={onCarouselBack}
                             >
                                 {piecharts.map((piechart)=>{
-                                    return (<CarouselItem>{piechart}</CarouselItem>)
+                                    return (<CarouselItem><div style={{display:'flex',justifyContent:'center'}}>{piechart}</div></CarouselItem>)
                                 })}
                                 <CarouselControl direction="prev" directionText="Previous" onClickHandler={onCarouselBack}/>
                                 <CarouselControl direction="next" directionText="Next" onClickHandler={onCarouselNext}/>
                             </Carousel>
-                        </div>
+                        </CarouselDiv>
                     </Col>
                     <Col className="col-12 d-flex justify-content-center">
                             <GraphButtons>

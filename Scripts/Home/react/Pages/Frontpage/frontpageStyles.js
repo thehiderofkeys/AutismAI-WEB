@@ -152,3 +152,13 @@ export const IconImage = styled.img`
   margin: 0 auto;
 `;
 
+export const CarouselDiv = styled.div`
+  display: block;
+  width: 100%;
+  .carousel-control-prev-icon{
+    filter: invert(1)
+  }
+  .carousel-control-next-icon{
+    filter: invert(1)
+  }
+`;
