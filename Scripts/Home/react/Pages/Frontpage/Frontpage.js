@@ -73,9 +73,12 @@ const Frontpage = ({
     accuracyStats,
     sensitivityStats,
     specificityStats,
-    carouselIndex,
-    onCarouselNext,
-    onCarouselBack,
+    statCarouselIndex,
+    onStatCarouselNext,
+    onStatCarouselBack,
+    infoCarouselIndex,
+    onInfoCarouselNext,
+    onInfoCarouselBack,
 }) => {
     const piecharts = [
         <PieChart width={200} height={200}>
@@ -167,6 +170,61 @@ const Frontpage = ({
             </DetailDescription>
         </>
     ];
+    const moreInfos = [<>
+        <Text className="mt-3 font-weight-bold">
+            Where did the ASD behaviorual indicators used in Autism Al come from?
+        </Text>
+        <Text className="mt-1">
+            The Al is created based on ASD indicators used in Autism Spectrum
+            Quotient (AQ-10) (for Adult, Adolescent, and Child versions) and the
+            Quantitative Checklist for Autism in Toddlers (Q-CHAT-10) scientific ASD
+            screening methods published here. AQ-10 is recommended by National
+            Institute for Health and Care Excellence, The United Kingdom, for ASD
+            assessments of adults.
+        </Text></>,<>
+        <Text className="mt-3 font-weight-bold">How was Autism Al verified?</Text>
+        <Text className="mt-1">
+            The Al was evaluated against a large autism dataset consisting of adult,
+            adolescent, child, and toddler cases and controls. In our testing Autism
+            Al delivered average testing accuracy of 97.95% with a mean sensitivity
+            of 95.53% and specificity of 98.63% while AQ-10 and Q-CHAT-10 methods
+            were considered to provide correct classification results.
+        </Text></>,<>
+        <Text className="mt-3 font-weight-bold">
+            What are Autism Al limitations?
+        </Text>
+        <Text className="mt-1">
+            Until we get enough control data obtained from individuals with formal
+            ASD diagnosis, Autism Al relies on AQ-10 and Q-CHAT-10 screening
+            technologies to learn about ASD. While these screening technologies have
+            been scientifically verified and evaluated, their capabilities are
+            limited as such Autism Al's capabilities. Please note that NO ASD
+            screening method, including Autism Al, is fully accurate and false
+            results are always a possibility especially when other mental health
+            conditions are presence in the subject. The only way to accurately
+            diagnose ASD is via licenced health professionals.
+        </Text></>,<>
+        <Text className="mt-3 font-weight-bold">
+            Why is this useful?
+        </Text>
+        <Text className="mt-1">
+            Despite its limitations, by finding behavioral similarities between the respondent and previous
+            autistic individuals whom their anonymized data were used to teach
+            Autism Al, Autism Al brings a new perspective to ASD screening. As more
+            people use Autism Al it becomes smarter and learns new ASD behavioral
+            indicators, especially when users with formal ASD diagnosis use the
+            system since it can rely on those verified diagnosis to get more
+            accurate.
+        </Text></>,<>
+        <Text className="mt-3 font-weight-bold">
+            Has Autism Al been scientifically verified?
+        </Text>
+        <Text className="mt-1">
+            Yes, Autism AI has been scientifically verified, academically
+            peer-reviewed, and published. For detailed, scientific specification and
+            how Autism Al was designed and verified please refer here.
+        </Text></>
+    ]
     return (
         <>
             <div>
@@ -248,15 +306,16 @@ const Frontpage = ({
                     <Col className="col-12 d-sm-none d-flex justify-content-center">
                         <CarouselDiv>
                             <Carousel
-                                activeIndex={carouselIndex}
-                                next={onCarouselNext}
-                                previous={onCarouselBack}
+                                activeIndex={statCarouselIndex}
+                                next={onStatCarouselNext}
+                                previous={onStatCarouselBack}
+                                interval={false}
                             >
                                 {piecharts.map((piechart)=>{
                                     return (<CarouselItem><div style={{display:'flex',justifyContent:'center'}}>{piechart}</div></CarouselItem>)
                                 })}
-                                <CarouselControl direction="prev" directionText="Previous" onClickHandler={onCarouselBack}/>
-                                <CarouselControl direction="next" directionText="Next" onClickHandler={onCarouselNext}/>
+                                <CarouselControl direction="prev" directionText="Previous" onClickHandler={onStatCarouselBack}/>
+                                <CarouselControl direction="next" directionText="Next" onClickHandler={onStatCarouselNext}/>
                             </Carousel>
                         </CarouselDiv>
                     </Col>
@@ -289,9 +348,10 @@ const Frontpage = ({
                                         </div>
                                         <CarouselDiv className="d-sm-none d-block">
                                             <Carousel
-                                                activeIndex={carouselIndex}
-                                                next={onCarouselNext}
-                                                previous={onCarouselBack}
+                                                activeIndex={statCarouselIndex}
+                                                next={onStatCarouselNext}
+                                                previous={onStatCarouselBack}
+                                                interval={false}
                                             >
                                                 {descriptions.map((description)=>{
                                                     return (<CarouselItem>{description}</CarouselItem>)
@@ -327,54 +387,18 @@ const Frontpage = ({
                     </Button>
 
                     <Collapse isOpen={autismInfoIsOpen}>
-                        <Text className="mt-3 font-weight-bold">
-                            Where did the ASD behaviorual indicators used in Autism Al come from?
-                        </Text>
-                        <Text className="mt-1">
-                            The Al is created based on ASD indicators used in Autism Spectrum
-                            Quotient (AQ-10) (for Adult, Adolescent, and Child versions) and the
-                            Quantitative Checklist for Autism in Toddlers (Q-CHAT-10) scientific ASD
-                            screening methods published here. AQ-10 is recommended by National
-                            Institute for Health and Care Excellence, The United Kingdom, for ASD
-                            assessments of adults.
-                        </Text>
-                        <Text className="mt-3 font-weight-bold">How was Autism Al verified?</Text>
-                        <Text className="mt-1">
-                            The Al was evaluated against a large autism dataset consisting of adult,
-                            adolescent, child, and toddler cases and controls. In our testing Autism
-                            Al delivered average testing accuracy of 97.95% with a mean sensitivity
-                            of 95.53% and specificity of 98.63% while AQ-10 and Q-CHAT-10 methods
-                            were considered to provide correct classification results.
-                        </Text>
-                        <Text className="mt-3 font-weight-bold">
-                            What are Autism Al limitations?
-                        </Text>
-                        <Text className="mt-1">
-                            Until we get enough control data obtained from individuals with formal
-                            ASD diagnosis, Autism Al relies on AQ-10 and Q-CHAT-10 screening
-                            technologies to learn about ASD. While these screening technologies have
-                            been scientifically verified and evaluated, their capabilities are
-                            limited as such Autism Al's capabilities. Please note that NO ASD
-                            screening method, including Autism Al, is fully accurate and false
-                            results are always a possibility especially when other mental health
-                            conditions are presence in the subject. The only way to accurately
-                            diagnose ASD is via licenced health professionals. Nevertheless, by
-                            finding behavioral similarities between the respondent and previous
-                            autistic individuals whom their anonymized data were used to teach
-                            Autism Al, Autism Al brings a new perspective to ASD screening. As more
-                            people use Autism Al it becomes smarter and learns new ASD behavioral
-                            indicators, especially when users with formal ASD diagnosis use the
-                            system since it can rely on those verified diagnosis to get more
-                            accurate.
-                        </Text>
-                        <Text className="mt-3 font-weight-bold">
-                            Has Autism Al been scientifically verified?
-                        </Text>
-                        <Text className="mt-1">
-                            Yes, Autism AI has been scientifically verified, academically
-                            peer-reviewed, and published. For detailed, scientific specification and
-                            how Autism Al was designed and verified please refer here.
-                        </Text>
+                        <Carousel
+                            activeIndex={infoCarouselIndex}
+                            next={onInfoCarouselNext}
+                            previous={onInfoCarouselBack}
+                            interval={false}
+                        >
+                            {moreInfos.map((moreInfo)=>{
+                                return (<CarouselItem>{moreInfo}</CarouselItem>)
+                            })}
+                            <CarouselControl direction="prev" directionText="Previous" onClickHandler={onInfoCarouselBack}/>
+                            <CarouselControl direction="next" directionText="Next" onClickHandler={onInfoCarouselNext}/>
+                        </Carousel>
                     </Collapse>
                 </DetailContainer>
             </BackgroundImage>
