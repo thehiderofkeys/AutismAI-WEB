@@ -1,5 +1,5 @@
 import questions from "../../../../Questions/questions.json";
-import { predictionRoute } from "./ApiRoutes";
+import { predictionRoute, diagnosticRoute } from "./ApiRoutes";
 
 export const categories = {
     ADULT: "questions_adult",
@@ -27,7 +27,7 @@ export const getDiagnosticQuestion = () => {
 
 export const getLastQuestion = () => {
     return {
-        name: `lastQuestion`,
+        name: `diagnosticConfirmation`,
         questionText:
             "Has the respondent been formally assessed or dignosed for ASD by licenced health professionals?",
         answerSet: [
@@ -143,23 +143,39 @@ export const postQuizResults = async (userData) => {
     return JSON.parse(res);
 };
 
+const getClass = (score, category) => {
+    if (category !== "Chat") {
+        if (score > 6) {
+            return "YES";
+        }
+    } else {
+        if (score > 3) {
+            return "YES";
+        }
+    }
+
+    return "NO";
+}
+
 export const postDiagnosticResult = async (userData, quizResponse) => {
 
     const { details, answers } = userData;
 
     const reqBody = buildReqBody(userData);
-    reqBody.quizId = quizResponse.next_id - 1;
+    reqBody.quizId = quizResponse.next_id;
     reqBody.ethnicity = details.ethnicity;
     reqBody.ageCategory = quizResponse.autismCategory;
     reqBody.user = details.testTaker;
-    reqBody.dnn = "";
-    reqBody.formalDiag = "";
-    reqBody.diagWithASD = "";
-    reqBody.diagMethod = "";
+    reqBody.score = quizResponse.score;
+    reqBody.class = getClass(quizResponse.score, quizResponse.autismCategory);
+    reqBody.prediction = question.prediction === "False" ? "0" : "1";
+    reqBody.formalDiag = answers.diagnosticConfirmation.includes("No") ? "0" : "1";
+    reqBody.diagWithASD = answers.diagnosticConfirmation.includes("ASD was diagnosed") ? "1" : "0";
+    reqBody.diagMethod = answers.diagnosticMethod;
 
     console.log(reqBody);
 
-    const res = await fetch(predictionRoute, {
+    const res = await fetch(diagnosticRoute, {
         method: "POST",
         headers: {
             Accept: "application/json",
