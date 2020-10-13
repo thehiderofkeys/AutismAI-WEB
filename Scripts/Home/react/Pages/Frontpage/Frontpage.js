@@ -34,6 +34,10 @@ import {
     CardBody,
     Card,
     Modal,
+    Carousel,
+    CarouselControl,
+    CarouselIndicators,
+    CarouselItem,
     ModalHeader,
     ModalBody,
     ModalFooter
@@ -67,7 +71,10 @@ const Frontpage = ({
     toggleContributionModal,
     accuracyStats,
     sensitivityStats,
-    specificityStats
+    specificityStats,
+    carouselIndex,
+    onCarouselNext,
+    onCarouselBack,
 }) => {
     const piecharts = [
         <PieChart width={200} height={200}>
@@ -202,7 +209,21 @@ const Frontpage = ({
                         {piecharts}
                     </Col>
                     <Col className="col-12 d-flex justify-content-center">
-
+                        <div style={{display: "block", width:'200px'}}>
+                            <Carousel
+                                activeIndex={carouselIndex}
+                                next={onCarouselNext}
+                                previous={onCarouselBack}
+                            >
+                                {piecharts.map((piechart)=>{
+                                    return (<CarouselItem>{piechart}</CarouselItem>)
+                                })}
+                                <CarouselControl direction="prev" directionText="Previous" onClickHandler={onCarouselBack}/>
+                                <CarouselControl direction="next" directionText="Next" onClickHandler={onCarouselNext}/>
+                            </Carousel>
+                        </div>
+                    </Col>
+                    <Col className="col-12 d-flex justify-content-center">
                             <GraphButtons>
                                 <Button
                                     color="primary"
