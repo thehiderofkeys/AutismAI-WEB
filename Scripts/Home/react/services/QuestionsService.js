@@ -22,8 +22,8 @@ export const getDiagnosticQuestion = () => {
         name: "diagnosticMethod",
         questionText: "What was the formal diagnostic technique used to assess the respondent?",
         answerSet: getAnswerSet(answerSetType.DIAGNOSTIC_METHOD)
-    }
-}
+    };
+};
 
 export const getLastQuestion = () => {
     return {
@@ -36,7 +36,7 @@ export const getLastQuestion = () => {
             "Yes, the respondant has been assessed and ASD was diagnosed"
         ]
     };
-}
+};
 
 export const getAnswerSet = (answerSet) => {
     return questions[answerSet];
@@ -119,17 +119,18 @@ const buildReqBody = (userData) => {
     Object.keys(answers).forEach((key) => {
         reqBody[key] = positiveAnswers.includes(answers[key]) ? "1" : "0";
     });
-    reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Math.floor(parseInt(details.userAge) / 12).toString();
+    reqBody.age =
+        details.monthsOrYears === "Years"
+            ? details.userAge
+            : Math.floor(parseInt(details.userAge) / 12).toString();
     reqBody.gender = details.gender === "Male" ? "m" : "f";
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
 
     return reqBody;
-
-}
+};
 
 export const postQuizResults = async (userData) => {
-
     const reqBody = buildReqBody(userData);
     const res = await fetch(predictionRoute, {
         method: "POST",
@@ -155,10 +156,9 @@ const getClass = (score, category) => {
     }
 
     return "NO";
-}
+};
 
 export const postDiagnosticResult = async (userData, quizResponse) => {
-
     const { details, answers } = userData;
 
     const reqBody = buildReqBody(userData);
@@ -184,4 +184,4 @@ export const postDiagnosticResult = async (userData, quizResponse) => {
         body: JSON.stringify(reqBody)
     }).then((response) => response.json());
     return JSON.parse(res);
-}
+};
