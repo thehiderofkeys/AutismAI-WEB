@@ -97,23 +97,6 @@ const Frontpage = ({
         </PieChart>,
         <PieChart width={200} height={200}>
             <Pie
-                data={specificityStats}
-                innerRadius={60}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-            >
-                {Object.keys(specificityStats).map((entry, index) => (
-                    <Cell
-                        key={`cell-${index}`}
-                        fill={specificityColor[index % COLORS.length]}
-                    />
-                ))}
-                <Label value="Specificity" position="center" />
-            </Pie>
-        </PieChart>,
-        <PieChart width={200} height={200}>
-            <Pie
                 data={sensitivityStats}
                 innerRadius={60}
                 outerRadius={80}
@@ -127,6 +110,23 @@ const Frontpage = ({
                     />
                 ))}
                 <Label value="Sensitivity" position="center" />
+            </Pie>
+        </PieChart>,
+        <PieChart width={200} height={200}>
+            <Pie
+                data={specificityStats}
+                innerRadius={60}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+            >
+                {Object.keys(specificityStats).map((entry, index) => (
+                    <Cell
+                        key={`cell-${index}`}
+                        fill={specificityColor[index % COLORS.length]}
+                    />
+                ))}
+                <Label value="Specificity" position="center" />
             </Pie>
         </PieChart>
     ];
@@ -242,10 +242,10 @@ const Frontpage = ({
 
             <Container>
                 <Row>
-                    <Col className="col-12 d-flex justify-content-center">
+                    <Col className="col-12 d-sm-flex d-none justify-content-center">
                         {piecharts}
                     </Col>
-                    <Col className="col-12 d-flex justify-content-center">
+                    <Col className="col-12 d-sm-none d-flex justify-content-center">
                         <CarouselDiv>
                             <Carousel
                                 activeIndex={carouselIndex}
@@ -285,9 +285,9 @@ const Frontpage = ({
                             <Card>
                                 <CardBody>
                                     <Description>
-                                        <div className="d-none">{descriptions}
+                                        <div className="d-sm-block d-none">{descriptions}
                                         </div>
-                                        <CarouselDiv>
+                                        <CarouselDiv className="d-sm-none d-block">
                                             <Carousel
                                                 activeIndex={carouselIndex}
                                                 next={onCarouselNext}
