@@ -5,7 +5,8 @@ import {
     getEthnicity,
     postQuizResults,
     getDiagnosticQuestion,
-    getLastQuestion
+    getLastQuestion,
+    postDiagnosticResult
 } from "../services/QuestionsService";
 import Loading from "../Components/Loading/Loading";
 import jsPDF from "jspdf";
@@ -172,8 +173,13 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         setCurrentComponent(currentComponent + 1);
+        if (currentComponent === 1) {
+            setIsLoading(true);
+            await postDiagnosticResult(questionAnswers, quizResults);
+            setIsLoading(false);
+        }
     };
 
     const handlePrevQuestion = () => {
