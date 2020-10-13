@@ -146,10 +146,9 @@ const Frontpage = ({
                 <Row>
                     <Col className="d-flex justify-content-center mb-5">
                         <Description>
-                            <PieChart width={800} height={200}>
+                            <PieChart width={200} height={200}>
                                 <Pie
                                     data={accuracyStats}
-                                    cx={180}
                                     innerRadius={60}
                                     outerRadius={80}
                                     fill="#8884d8"
@@ -163,6 +162,8 @@ const Frontpage = ({
                                     ))}
                                     <Label value="Accuracy" position="center" />
                                 </Pie>
+                            </PieChart>
+                            <PieChart width={200} height={200}>
                                 <Pie
                                     data={sensitivityStats}
                                     innerRadius={60}
@@ -178,9 +179,10 @@ const Frontpage = ({
                                     ))}
                                     <Label value="Sensitivity" position="center" />
                                 </Pie>
+                            </PieChart>
+                            <PieChart width={200} height={200}>
                                 <Pie
                                     data={specificityStats}
-                                    cx={610}
                                     innerRadius={60}
                                     outerRadius={80}
                                     fill="#8884d8"
