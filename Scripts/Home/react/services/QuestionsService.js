@@ -167,7 +167,7 @@ export const postDiagnosticResult = async (userData, quizResponse) => {
     reqBody.ageCategory = quizResponse.autismCategory;
     reqBody.user = details.testTaker;
     reqBody.score = quizResponse.score;
-    reqBody.class = getClass(quizResponse.score, quizResponse.autismCategory);
+    reqBody.classASD = getClass(quizResponse.score, quizResponse.autismCategory);
     reqBody.prediction = question.prediction === "False" ? "0" : "1";
     reqBody.formalDiag = answers.diagnosticConfirmation.includes("No") ? "0" : "1";
     reqBody.diagWithASD = answers.diagnosticConfirmation.includes("ASD was diagnosed") ? "1" : "0";
