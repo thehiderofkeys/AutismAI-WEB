@@ -144,8 +144,7 @@ const Frontpage = ({
 
             <Container>
                 <Row>
-                    <Col className="d-flex justify-content-center mb-5">
-                        <Description>
+                    <Col className="col-12 d-flex justify-content-center">
                             <PieChart width={200} height={200}>
                                 <Pie
                                     data={accuracyStats}
@@ -163,6 +162,8 @@ const Frontpage = ({
                                     <Label value="Accuracy" position="center" />
                                 </Pie>
                             </PieChart>
+                    </Col>
+                    <Col className="col-12 d-flex justify-content-center">
                             <PieChart width={200} height={200}>
                                 <Pie
                                     data={sensitivityStats}
@@ -180,6 +181,8 @@ const Frontpage = ({
                                     <Label value="Sensitivity" position="center" />
                                 </Pie>
                             </PieChart>
+                    </Col>
+                    <Col className="col-12 d-flex justify-content-center">
                             <PieChart width={200} height={200}>
                                 <Pie
                                     data={specificityStats}
@@ -197,6 +200,8 @@ const Frontpage = ({
                                     <Label value="Specificity" position="center" />
                                 </Pie>
                             </PieChart>
+                    </Col>
+                    <Col className="col-12 d-flex justify-content-center">
 
                             <GraphButtons>
                                 <Button
@@ -216,10 +221,12 @@ const Frontpage = ({
                                     </Button>
                                 </a>
                             </GraphButtons>
-
-                            <Collapse isOpen={statsInfoIsOpen}>
-                                <Card>
-                                    <CardBody>
+                    </Col>
+                    <Col className="col-12 d-flex justify-content-center mb-5">
+                        <Collapse isOpen={statsInfoIsOpen}>
+                            <Card>
+                                <CardBody>
+                                    <Description>
                                         <DetailTitle>What is Accuracy?</DetailTitle>
                                         <DetailDescription>
                                             Accuracy is measured live as the ratio of correct Autism
@@ -254,10 +261,10 @@ const Frontpage = ({
                                                 Statistics Dashboard
                                             </Button>
                                         </Link>
-                                    </CardBody>
-                                </Card>
-                            </Collapse>
-                        </Description>
+                                    </Description>
+                                </CardBody>
+                            </Card>
+                        </Collapse>
                     </Col>
                 </Row>
             </Container>

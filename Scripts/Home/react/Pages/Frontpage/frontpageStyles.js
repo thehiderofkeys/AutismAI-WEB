@@ -54,7 +54,6 @@ export const Description = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 50px 0 50px 0;
 `;
 
 export const BigText = styled.div`
