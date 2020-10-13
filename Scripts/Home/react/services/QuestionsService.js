@@ -32,7 +32,7 @@ export const getLastQuestion = () => {
             "Has the respondent been formally assessed or dignosed for ASD by licenced health professionals?",
         answerSet: [
             "No, the respondant has never been formally assessed",
-            "Yes, the respondant has been asseseed but ASD was not diagnosed",
+            "Yes, the respondant has been assessed but ASD was not diagnosed",
             "Yes, the respondant has been assessed and ASD was diagnosed"
         ]
     };
@@ -168,7 +168,7 @@ export const postDiagnosticResult = async (userData, quizResponse) => {
     reqBody.user = details.testTaker;
     reqBody.score = quizResponse.score;
     reqBody.classASD = getClass(quizResponse.score, quizResponse.autismCategory);
-    reqBody.prediction = question.prediction === "False" ? "0" : "1";
+    reqBody.prediction = quizResponse.prediction === "False" ? "0" : "1";
     reqBody.formalDiag = answers.diagnosticConfirmation.includes("No") ? "0" : "1";
     reqBody.diagWithASD = answers.diagnosticConfirmation.includes("ASD was diagnosed") ? "1" : "0";
     reqBody.diagMethod = answers.diagnosticMethod;

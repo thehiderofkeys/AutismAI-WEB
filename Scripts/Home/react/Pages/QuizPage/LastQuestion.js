@@ -13,7 +13,7 @@ const LastQuestion = ({
     handleASDMethodClick,
     lastQuestion
 }) => {
-    const disableNext = !questionAnswers.answers.lastQuestion;
+    const disableNext = !questionAnswers.answers.diagnosticConfirmation;
     return (
         <>
             <div className={styles["container"]}>
