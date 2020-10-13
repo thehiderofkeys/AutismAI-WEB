@@ -39,7 +39,7 @@
         if (formalDiag == "1")
         {
             // Add id and diagnosis results
-            response = quizId;
+            response = quizId + ",";
             suffix = "," + diagWithASD + "," + diagMethod;
         } else
         {
