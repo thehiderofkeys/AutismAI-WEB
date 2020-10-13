@@ -5,7 +5,8 @@ import {
     getEthnicity,
     postQuizResults,
     getDiagnosticQuestion,
-    getLastQuestion
+    getLastQuestion,
+    postDiagnosticResult
 } from "../services/QuestionsService";
 import Loading from "../Components/Loading/Loading";
 import jsPDF from "jspdf";
@@ -129,7 +130,7 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleQuestionAnswer = ({ question, answer }) => {
-        if (question === "lastQuestion") {
+        if (question === "diagnosticConfirmation") {
             setQuestionAnswers((prevAnswers) => {
                 const newAnswers = { ...prevAnswers };
                 delete newAnswers.answers.diagnosticMethod;
@@ -143,7 +144,7 @@ const QuizPageContainer = ({ children }) => {
         setQuestionAnswers((prevAnswers) => {
             const newAnswers = { ...prevAnswers };
             newAnswers.answers[question] = answer;
-            if (question !== "lastQuestion" && question !== "diagnosticMethod") {
+            if (question !== "diagnosticConfirmation" && question !== "diagnosticMethod") {
                 sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
             }
             return newAnswers;
@@ -172,8 +173,14 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         setCurrentComponent(currentComponent + 1);
+        if (currentComponent === 1) {
+            setIsLoading(true);
+            const res = await postDiagnosticResult(questionAnswers, quizResults);
+            console.log(res);
+            setIsLoading(false);
+        }
     };
 
     const handlePrevQuestion = () => {
