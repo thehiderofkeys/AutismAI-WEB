@@ -17,6 +17,16 @@ const answerSetType = {
     DIAGNOSTIC_METHOD: "diagnostic_technique"
 };
 
+const diagnosisMethods = {
+    "Autism Diagnostic Interview?Revised (ADI-R)": "ADI_R",
+    "Autism Diagnostic Observation Schedule?Generic (ADOS-G)": "ADOS_G",
+    "Autism Diagnostic Observation Schedule (second edition) ADOS-2": "ADOS_2",
+    "Developmental, Dimensional and Diagnostic Interview (3DI)": "3DI",
+    "Childhood Autism Rating Scale (CARS)": "CARS",
+    "I don't know": "IDontKnow",
+    "Others": "Others"
+}
+
 export const getDiagnosticQuestion = () => {
     return {
         name: "diagnosticMethod",
@@ -171,7 +181,7 @@ export const postDiagnosticResult = async (userData, quizResponse) => {
     reqBody.prediction = quizResponse.prediction === "False" ? "0" : "1";
     reqBody.formalDiag = answers.diagnosticConfirmation.includes("No") ? "0" : "1";
     reqBody.diagWithASD = answers.diagnosticConfirmation.includes("ASD was diagnosed") ? "1" : "0";
-    reqBody.diagMethod = answers.diagnosticMethod;
+    reqBody.diagMethod = diagnosisMethods[answers.diagnosticMethod];
 
     console.log(reqBody);
 
