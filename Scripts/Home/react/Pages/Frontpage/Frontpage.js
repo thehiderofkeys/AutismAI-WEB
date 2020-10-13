@@ -145,61 +145,61 @@ const Frontpage = ({
             <Container>
                 <Row>
                     <Col className="col-12 d-flex justify-content-center">
-                            <PieChart width={200} height={200}>
-                                <Pie
-                                    data={accuracyStats}
-                                    innerRadius={60}
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    dataKey="value"
-                                >
-                                    {Object.keys(accuracyStats).map((entry, index) => (
-                                        <Cell
-                                            key={`cell-${index}`}
-                                            fill={accuracyColor[index % COLORS.length]}
-                                        />
-                                    ))}
-                                    <Label value="Accuracy" position="center" />
-                                </Pie>
-                            </PieChart>
+                        <PieChart width={200} height={200}>
+                            <Pie
+                                data={accuracyStats}
+                                innerRadius={60}
+                                outerRadius={80}
+                                fill="#8884d8"
+                                dataKey="value"
+                            >
+                                {Object.keys(accuracyStats).map((entry, index) => (
+                                    <Cell
+                                        key={`cell-${index}`}
+                                        fill={accuracyColor[index % COLORS.length]}
+                                    />
+                                ))}
+                                <Label value="Accuracy" position="center" />
+                            </Pie>
+                        </PieChart>
                     </Col>
                     <Col className="col-12 d-flex justify-content-center">
-                            <PieChart width={200} height={200}>
-                                <Pie
-                                    data={sensitivityStats}
-                                    innerRadius={60}
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    dataKey="value"
-                                >
-                                    {Object.keys(sensitivityStats).map((entry, index) => (
-                                        <Cell
-                                            key={`cell-${index}`}
-                                            fill={sensitivityColor[index % COLORS.length]}
-                                        />
-                                    ))}
-                                    <Label value="Sensitivity" position="center" />
-                                </Pie>
-                            </PieChart>
+                        <PieChart width={200} height={200}>
+                            <Pie
+                                data={sensitivityStats}
+                                innerRadius={60}
+                                outerRadius={80}
+                                fill="#8884d8"
+                                dataKey="value"
+                            >
+                                {Object.keys(sensitivityStats).map((entry, index) => (
+                                    <Cell
+                                        key={`cell-${index}`}
+                                        fill={sensitivityColor[index % COLORS.length]}
+                                    />
+                                ))}
+                                <Label value="Sensitivity" position="center" />
+                            </Pie>
+                        </PieChart>
                     </Col>
                     <Col className="col-12 d-flex justify-content-center">
-                            <PieChart width={200} height={200}>
-                                <Pie
-                                    data={specificityStats}
-                                    innerRadius={60}
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    dataKey="value"
-                                >
-                                    {Object.keys(specificityStats).map((entry, index) => (
-                                        <Cell
-                                            key={`cell-${index}`}
-                                            fill={specificityColor[index % COLORS.length]}
-                                        />
-                                    ))}
-                                    <Label value="Specificity" position="center" />
-                                </Pie>
-                            </PieChart>
+                        <PieChart width={200} height={200}>
+                            <Pie
+                                data={specificityStats}
+                                innerRadius={60}
+                                outerRadius={80}
+                                fill="#8884d8"
+                                dataKey="value"
+                            >
+                                {Object.keys(specificityStats).map((entry, index) => (
+                                    <Cell
+                                        key={`cell-${index}`}
+                                        fill={specificityColor[index % COLORS.length]}
+                                    />
+                                ))}
+                                <Label value="Specificity" position="center" />
+                            </Pie>
+                        </PieChart>
                     </Col>
                     <Col className="col-12 d-flex justify-content-center">
 
