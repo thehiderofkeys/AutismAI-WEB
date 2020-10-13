@@ -24,12 +24,11 @@ namespace AutismAI_Web.Controllers
                 baseUrl += "insert_new_row/WithDiognosis/";
             }
 
-            Console.WriteLine(baseUrl + userData.Concatenate());
-
             HttpResponseMessage response = await client.GetAsync(baseUrl + userData.Concatenate());
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
             return result;
+
         }
 
 
