@@ -1,7 +1,7 @@
 # Autism AI 
 
 ## Brief Introduction
-Autism AI is a software system developed by Reza Shahamiri, the client and product owner (referred to from here on as PO), that employs deep learning algorithms to detect and diagnose autistic patterns. Currently, the AI is only accessible through an Android app. This significantly limits the number of users who can access the AI.
+Autism AI is a software system developed by Dr Reza Shahamiri, the client and product owner (referred to from here on as PO), that employs deep learning algorithms to detect and diagnose autistic patterns. Currently, the AI is only accessible through an Android app. This significantly limits the number of users who can access the AI.
 
 
 ### Requirments 
