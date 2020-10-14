@@ -29,6 +29,7 @@ const QuizPageContainer = ({ children }) => {
     const [isASDMethodOpen, setIsASDMethodOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [currentComponent, setCurrentComponent] = useState(0);
+    const [isAgeRangeErrorModalOpen, setIsAgeRangeErrorModalOpen] = useState(false);
 
     const [quizResults, setQuizResults] = useState({});
 
@@ -84,6 +85,7 @@ const QuizPageContainer = ({ children }) => {
     const toggleRestartModal = () => setisRestartModalOpen(!isRestartModalOpen);
     const toggleDisclaimerModal = () => setIsDisclaimerOpen(!isDisclaimerOpen);
     const toggleASDMethodModal = () => setIsASDMethodOpen(!isASDMethodOpen);
+    const toggleAgeRangeErrorModal = () => setIsAgeRangeErrorModalOpen(!isAgeRangeErrorModalOpen);
 
     const restartQuiz = (confirmation) => {
         if (confirmation) {
@@ -153,9 +155,15 @@ const QuizPageContainer = ({ children }) => {
 
     const handleNextQuestion = async () => {
         if (currentQuestion == 0) {
-            sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
-            setCurrentQuestion(currentQuestion + 1);
-            getQuestions();
+            if (isInAgeLimit) {
+                sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
+                setCurrentQuestion(currentQuestion + 1);
+                getQuestions();
+            }
+            else {
+                setIsAgeRangeErrorModalOpen(!isInAgeLimit);
+            }
+            
         } else if (currentQuestion < questions.length + 1) {
             sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
             setCurrentQuestion(currentQuestion + 1);
@@ -273,7 +281,9 @@ const QuizPageContainer = ({ children }) => {
         lastQuestion,
         isASDMethodOpen,
         toggleASDMethodModal,
-        handleASDMethodClick
+        handleASDMethodClick,
+        isAgeRangeErrorModalOpen,
+        toggleAgeRangeErrorModal
     };
 
     return (
