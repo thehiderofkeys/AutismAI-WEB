@@ -54,7 +54,6 @@ export const Description = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 50px 0 50px 0;
 `;
 
 export const BigText = styled.div`
@@ -153,3 +152,13 @@ export const IconImage = styled.img`
   margin: 0 auto;
 `;
 
+export const CarouselDiv = styled.div`
+  display: block;
+  width: 100%;
+  .carousel-control-prev-icon{
+    filter: invert(1)
+  }
+  .carousel-control-next-icon{
+    filter: invert(1)
+  }
+`;

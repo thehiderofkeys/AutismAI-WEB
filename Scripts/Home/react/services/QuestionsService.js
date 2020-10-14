@@ -1,5 +1,5 @@
 import questions from "../../../../Questions/questions.json";
-import { predictionRoute } from "./ApiRoutes";
+import { predictionRoute, diagnosticRoute } from "./ApiRoutes";
 
 export const categories = {
     ADULT: "questions_adult",
@@ -17,26 +17,36 @@ const answerSetType = {
     DIAGNOSTIC_METHOD: "diagnostic_technique"
 };
 
+const diagnosisMethods = {
+    "Autism Diagnostic Interview?Revised (ADI-R)": "ADI_R",
+    "Autism Diagnostic Observation Schedule?Generic (ADOS-G)": "ADOS_G",
+    "Autism Diagnostic Observation Schedule (second edition) ADOS-2": "ADOS_2",
+    "Developmental, Dimensional and Diagnostic Interview (3DI)": "3DI",
+    "Childhood Autism Rating Scale (CARS)": "CARS",
+    "I don't know": "IDontKnow",
+    "Others": "Others"
+}
+
 export const getDiagnosticQuestion = () => {
     return {
         name: "diagnosticMethod",
         questionText: "What was the formal diagnostic technique used to assess the respondent?",
         answerSet: getAnswerSet(answerSetType.DIAGNOSTIC_METHOD)
-    }
-}
+    };
+};
 
 export const getLastQuestion = () => {
     return {
-        name: `lastQuestion`,
+        name: `diagnosticConfirmation`,
         questionText:
             "Has the respondent been formally assessed or dignosed for ASD by licenced health professionals?",
         answerSet: [
             "No, the respondant has never been formally assessed",
-            "Yes, the respondant has been asseseed but ASD was not diagnosed",
+            "Yes, the respondant has been assessed but ASD was not diagnosed",
             "Yes, the respondant has been assessed and ASD was diagnosed"
         ]
     };
-}
+};
 
 export const getAnswerSet = (answerSet) => {
     return questions[answerSet];
@@ -98,33 +108,40 @@ export const getTestTakerOptions = () => {
     return testTakerOptions;
 };
 
-export const postQuizResults = async (userData) => {
+const positiveAnswers = [
+    "Definitely Agree",
+    "Slightly Agree",
+    "Always",
+    "Usually",
+    "Very Easy",
+    "Quite Easy",
+    "Many times a day",
+    "A few times a day",
+    "Very typical",
+    "Quite typical"
+];
+
+const buildReqBody = (userData) => {
     const { details, answers } = userData;
-    const postiveAnswer = [
-        "Definitely Agree",
-        "Slightly Agree",
-        "Always",
-        "Usually",
-        "Very Easy",
-        "Quite Easy",
-        "Many times a day",
-        "A few times a day",
-        "Very typical",
-        "Quite typical"
-    ];
 
     let reqBody = {};
 
     Object.keys(answers).forEach((key) => {
-        reqBody[key] = postiveAnswer.includes(answers[key]) ? "1" : "0";
+        reqBody[key] = positiveAnswers.includes(answers[key]) ? "1" : "0";
     });
-    reqBody.age = details.monthsOrYears === "Years" ? details.userAge : Math.floor(parseInt(details.userAge) / 12).toString();
+    reqBody.age =
+        details.monthsOrYears === "Years"
+            ? details.userAge
+            : Math.floor(parseInt(details.userAge) / 12).toString();
     reqBody.gender = details.gender === "Male" ? "m" : "f";
     reqBody.jaundice = details.jaundice ? "yes" : "no";
     reqBody.familyASD = details.familyASD ? "yes" : "no";
 
-    console.log(reqBody);
+    return reqBody;
+};
 
+export const postQuizResults = async (userData) => {
+    const reqBody = buildReqBody(userData);
     const res = await fetch(predictionRoute, {
         method: "POST",
         headers: {
@@ -133,6 +150,48 @@ export const postQuizResults = async (userData) => {
         },
         body: JSON.stringify(reqBody)
     }).then((response) => response.json());
+
     return JSON.parse(res);
-    //return reqBody;
+};
+
+const getClass = (score, category) => {
+    if (category !== "Chat") {
+        if (score > 6) {
+            return "YES";
+        }
+    } else {
+        if (score > 3) {
+            return "YES";
+        }
+    }
+
+    return "NO";
+};
+
+export const postDiagnosticResult = async (userData, quizResponse) => {
+    const { details, answers } = userData;
+
+    const reqBody = buildReqBody(userData);
+    reqBody.quizId = quizResponse.next_id;
+    reqBody.ethnicity = details.ethnicity;
+    reqBody.ageCategory = quizResponse.autismCategory;
+    reqBody.user = details.testTaker;
+    reqBody.score = quizResponse.score;
+    reqBody.classASD = getClass(quizResponse.score, quizResponse.autismCategory);
+    reqBody.prediction = quizResponse.prediction === "False" ? "0" : "1";
+    reqBody.formalDiag = answers.diagnosticConfirmation.includes("No") ? "0" : "1";
+    reqBody.diagWithASD = answers.diagnosticConfirmation.includes("ASD was diagnosed") ? "1" : "0";
+    reqBody.diagMethod = diagnosisMethods[answers.diagnosticMethod];
+
+    console.log(reqBody);
+
+    const res = await fetch(diagnosticRoute, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reqBody)
+    }).then((response) => response.json());
+    return JSON.parse(res);
 };

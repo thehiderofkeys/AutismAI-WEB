@@ -23,13 +23,14 @@ const Quizpage = ({
     isAgeModalOpen,
     handleAgeRespondentClick,
     isToddler,
-    isInAgeLimit,
     toggleRestartModal,
     restartQuiz,
     isRestartModalOpen,
     isDisclaimerOpen,
     toggleDisclaimerModal,
-    handleDisclaimerClick
+    handleDisclaimerClick,
+    isAgeRangeErrorModalOpen,
+    toggleAgeRangeErrorModal
 }) => {
     let isCurrentQuestionAnswered = true;
 
@@ -64,6 +65,8 @@ const Quizpage = ({
                     toggleRestartModal={toggleRestartModal}
                     restartQuiz={restartQuiz}
                     isRestartModalOpen={isRestartModalOpen}
+                    isAgeRangeErrorModalOpen={isAgeRangeErrorModalOpen}
+                    toggleAgeRangeErrorModal={toggleAgeRangeErrorModal}
                 />
             )}
             {currentQuestion === 1 && (
@@ -87,11 +90,11 @@ const Quizpage = ({
                 handleNextQuestion={handleNextQuestion}
                 handlePrevQuestion={handlePrevQuestion}
                 currentQuestion={currentQuestion}
-                disableNext={!isCurrentQuestionAnswered || !isInAgeLimit}
+                disableNext={!isCurrentQuestionAnswered}
             />
 
             <div>
-                <Modal isOpen={isDisclaimerOpen} toggle={toggleDisclaimerModal}>
+                <Modal isOpen={isDisclaimerOpen} toggle={toggleDisclaimerModal} backdrop={'static'} keyboard={false}>
                     <ModalHeader>Disclaimer</ModalHeader>
                     <ModalBody>
                         <p>

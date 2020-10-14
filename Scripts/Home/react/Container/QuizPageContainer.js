@@ -5,7 +5,8 @@ import {
     getEthnicity,
     postQuizResults,
     getDiagnosticQuestion,
-    getLastQuestion
+    getLastQuestion,
+    postDiagnosticResult
 } from "../services/QuestionsService";
 import Loading from "../Components/Loading/Loading";
 import jsPDF from "jspdf";
@@ -28,6 +29,7 @@ const QuizPageContainer = ({ children }) => {
     const [isASDMethodOpen, setIsASDMethodOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [currentComponent, setCurrentComponent] = useState(0);
+    const [isAgeRangeErrorModalOpen, setIsAgeRangeErrorModalOpen] = useState(false);
 
     const [quizResults, setQuizResults] = useState({});
 
@@ -83,6 +85,7 @@ const QuizPageContainer = ({ children }) => {
     const toggleRestartModal = () => setisRestartModalOpen(!isRestartModalOpen);
     const toggleDisclaimerModal = () => setIsDisclaimerOpen(!isDisclaimerOpen);
     const toggleASDMethodModal = () => setIsASDMethodOpen(!isASDMethodOpen);
+    const toggleAgeRangeErrorModal = () => setIsAgeRangeErrorModalOpen(!isAgeRangeErrorModalOpen);
 
     const restartQuiz = (confirmation) => {
         if (confirmation) {
@@ -129,7 +132,7 @@ const QuizPageContainer = ({ children }) => {
     };
 
     const handleQuestionAnswer = ({ question, answer }) => {
-        if (question === "lastQuestion") {
+        if (question === "diagnosticConfirmation") {
             setQuestionAnswers((prevAnswers) => {
                 const newAnswers = { ...prevAnswers };
                 delete newAnswers.answers.diagnosticMethod;
@@ -143,7 +146,7 @@ const QuizPageContainer = ({ children }) => {
         setQuestionAnswers((prevAnswers) => {
             const newAnswers = { ...prevAnswers };
             newAnswers.answers[question] = answer;
-            if (question !== "lastQuestion" && question !== "diagnosticMethod") {
+            if (question !== "diagnosticConfirmation" && question !== "diagnosticMethod") {
                 sessionStorage.setItem("questionAnswers", JSON.stringify(newAnswers));
             }
             return newAnswers;
@@ -152,9 +155,15 @@ const QuizPageContainer = ({ children }) => {
 
     const handleNextQuestion = async () => {
         if (currentQuestion == 0) {
-            sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
-            setCurrentQuestion(currentQuestion + 1);
-            getQuestions();
+            if (isInAgeLimit) {
+                sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
+                setCurrentQuestion(currentQuestion + 1);
+                getQuestions();
+            }
+            else {
+                setIsAgeRangeErrorModalOpen(!isInAgeLimit);
+            }
+            
         } else if (currentQuestion < questions.length + 1) {
             sessionStorage.setItem("currentQuestion", JSON.stringify(currentQuestion + 1));
             setCurrentQuestion(currentQuestion + 1);
@@ -172,8 +181,14 @@ const QuizPageContainer = ({ children }) => {
         }
     };
 
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         setCurrentComponent(currentComponent + 1);
+        if (currentComponent === 1) {
+            setIsLoading(true);
+            const res = await postDiagnosticResult(questionAnswers, quizResults);
+            console.log(res);
+            setIsLoading(false);
+        }
     };
 
     const handlePrevQuestion = () => {
@@ -231,7 +246,7 @@ const QuizPageContainer = ({ children }) => {
             const imgData = canvas.toDataURL("image/png");
             const pdf = new jsPDF();
             pdf.addImage(imgData, "JPEG", 0, 0);
-            pdf.save("download.pdf");
+            pdf.save("result.pdf");
         });
     };
 
@@ -266,7 +281,9 @@ const QuizPageContainer = ({ children }) => {
         lastQuestion,
         isASDMethodOpen,
         toggleASDMethodModal,
-        handleASDMethodClick
+        handleASDMethodClick,
+        isAgeRangeErrorModalOpen,
+        toggleAgeRangeErrorModal
     };
 
     return (

@@ -49,7 +49,7 @@ class Header extends React.Component {
         return (
             <Center style={this.state.marketingPage}>
                 <Row className="w-100 d-flex align-items-center">
-                    <Col className="col-3 d-flex justify-content-center align-center">
+                    <Col className="col-6 col-md-3 d-flex justify-content-start justify-content-md-center pl-5 pl-md-0">
                         <Link to={paths.FRONTPAGE}>
                             <Logo
                                 src={this.state.scroll ? AutismAIDark : AutismAILight}
@@ -57,22 +57,22 @@ class Header extends React.Component {
                             />
                         </Link>
                     </Col>
-                    <Col className="col-2 d-flex justify-content-center align-center">
+                    <Col className="col-2 d-md-flex d-none justify-content-center align-center">
                         <Link to={paths.STATS} style={this.state.link}>
                             Statistics
                         </Link>
                     </Col>
-                    <Col className="col-2 d-flex justify-content-center align-center">
+                    <Col className="col-2 d-md-flex d-none justify-content-center align-center">
                         <Link to={paths.PEOPLE} style={this.state.link}>
                             People
                         </Link>
                     </Col>
-                    <Col className="col-2 d-flex justify-content-center align-center">
+                    <Col className="col-2 d-md-flex d-none justify-content-center align-center">
                         <Link to={paths.CONTRIBUTIONS} style={this.state.link}>
                             Contact Us
                         </Link>
                     </Col>
-                    <Col className="col-3 d-flex justify-content-center align-center">
+                    <Col className="col-6 col-md-3 d-flex justify-content-end justify-content-md-center pr-5 pr-md-0">
                         <Link to={paths.QUIZ}>
                             <Button color="primary"> Take Quiz </Button>
                         </Link>

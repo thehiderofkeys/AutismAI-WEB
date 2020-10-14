@@ -13,7 +13,7 @@ const LastQuestion = ({
     handleASDMethodClick,
     lastQuestion
 }) => {
-    const disableNext = !questionAnswers.answers.lastQuestion;
+    const disableNext = !questionAnswers.answers.diagnosticConfirmation;
     return (
         <>
             <div className={styles["container"]}>
@@ -46,7 +46,7 @@ const LastQuestion = ({
             </div>
 
             <div>
-                <Modal className={styles["lastQuestModal"]} isOpen={isASDMethodOpen} toggle={toggleASDMethodModal}>
+                <Modal className={styles["lastQuestModal"]} isOpen={isASDMethodOpen} toggle={toggleASDMethodModal} backdrop={'static'} keyboard={false}>
                     {/*<ModalHeader>What was the</ModalHeader>*/}
                     <ModalBody className={styles["lastQuestModalBody"]} >
                         <Question
