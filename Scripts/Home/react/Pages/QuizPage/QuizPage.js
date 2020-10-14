@@ -115,26 +115,6 @@ const Quizpage = ({
                     </ModalFooter>
                 </Modal>
             </div>
-            <div>
-                <Modal backdrop={'static'} keyboard={false}>
-                    <ModalHeader>Age Range Error!</ModalHeader>
-                    <ModalBody>
-                        <p>
-                            Ages in months must be between 1 and 35 months.
-                            Ages in years must be between 3 and 80 years.
-                        </p>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button
-                            color="primary"
-                            onClick={() => {
-                            }}
-                        >
-                            Yes
-                        </Button>
-                    </ModalFooter>
-                </Modal>
-            </div>
         </div>
     );
 };
