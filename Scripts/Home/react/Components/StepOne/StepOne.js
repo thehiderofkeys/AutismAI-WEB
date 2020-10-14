@@ -27,7 +27,9 @@ const StepOne = ({
     isToddler,
     toggleRestartModal,
     restartQuiz,
-    isRestartModalOpen
+    isRestartModalOpen,
+    isAgeRangeErrorModalOpen,
+    toggleAgeRangeErrorModal
 }) => {
     const checkIsNumber = (event) => {
         const val = event.target.value;
@@ -101,6 +103,31 @@ const StepOne = ({
                     </ModalFooter>
                 </Modal>
             </div>
+
+            <div>
+                <Modal isOpen={isAgeRangeErrorModalOpen} toggle={toggleAgeRangeErrorModal} backdrop={'static'} keyboard={false}>
+                    <ModalHeader>Age Range Error!</ModalHeader>
+                    <ModalBody>
+                        <p>
+                            Ages in months must be between 18 and 35 months.
+                            Ages in years must be between 3 and 80 years.
+                        </p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button
+                            color="primary"
+                        
+                            onClick={() => {
+                                toggleAgeRangeErrorModal();
+                            }}
+                        >
+                            
+                            Ok
+                        </Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
+
             <Container className="d-flex justify-content-center">
                 <QuizContainer>
                     <FormGroup tag="fieldset">
