@@ -7,6 +7,8 @@ const FrontpageContainer = ({ children }) => {
     const [accuracyStats, setAccuracyStats] = useState({});
     const [sensitivityStats, setSensitivityStats] = useState({});
     const [specificityStats, setSpecificityStats] = useState({});
+    const [statCarouselIndex, setStatCarouselIndex] = useState(0);
+    const [infoCarouselIndex, setInfoCarouselIndex] = useState(0);
 
     const [contributionModal, setContributionModal] = useState(true);
 
@@ -15,6 +17,19 @@ const FrontpageContainer = ({ children }) => {
     const onAutismInfoClick = () => {
         setAutismIsOpen(!autismInfoIsOpen);
     };
+
+    const onStatCarouselNext = () =>{
+        setStatCarouselIndex(statCarouselIndex === 2 ? 0 : statCarouselIndex + 1);
+    }
+    const onStatCarouselBack = () =>{
+        setStatCarouselIndex(statCarouselIndex === 0 ? 2 : statCarouselIndex - 1);
+    }
+    const onInfoCarouselNext = () =>{
+        setInfoCarouselIndex(infoCarouselIndex === 4 ? 0 : infoCarouselIndex + 1);
+    }
+    const onInfoCarouselBack = () =>{
+        setInfoCarouselIndex(infoCarouselIndex === 0 ? 4 : infoCarouselIndex - 1);
+    }
 
     const onStatsInfoClick = () => {
         setStatsIsOpen(!statsInfoIsOpen);
@@ -58,7 +73,13 @@ const FrontpageContainer = ({ children }) => {
         toggleContributionModal,
         accuracyStats,
         sensitivityStats,
-        specificityStats
+        specificityStats,
+        statCarouselIndex,
+        onStatCarouselNext,
+        onStatCarouselBack,
+        infoCarouselIndex,
+        onInfoCarouselNext,
+        onInfoCarouselBack,
     };
 
     return React.cloneElement(children, { ...newProps });
