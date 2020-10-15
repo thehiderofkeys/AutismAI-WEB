@@ -64,7 +64,6 @@ const QuizPageContainer = ({ children }) => {
         let cachedIsToddler = JSON.parse(sessionStorage.getItem("isToddler"));
 
         let questionAnswers = cachedData;
-        console.log(questionAnswers);
         setQuestionAnswers(questionAnswers);
         if (questionAnswers.details.userAge && cachedIsToddler) {
             setIsAgeModalOpen(false);
@@ -174,7 +173,6 @@ const QuizPageContainer = ({ children }) => {
             sessionStorage.removeItem("isToddler");
 
             const results = await postQuizResults(questionAnswers);
-            console.log(results);
             setQuizResults(results);
             setIsDisclaimerOpen(true);
             setIsLoading(false);
@@ -186,7 +184,6 @@ const QuizPageContainer = ({ children }) => {
         if (currentComponent === 1) {
             setIsLoading(true);
             const res = await postDiagnosticResult(questionAnswers, quizResults);
-            console.log(res);
             setIsLoading(false);
         }
     };

@@ -183,8 +183,6 @@ export const postDiagnosticResult = async (userData, quizResponse) => {
     reqBody.diagWithASD = answers.diagnosticConfirmation.includes("ASD was diagnosed") ? "1" : "0";
     reqBody.diagMethod = diagnosisMethods[answers.diagnosticMethod];
 
-    console.log(reqBody);
-
     const res = await fetch(diagnosticRoute, {
         method: "POST",
         headers: {

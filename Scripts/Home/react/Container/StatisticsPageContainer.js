@@ -13,7 +13,6 @@ const StatisticsPageContainer = ({ children }) => {
     useEffect(() => {
         async function getDashboardStatistics() {
             const stats = await getDashboardStats();
-            console.log(stats);
             setDashboardStats(stats);
             setIsLoading(false);
         }
@@ -23,7 +22,6 @@ const StatisticsPageContainer = ({ children }) => {
 
 
     const handleChange = () => {
-        console.log("handleChange");
     };
 
     const newProps = { handleChange, dashboardStats, };

@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Adminpage = ({ handleChange }) => {
-  console.log(handleChange);
+const Adminpage = ({}) => {
   return (
     <div className="AdminPage">
       <p>This is the Admin Page.</p>
