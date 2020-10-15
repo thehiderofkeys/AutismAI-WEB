@@ -5,7 +5,6 @@ const AdminPageContainer = ({ children }) => {
   // components as declared in frontpage.jsx
 
   const handleChange = () => {
-    console.log("handleChange");
   };
 
   const newProps = { handleChange };
