@@ -46,9 +46,15 @@ const LastQuestion = ({
             </div>
 
             <div>
-                <Modal className={styles["lastQuestModal"]} isOpen={isASDMethodOpen} toggle={toggleASDMethodModal} backdrop={'static'} keyboard={false}>
+                <Modal
+                    className={styles["lastQuestModal"]}
+                    isOpen={isASDMethodOpen}
+                    toggle={toggleASDMethodModal}
+                    backdrop={"static"}
+                    keyboard={false}
+                >
                     {/*<ModalHeader>What was the</ModalHeader>*/}
-                    <ModalBody className={styles["lastQuestModalBody"]} >
+                    <ModalBody className={styles["lastQuestModalBody"]}>
                         <Question
                             question={diagnosticQuestion}
                             handleChange={handleQuestionAnswer}

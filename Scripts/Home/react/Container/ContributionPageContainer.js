@@ -31,8 +31,7 @@ const ContributionPageContainer = ({ children }) => {
     };
 
     const onBlur = (event) => {
-        console.log(event.target);
-        console.log(details);
+
     };
 
     const checkDetails = () => {
@@ -49,9 +48,7 @@ const ContributionPageContainer = ({ children }) => {
     const onSubmit = (event) => {
         // Placeholder for submit button functionality
         if (checkDetails()) {
-            console.log("no errors");
         } else {
-            console.log("errors");
         }
     };
 
@@ -62,7 +59,7 @@ const ContributionPageContainer = ({ children }) => {
         },
         {
             name: "Ryan",
-            contribution: "Cuck"
+            contribution: "Developer"
         }
     ];
 
